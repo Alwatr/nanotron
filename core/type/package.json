@@ -1,23 +1,19 @@
 {
-  "name": "@alwatr/logger",
+  "name": "@alwatr/type",
   "version": "0.27.0",
-  "description": "Fancy colorful console debugger with custom scope written in tiny TypeScript, ES module.",
+  "description": "Alwatr Types",
+  "private": true,
   "keywords": [
-    "log",
-    "logger",
-    "console",
-    "debug",
+    "type",
     "typescript",
     "esm",
     "alwatr"
   ],
-  "main": "logger.js",
   "type": "module",
-  "types": "logger.d.ts",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com> (https://ali.mihandoost.com)",
   "license": "MIT",
   "files": [
-    "**/*.{d.ts.map,d.ts,js.map,js,html,md}"
+    "**/**/*.{d.ts.map,d.ts,js.map,js,md}"
   ],
   "publishConfig": {
     "access": "public"
@@ -25,13 +21,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/AliMD/alwatr",
-    "directory": "core/logger"
+    "directory": "core/type"
   },
-  "homepage": "https://github.com/AliMD/alwatr/tree/main/core/logger#readme",
+  "homepage": "https://github.com/AliMD/alwatr/tree/main/core/type#readme",
   "bugs": {
     "url": "https://github.com/AliMD/alwatr/issues"
-  },
-  "dependencies": {
-    "tslib": "~2.4.1"
   }
 }
