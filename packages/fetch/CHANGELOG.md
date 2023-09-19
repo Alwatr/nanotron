@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/fetch@1.1.3...@alwatr/fetch@2.0.0) (2023-09-19)
+
+### Bug Fixes
+
+* **fetch:** remove @alwatr/signal ([03d947b](https://github.com/AliMD/alwatr-eslib/commit/03d947be3889d63805eabb7f4be618fed6da0d55)) by @AliMD
+
+* fix(fetch)!: remove fetchContext ([eba9cf0](https://github.com/AliMD/alwatr-eslib/commit/eba9cf0a443564478b5b985a69d0f54fbd514440)) by @AliMD
+
+### BREAKING CHANGES
+
+* fetchContext method removed
+
 ## 1.1.3 (2023-09-19)
 
 ### Bug Fixes
