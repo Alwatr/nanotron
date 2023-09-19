@@ -1,5 +1,4 @@
 import {createLogger, globalAlwatr, NODE_MODE} from '@alwatr/logger';
-import {contextProvider, type DispatchOptions} from '@alwatr/signal';
 import {getClientId, delay} from '@alwatr/util';
 
 import type {FetchOptions} from './type.js';
@@ -18,51 +17,6 @@ let alwatrCacheStorage: Cache;
 const cacheSupported = 'caches' in globalThis;
 
 const duplicateRequestStorage: Record<string, Promise<Response>> = {};
-
-export async function fetchContext(
-    contextName: string,
-    fetchOption: FetchOptions,
-    dispatchOptions: Partial<DispatchOptions> = {debounce: 'Timeout'},
-): Promise<void> {
-  logger.logMethodArgs?.('fetchContext', {contextName});
-  if (cacheSupported && contextProvider.getValue(contextName) == null) {
-    try {
-      fetchOption.cacheStrategy = 'cache_only';
-      const response = await serviceRequest(fetchOption);
-      contextProvider.setValue<typeof response>(contextName, response, dispatchOptions);
-      if (navigator.onLine === false) {
-        logger.logOther?.('fetchContext:', 'offline');
-        // retry on online
-        return;
-      }
-    }
-    catch (err) {
-      if ((err as Error).message === 'fetch_cache_not_found') {
-        logger.logOther?.('fetchContext:', 'fetch_cache_not_found');
-      }
-      else {
-        logger.error('fetchContext', 'fetch_failed', err);
-        throw err;
-      }
-    }
-  }
-
-  try {
-    fetchOption.cacheStrategy = 'update_cache';
-    const response = await serviceRequest(fetchOption);
-    if (
-      response.meta?.lastUpdated === undefined || // skip lastUpdated check
-      response.meta?.lastUpdated !== contextProvider.getValue<typeof response>(contextName)?.meta?.lastUpdated
-    ) {
-      logger.logOther?.('fetchContext:', 'contextProvider.setValue(new-received-context)', {contextName});
-      contextProvider.setValue<typeof response>(contextName, response, dispatchOptions);
-    }
-  }
-  catch (err) {
-    logger.error('fetchContext', 'fetch_failed', err);
-    throw err;
-  }
-}
 
 /**
  * Fetch from alwatr services and return standard response.
