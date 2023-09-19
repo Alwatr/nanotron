@@ -22,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AliMD/alwatr",
+    "url": "https://github.com/AliMD/alwatr-eslib",
     "directory": "core/math"
   },
-  "homepage": "https://github.com/AliMD/alwatr/tree/main/core/math#readme",
+  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/main/core/math#readme",
   "bugs": {
-    "url": "https://github.com/AliMD/alwatr/issues"
+    "url": "https://github.com/AliMD/alwatr-eslib/issues"
   },
   "dependencies": {
     "@alwatr/logger": "^1.1.3",
