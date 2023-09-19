@@ -22,9 +22,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/AliMD/alwatr-eslib",
-    "directory": "core/type"
+    "directory": "packages/type"
   },
-  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/main/core/type#readme",
+  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/next/packages/type#readme",
   "bugs": {
     "url": "https://github.com/AliMD/alwatr-eslib/issues"
   }

@@ -127,13 +127,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **core/type:** remove extras ([63fe462](https://github.com/AliMD/alwatr-eslib/commit/63fe462e88e1d3e0dca8696f0c4c073ebc94c490))
+- **packages/type:** remove extras ([63fe462](https://github.com/AliMD/alwatr-eslib/commit/63fe462e88e1d3e0dca8696f0c4c073ebc94c490))
 - resolve conflict ([052314d](https://github.com/AliMD/alwatr-eslib/commit/052314d2adb3b9b0e44e54f9b8e6d60fc1827075))
 - review issue ([e5d192c](https://github.com/AliMD/alwatr-eslib/commit/e5d192cbee6917c2de01146cf8bd026895724ab8))
 
 ### Features
 
-- **core/type:** make package ([1d8d1bd](https://github.com/AliMD/alwatr-eslib/commit/1d8d1bdfc39c4b1e238770a69d7c8e0cad593251))
+- **packages/type:** make package ([1d8d1bd](https://github.com/AliMD/alwatr-eslib/commit/1d8d1bdfc39c4b1e238770a69d7c8e0cad593251))
 - **type:** add types ([2de3842](https://github.com/AliMD/alwatr-eslib/commit/2de384297b70b9818ec8d62ce8d31be4822d95a4))
 - **type:** define alwatrRegistredList ([25406c2](https://github.com/AliMD/alwatr-eslib/commit/25406c268f39cf3e055ea05c9fc7b50bd3dd0a17))
 - **type:** define chat type ([e4a345a](https://github.com/AliMD/alwatr-eslib/commit/e4a345a7c932d88f0d13e2df1b3dd7d2ad745932))
@@ -262,8 +262,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **core/type:** remove extras ([63fe462](https://github.com/AliMD/alwatr-eslib/commit/63fe462e88e1d3e0dca8696f0c4c073ebc94c490))
+- **packages/type:** remove extras ([63fe462](https://github.com/AliMD/alwatr-eslib/commit/63fe462e88e1d3e0dca8696f0c4c073ebc94c490))
 
 ### Features
 
-- **core/type:** make package ([1d8d1bd](https://github.com/AliMD/alwatr-eslib/commit/1d8d1bdfc39c4b1e238770a69d7c8e0cad593251))
+- **packages/type:** make package ([1d8d1bd](https://github.com/AliMD/alwatr-eslib/commit/1d8d1bdfc39c4b1e238770a69d7c8e0cad593251))
