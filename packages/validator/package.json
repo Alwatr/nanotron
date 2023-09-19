@@ -22,9 +22,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/AliMD/alwatr-eslib",
-    "directory": "core/validator"
+    "directory": "packages/validator"
   },
-  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/main/core/validator#readme",
+  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/next/packages/validator#readme",
   "bugs": {
     "url": "https://github.com/AliMD/alwatr-eslib/issues"
   },

@@ -27,9 +27,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/AliMD/alwatr-eslib",
-    "directory": "core/fetch"
+    "directory": "packages/fetch"
   },
-  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/main/core/fetch#readme",
+  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/next/packages/fetch#readme",
   "bugs": {
     "url": "https://github.com/AliMD/alwatr-eslib/issues"
   },

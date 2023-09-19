@@ -24,9 +24,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/AliMD/alwatr-eslib",
-    "directory": "core/nano-server"
+    "directory": "packages/nano-server"
   },
-  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/main/core/nano-server#readme",
+  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/next/packages/nano-server#readme",
   "bugs": {
     "url": "https://github.com/AliMD/alwatr-eslib/issues"
   },

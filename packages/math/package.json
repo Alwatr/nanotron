@@ -23,9 +23,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/AliMD/alwatr-eslib",
-    "directory": "core/math"
+    "directory": "packages/math"
   },
-  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/main/core/math#readme",
+  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/next/packages/math#readme",
   "bugs": {
     "url": "https://github.com/AliMD/alwatr-eslib/issues"
   },

@@ -33,9 +33,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/AliMD/alwatr-eslib",
-    "directory": "core/crypto"
+    "directory": "packages/crypto"
   },
-  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/main/core/crypto#readme",
+  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/next/packages/crypto#readme",
   "bugs": {
     "url": "https://github.com/AliMD/alwatr-eslib/issues"
   },

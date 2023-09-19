@@ -100,7 +100,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 - all import without .js ([fa739ab](https://github.com/AliMD/alwatr-eslib/commit/fa739ab23f67bae1d10bfcc146920b71377a26fc))
-- **core/fetch:** tsconfig refrences ([e6b9542](https://github.com/AliMD/alwatr-eslib/commit/e6b9542284e67b67600da4dcebd19daedb031c9c))
+- **packages/fetch:** tsconfig refrences ([e6b9542](https://github.com/AliMD/alwatr-eslib/commit/e6b9542284e67b67600da4dcebd19daedb031c9c))
 - **fetch:** always call revalidateCallback ([444edc5](https://github.com/AliMD/alwatr-eslib/commit/444edc52b6dd5de5418ae8630e1f2270f0114372))
 - **fetch:** enhance handle and report errors in serviceRequest ([dbfc7ff](https://github.com/AliMD/alwatr-eslib/commit/dbfc7ff2a036216498dc8e2ff58b74b7eb8d9bc0))
 - **fetch:** fetch_cache_not_found is not error ([3d1aa4e](https://github.com/AliMD/alwatr-eslib/commit/3d1aa4e572fbf4bc7b0a527a3fdcf4c521af18dd))
@@ -193,7 +193,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 - all import without .js ([fa739ab](https://github.com/AliMD/alwatr-eslib/commit/fa739ab23f67bae1d10bfcc146920b71377a26fc))
-- **core/fetch:** tsconfig refrences ([e6b9542](https://github.com/AliMD/alwatr-eslib/commit/e6b9542284e67b67600da4dcebd19daedb031c9c))
+- **packages/fetch:** tsconfig refrences ([e6b9542](https://github.com/AliMD/alwatr-eslib/commit/e6b9542284e67b67600da4dcebd19daedb031c9c))
 - **fetch:** always call revalidateCallback ([444edc5](https://github.com/AliMD/alwatr-eslib/commit/444edc52b6dd5de5418ae8630e1f2270f0114372))
 - **fetch:** enhance handle and report errors in serviceRequest ([dbfc7ff](https://github.com/AliMD/alwatr-eslib/commit/dbfc7ff2a036216498dc8e2ff58b74b7eb8d9bc0))
 - **fetch:** fetch_cache_not_found is not error ([3d1aa4e](https://github.com/AliMD/alwatr-eslib/commit/3d1aa4e572fbf4bc7b0a527a3fdcf4c521af18dd))
