@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/util@1.2.2...@alwatr/util@1.2.3) (2023-09-19)
+
+### Bug Fixes
+
+* package repo urls ([466cbe9](https://github.com/AliMD/alwatr-eslib/commit/466cbe9188f24e1a1bc36d879a95b52538a58f16)) by @AliMD
+
 ## [1.2.2](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/util@1.2.1...@alwatr/util@1.2.2) (2023-09-19)
 
 **Note:** Version bump only for package @alwatr/util
