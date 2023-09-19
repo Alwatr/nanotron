@@ -2,7 +2,6 @@
   "root": true,
   "extends": [
     "eslint:recommended",
-    "google",
     "plugin:@typescript-eslint/strict",
     "plugin:@typescript-eslint/stylistic",
     // "plugin:@typescript-eslint/strict-type-checked",
