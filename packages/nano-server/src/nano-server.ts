@@ -24,7 +24,7 @@ import type {Duplex} from 'node:stream';
 
 export type RouteMiddleware<
   TData extends Stringifyable = Stringifyable,
-  TMeta extends StringifyableRecord = StringifyableRecord
+  TMeta extends StringifyableRecord = StringifyableRecord,
 > = (connection: AlwatrConnection) => MaybePromise<AlwatrServiceResponse<TData, TMeta> | null>;
 
 export type {
@@ -152,10 +152,11 @@ export class AlwatrNanoServer {
    * };
    * ```
    */
-  route<
-    TData extends Stringifyable = Stringifyable,
-    TMeta extends StringifyableRecord = StringifyableRecord
-  >(method: 'ALL' | Methods, route: 'all' | `/${string}`, middleware: RouteMiddleware<TData, TMeta>): void {
+  route<TData extends Stringifyable = Stringifyable, TMeta extends StringifyableRecord = StringifyableRecord>(
+      method: 'ALL' | Methods,
+      route: 'all' | `/${string}`,
+      middleware: RouteMiddleware<TData, TMeta>,
+  ): void {
     this._logger.logMethodArgs?.('route', {method, route});
 
     if (this.middlewareList[method] == null) this.middlewareList[method] = {};
@@ -187,10 +188,7 @@ export class AlwatrNanoServer {
    * });
    * ```
    */
-  reply(
-      serverResponse: ServerResponse,
-      content: AlwatrServiceResponse<Stringifyable, StringifyableRecord>,
-  ): void {
+  reply(serverResponse: ServerResponse, content: AlwatrServiceResponse<Stringifyable, StringifyableRecord>): void {
     content.statusCode ??= 200;
     this._logger.logMethodArgs?.('reply', {ok: content.ok, statusCode: content.statusCode});
 
@@ -618,6 +616,7 @@ export class AlwatrConnection {
   }
 
   getRemoteAddress(): string {
+    // prettier-ignore
     return (
       this.incomingMessage.headers['x-forwarded-for']
           ?.split(',')

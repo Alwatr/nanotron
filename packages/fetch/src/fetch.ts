@@ -67,9 +67,9 @@ export async function fetchContext(
 /**
  * Fetch from alwatr services and return standard response.
  */
-export async function serviceRequest<
-  T extends AlwatrServiceResponse = AlwatrServiceResponse
->(options: FetchOptions): Promise<T> {
+export async function serviceRequest<T extends AlwatrServiceResponse = AlwatrServiceResponse>(
+    options: FetchOptions,
+): Promise<T> {
   logger.logMethodArgs?.('serviceRequest', {url: options.url});
 
   if (!NODE_MODE) {

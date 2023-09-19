@@ -16,6 +16,6 @@
     {"path": "../packages/crypto"},
     {"path": "../packages/math"},
     {"path": "../packages/util"},
-    {"path": "../packages/validator"},
+    {"path": "../packages/validator"}
   ]
 }

@@ -24,12 +24,6 @@
   "cSpell.words": [],
   "typescript.tsdk": "node_modules/typescript/lib",
   "git.autoStash": true,
-  "git.branchProtection": [
-    "main",
-    "next"
-  ],
-  "githubPullRequests.ignoredPullRequestBranches": [
-    "main",
-    "next"
-  ]
+  "git.branchProtection": ["main", "next"],
+  "githubPullRequests.ignoredPullRequestBranches": ["main", "next"]
 }

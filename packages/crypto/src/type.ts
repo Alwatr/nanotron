@@ -6,7 +6,6 @@ export type CryptoEncoding = 'base64' | 'base64url' | 'hex' | 'binary';
 export type TokenStatus = 'valid' | 'invalid' | 'expired';
 export type HashStatus = 'valid' | 'invalid';
 
-
 export interface TokenGeneratorConfig {
   /**
    * Secret string data to generate token.

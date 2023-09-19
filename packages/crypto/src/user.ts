@@ -10,10 +10,7 @@ export class AlwatrUserFactory {
   protected _tokenGenerator;
   protected _hashGenerator;
 
-  constructor(
-      hashConfig: HashGeneratorConfig,
-      tokenConfig: TokenGeneratorConfig,
-  ) {
+  constructor(hashConfig: HashGeneratorConfig, tokenConfig: TokenGeneratorConfig) {
     this._hashGenerator = new AlwatrHashGenerator(hashConfig);
     this._tokenGenerator = new AlwatrTokenGenerator(tokenConfig);
   }
