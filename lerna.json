@@ -8,7 +8,7 @@
     "version": {
       "conventionalCommits": true,
       "changelog": true,
-      "changelogPreset": "angular",
+      "changelogPreset": "conventional-changelog-angular",
       "changelogIncludeCommitsClientLogin": " by @%l",
       "ignoreChanges": ["*.md"],
       "message": "release: new independent version",
