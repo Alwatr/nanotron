@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AliMD/alwatr",
+    "url": "https://github.com/AliMD/alwatr-eslib",
     "directory": "core/validator"
   },
-  "homepage": "https://github.com/AliMD/alwatr/tree/main/core/validator#readme",
+  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/main/core/validator#readme",
   "bugs": {
-    "url": "https://github.com/AliMD/alwatr/issues"
+    "url": "https://github.com/AliMD/alwatr-eslib/issues"
   },
   "dependencies": {
     "@alwatr/math": "^1.1.3",

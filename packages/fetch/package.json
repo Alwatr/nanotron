@@ -26,12 +26,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AliMD/alwatr",
+    "url": "https://github.com/AliMD/alwatr-eslib",
     "directory": "core/fetch"
   },
-  "homepage": "https://github.com/AliMD/alwatr/tree/main/core/fetch#readme",
+  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/main/core/fetch#readme",
   "bugs": {
-    "url": "https://github.com/AliMD/alwatr/issues"
+    "url": "https://github.com/AliMD/alwatr-eslib/issues"
   },
   "dependencies": {
     "@alwatr/logger": "^1.1.3",
