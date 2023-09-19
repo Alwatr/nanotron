@@ -14,6 +14,8 @@
       "message": "release: new independent version",
       "private": false,
       "forceGitTag": true,
+      "signGitTag": true,
+      "signGitCommit": true,
       "push": true,
       "createRelease": "github"
     },
