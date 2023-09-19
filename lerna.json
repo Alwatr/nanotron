@@ -12,7 +12,7 @@
       "changelogIncludeCommitsClientLogin": " by @%l",
       "ignoreChanges": ["*.md"],
       "message": "release: new independent version",
-      "private": true,
+      "private": false,
       "forceGitTag": true,
       "push": true,
       "createRelease": "github"
