@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Necessary libraries for all ECMAScript (JavaScript/TypeScript) projects.
+Necessary library for all ECMAScript (JavaScript/TypeScript) projects.
 
 Contains the following packages:
 
