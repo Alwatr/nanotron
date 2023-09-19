@@ -21,7 +21,9 @@
     "ssh-config": "ssh_config"
   },
   "cSpell.language": "en,fa,fa-IR",
-  "cSpell.words": [],
+  "cSpell.words": [
+    "Alwatr"
+  ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "git.autoStash": true,
   "git.branchProtection": ["main", "next"],
