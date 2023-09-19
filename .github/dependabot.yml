@@ -43,3 +43,7 @@ updates:
       lint-dependencies:
         patterns:
           - "*lint*"
+      alwatr-dependencies:
+        patterns:
+          - "@alwatr/*"
+          - "fract"
