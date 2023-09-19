@@ -3,10 +3,13 @@ import {StringifyableRecord} from './type-helper.js';
 
 export type LocaleCode = `${Lowercase<string>}-${Uppercase<string>}`;
 
-export type L18eContext = AlwatrServiceResponseSuccessWithMeta<Record<string, string>, {
-  code: LocaleCode;
-  rev: number;
-}>;
+export type L18eContext = AlwatrServiceResponseSuccessWithMeta<
+  Record<string, string>,
+  {
+    code: LocaleCode;
+    rev: number;
+  }
+>;
 
 export interface LocaleContext extends StringifyableRecord {
   /**

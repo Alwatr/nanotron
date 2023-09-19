@@ -10,16 +10,16 @@ function test3(id: string): void {
   console.log(id);
 }
 
-const bind = (id: string) => ({
-  id,
-  test1: test1.bind(null, id),
-  test2: test2.bind(null, id),
-  test3: test3.bind(null, id),
-} as const);
+const bind = (id: string) =>
+  ({
+    id,
+    test1: test1.bind(null, id),
+    test2: test2.bind(null, id),
+    test3: test3.bind(null, id),
+  }) as const;
 
 class MyClass {
-  constructor(public id: string) {
-  }
+  constructor(public id: string) {}
 
   test1(): void {
     console.log(this.id);

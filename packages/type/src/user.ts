@@ -3,7 +3,7 @@ import {StringifyableRecord} from './type-helper.js';
 import type {AlwatrDocumentObject} from './storage.js';
 
 export const genderCS = ['male', 'female'] as const;
-export type Gender = typeof genderCS[number];
+export type Gender = (typeof genderCS)[number];
 
 export interface User extends AlwatrDocumentObject {
   /**

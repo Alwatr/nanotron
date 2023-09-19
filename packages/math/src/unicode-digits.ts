@@ -60,7 +60,6 @@ const supportedLanguageList = {
   'fula': 0x1e950, // adlam script in fula lang
 } as const;
 
-
 export type UnicodeLangKeys = keyof typeof supportedLanguageList;
 
 const commonLangList: UnicodeLangKeys[] = ['en', 'fa', 'ar'];

@@ -35,5 +35,4 @@ bench('test_without_logger 1st', () => test_without_logger(getUserList()));
 bench('test_with_logger 2nd', () => test_with_logger(getUserList()));
 bench('test_without_logger 2nd', () => test_without_logger(getUserList()));
 
-
 globalThis.document?.body.append(' Done. Check the console.');

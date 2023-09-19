@@ -149,8 +149,7 @@ export const sanitizePhoneNumber = (input?: string | number | null, countryCode 
   input = unicodeDigits.translate(input + '');
 
   input =
-    countryCode +
-    input.replace(/[ )(-]+/g, '').replace(new RegExp(`^(\\+${countryCode}|${countryCode}|\\+|0)`), '');
+    countryCode + input.replace(/[ )(-]+/g, '').replace(new RegExp(`^(\\+${countryCode}|${countryCode}|\\+|0)`), '');
 
   if (input.length !== countryCode.length + 10 || !isNumber(input)) return null;
 

@@ -11,13 +11,13 @@ export type OmitFirstParam<F> = F extends (x: any, ...args: infer A) => infer R 
  * Object that can be JSON.stringify.
  */
 export type Stringifyable =
-    | string
-    | number
-    | boolean
-    | null
-    | undefined
-    | { [P: string]: Stringifyable }
-    | Stringifyable[];
+  | string
+  | number
+  | boolean
+  | null
+  | undefined
+  | {[P: string]: Stringifyable}
+  | Stringifyable[];
 
 export type StringifyableRecord = Record<string, Stringifyable>;
 

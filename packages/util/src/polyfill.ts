@@ -18,7 +18,4 @@ const requestIdleCallbackFallback = (
 ): ReturnType<typeof setTimeout> => setTimeout(callback, options?.timeout ?? 2000);
 
 export const requestIdleCallback: typeof globalThis.requestIdleCallback =
-  win.requestIdleCallback ||
-  win.webkitRequestIdleCallback ||
-  win.mozRequestIdleCallback ||
-  requestIdleCallbackFallback;
+  win.requestIdleCallback || win.webkitRequestIdleCallback || win.mozRequestIdleCallback || requestIdleCallbackFallback;

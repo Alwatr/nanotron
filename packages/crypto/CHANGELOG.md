@@ -19,21 +19,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **crypto:** add some pre config ([4b960c5](https://github.com/AliMD/alwatr/commit/4b960c5cb3f7495c0689adcb65c62a1032ae2650))
+- **crypto:** add some pre config ([4b960c5](https://github.com/AliMD/alwatr/commit/4b960c5cb3f7495c0689adcb65c62a1032ae2650))
 
 ### Performance Improvements
 
-* **crypto/hash:** enhance crc generator ([ba8c4bc](https://github.com/AliMD/alwatr/commit/ba8c4bcf8f9ec9767b0bd3b6c3fd5c4f503a84dd))
+- **crypto/hash:** enhance crc generator ([ba8c4bc](https://github.com/AliMD/alwatr/commit/ba8c4bcf8f9ec9767b0bd3b6c3fd5c4f503a84dd))
 
 # 0.31.0 (2023-05-08)
 
 ### Bug Fixes
 
-* **crypto:** package ([866c5f4](https://github.com/AliMD/alwatr/commit/866c5f490ea2eaa75bf177f35b3f4711931e13d2))
+- **crypto:** package ([866c5f4](https://github.com/AliMD/alwatr/commit/866c5f490ea2eaa75bf177f35b3f4711931e13d2))
 
 ### Features
 
-* **crypto:** make prefix for userId ([5baa00a](https://github.com/AliMD/alwatr/commit/5baa00aafb16a4c6ed1d77913edddd090f732dad))
+- **crypto:** make prefix for userId ([5baa00a](https://github.com/AliMD/alwatr/commit/5baa00aafb16a4c6ed1d77913edddd090f732dad))
 
 # [1.0.0](https://github.com/AliMD/alwatr/compare/v0.32.0...v1.0.0) (2023-06-14)
 

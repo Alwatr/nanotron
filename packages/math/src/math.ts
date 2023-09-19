@@ -255,7 +255,7 @@ export const hex = (bytes: Uint8Array): string => {
 
 export const calcDiscount = (marketPrice: number, salePrice: number, decimal = 2, upSide = true): number => {
   decimal = Math.pow(10, decimal);
-  return Math.round((marketPrice - salePrice) / (upSide ? salePrice : marketPrice) * 100 * decimal) / decimal;
+  return Math.round(((marketPrice - salePrice) / (upSide ? salePrice : marketPrice)) * 100 * decimal) / decimal;
 };
 
 export const simpleHashNumber = (num: number): string => {
