@@ -1,4 +1,4 @@
-import {createLogger, globalAlwatr, NODE_MODE} from '@alwatr/logger';
+import {createLogger, definePackage, NODE_MODE} from '@alwatr/logger';
 import {getClientId, delay} from '@alwatr/util';
 
 import type {FetchOptions} from './type.js';
@@ -8,10 +8,8 @@ export type * from './type.js';
 
 const logger = createLogger('alwatr/fetch');
 
-globalAlwatr.registeredList.push({
-  name: '@alwatr/fetch',
-  version: _ALWATR_VERSION_,
-});
+definePackage('fetch', '2.x');
+
 
 let alwatrCacheStorage: Cache;
 const cacheSupported = 'caches' in globalThis;
@@ -67,11 +65,11 @@ export async function serviceRequest<T extends AlwatrServiceResponse = AlwatrSer
 
   if (responseJson.ok !== true) {
     if (typeof responseJson.errorCode === 'string') {
-      logger.accident('serviceRequest', responseJson.errorCode, 'fetch response not ok', {responseJson});
+      logger.accident('serviceRequest', responseJson.errorCode, {responseJson});
       throw new Error(responseJson.errorCode);
     }
     else {
-      logger.error('serviceRequest', 'fetch_nok', 'fetch response not ok', {responseJson});
+      logger.error('serviceRequest', 'fetch_nok', {responseJson});
       throw new Error('fetch_nok');
     }
   }
@@ -119,7 +117,7 @@ function _processOptions(options: FetchOptions): Required<FetchOptions> {
   options.headers ??= {};
 
   if (options.cacheStrategy !== 'network_only' && cacheSupported !== true) {
-    logger.incident?.('fetch', 'fetch_cache_strategy_ignore', 'Cache storage not support in this browser', {
+    logger.incident?.('fetch', 'fetch_cache_strategy_unsupported', {
       cacheSupported,
     });
     options.cacheStrategy = 'network_only';
@@ -196,7 +194,6 @@ async function _handleCacheStrategy(options: Required<FetchOptions>): Promise<Re
         logger.accident(
           '_handleCacheStrategy',
           'fetch_cache_not_found',
-          'cacheStorage is cache_only but no cache found',
           {url: request.url},
         );
         throw new Error('fetch_cache_not_found');
@@ -305,7 +302,7 @@ async function _handleRetryPattern(options: Required<FetchOptions>): Promise<Res
     throw new Error('fetch_server_error');
   }
   catch (err) {
-    logger.accident('fetch', 'fetch_failed_retry', (err as Error)?.message || 'fetch failed and retry', err);
+    logger.accident('fetch', 'fetch_failed_retry', err);
 
     if (globalThis.navigator?.onLine === false) {
       throw new Error('offline');
@@ -344,7 +341,7 @@ function _handleTimeout(options: FetchOptions): Promise<Response> {
     }
 
     // abortController.signal.addEventListener('abort', () => {
-    //   logger.incident('fetch', 'fetch_abort_signal', 'fetch abort signal received', {
+    //   logger.incident('fetch', 'fetch_abort_signal', {
     //     reason: abortController.signal.reason,
     //   });
     // });

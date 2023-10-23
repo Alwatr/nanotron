@@ -1,3 +1,12 @@
+export interface GlobalAlwatr {
+  packages: Record<string, string>;
+}
+
+declare global {
+  // eslint-disable-next-line no-var
+  var Alwatr: GlobalAlwatr;
+}
+
 export interface AlwatrLogger {
   /**
    * Debug state for current scope base on localStorage `ALWATR_LOG` pattern.
@@ -79,10 +88,10 @@ export interface AlwatrLogger {
    * Example:
    *
    * ```ts
-   * logger.incident?.('fetch', 'abort_signal', 'aborted signal received', {url: '/test.json'});
+   * logger.incident?.('fetch', 'abort_signal', {url: '/test.json'});
    * ```
    */
-  incident?(method: string, code: string, desc: string, ...args: unknown[]): void;
+  incident?(method: string, code: string, ...args: unknown[]): void;
 
   /**
    * `console.warn` an unexpected accident or error that you handled like warning.
@@ -90,10 +99,10 @@ export interface AlwatrLogger {
    * Example:
    *
    * ```ts
-   * logger.accident('fetch', 'file_not_found', 'url requested return 404 not found', {url: '/test.json'});
+   * logger.accident('fetch', 'file_not_found', {url: '/test.json'});
    * ```
    */
-  accident(method: string, code: string, desc: string, ...args: unknown[]): void;
+  accident(method: string, code: string, ...args: unknown[]): void;
 
   /**
    * `console.error` an unexpected error.
