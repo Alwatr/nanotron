@@ -21,3 +21,5 @@ export const definePackage = (packageName: string, version: string) => {
 
   Alwatr.packages[packageName] = version;
 };
+
+definePackage('logger', '2.x');
