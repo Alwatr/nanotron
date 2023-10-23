@@ -143,4 +143,15 @@ export interface AlwatrLogger {
    * ```
    */
   timeEnd?(label: string): void;
+
+  /**
+   * log big banner
+   *
+   * Example:
+   *
+   * ```ts
+   * logger.banner('Alwatr PWA v2');
+   * ```
+   */
+  banner?(message: string): void;
 }

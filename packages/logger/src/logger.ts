@@ -84,9 +84,14 @@ export const createLogger = (domain: string, devMode = DEV_MODE): AlwatrLogger =
   /**
    * Required logger object, accident, error always reported even when the devMode is false.
    */
-  const requiredItems = {
+  const requiredItems: AlwatrLogger = {
     devMode,
     domain,
+
+    banner: NODE_MODE
+      ? console.log.bind(console, `\x1b[1;37;45m\n\n     %s${_style.reset}`)
+      : console.log.bind(console, '%c%s',
+        'font-size: 2rem; background-color: #5858e8; color: #fff; padding: 1rem 4rem; border-radius: 0.5rem;'),
 
     accident: NODE_MODE
       ? console.warn.bind(console, `${styleScope}⚠️\n%s\x1b[33m.%s() Accident \`%s\` %s!${_style.reset}`, domain)
@@ -95,7 +100,7 @@ export const createLogger = (domain: string, devMode = DEV_MODE): AlwatrLogger =
     error: NODE_MODE
       ? console.error.bind(console, `${styleScope}❌\n%s\x1b[31m.%s() Error \`%s\`${_style.reset}\n`, domain)
       : console.error.bind(console, '%c%s%c.%s() Error `%s`\n', styleScope, domain, _style.reset),
-  } as const;
+  };
 
   if (!devMode) {
     return requiredItems;
