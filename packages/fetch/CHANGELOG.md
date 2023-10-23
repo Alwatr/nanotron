@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/fetch@2.0.1...@alwatr/fetch@2.0.2) (2023-10-23)
+
+**Note:** Version bump only for package @alwatr/fetch
+
 ## [2.0.1](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/fetch@2.0.0...@alwatr/fetch@2.0.1) (2023-09-19)
 
 ### Bug Fixes

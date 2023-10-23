@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/crypto",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Secure authentication HOTP token generator (the HMAC-based One-Time Password algorithm) and crypto utils written in tiny TypeScript module.",
   "keywords": [
     "crypto",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@alwatr/logger": "^1.1.5",
-    "@alwatr/math": "^1.1.5",
+    "@alwatr/math": "^1.1.6",
     "tslib": "^2.6.2"
   }
 }
