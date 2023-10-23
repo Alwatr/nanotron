@@ -1,10 +1,9 @@
-/* eslint-disable no-var */
-
 export interface GlobalAlwatr {
   packages: Record<string, string>;
 }
 
 declare global {
+  // eslint-disable-next-line no-var
   var Alwatr: GlobalAlwatr;
 }
 
