@@ -88,7 +88,7 @@ export interface AlwatrLogger {
    * Example:
    *
    * ```ts
-   * logger.incident?.('fetch', 'abort_signal', 'aborted signal received', {url: '/test.json'});
+   * logger.incident?.('fetch', 'abort_signal', {url: '/test.json'});
    * ```
    */
   incident?(method: string, code: string, ...args: unknown[]): void;
@@ -99,7 +99,7 @@ export interface AlwatrLogger {
    * Example:
    *
    * ```ts
-   * logger.accident('fetch', 'file_not_found', 'url requested return 404 not found', {url: '/test.json'});
+   * logger.accident('fetch', 'file_not_found', {url: '/test.json'});
    * ```
    */
   accident(method: string, code: string, ...args: unknown[]): void;
