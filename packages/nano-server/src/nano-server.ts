@@ -1,10 +1,9 @@
 import {createServer} from 'node:http';
 
-import {createLogger, globalAlwatr} from '@alwatr/logger';
+import {createLogger, definePackage, type AlwatrLogger} from '@alwatr/logger';
 import {isNumber} from '@alwatr/math';
 
 import type {NanoServerConfig, ConnectionConfig} from './type.js';
-import type {AlwatrLogger} from '@alwatr/logger';
 import type {
   AlwatrServiceResponse,
   AlwatrServiceResponseFailed,
@@ -36,10 +35,8 @@ export type {
   AlwatrServiceResponseSuccessWithMeta,
 };
 
-globalAlwatr.registeredList.push({
-  name: '@alwatr/nano-server',
-  version: _ALWATR_VERSION_,
-});
+definePackage('nano-server', '1.x');
+
 
 export class AlwatrNanoServer {
   protected _config: NanoServerConfig;
@@ -162,7 +159,7 @@ export class AlwatrNanoServer {
     if (this.middlewareList[method] == null) this.middlewareList[method] = {};
 
     if (typeof this.middlewareList[method][route] === 'function') {
-      this._logger.accident('route', 'route_already_exists', 'Route already exists', {
+      this._logger.accident('route', 'route_already_exists', {
         method,
         route,
       });
@@ -209,7 +206,7 @@ export class AlwatrNanoServer {
       buffer = Buffer.from(JSON.stringify(content), 'utf8');
     }
     catch (err) {
-      this._logger.accident('responseData', 'data_stringify_failed', 'JSON.stringify(data) failed!', err);
+      this._logger.accident('responseData', 'data_stringify_failed', err);
       return this.reply(
         serverResponse,
         content.ok === false
@@ -247,7 +244,7 @@ export class AlwatrNanoServer {
 
   protected _errorListener(err: NodeJS.ErrnoException): void {
     if (err.code === 'EADDRINUSE') {
-      this._logger.incident?.('server.onError', 'address_in_use', 'Address in use, retrying...', err);
+      this._logger.incident?.('server.onError', 'address_in_use', err);
       setTimeout(() => {
         this.httpServer.close();
         this.httpServer.listen(this._config.port, this._config.host, () => {
@@ -261,7 +258,7 @@ export class AlwatrNanoServer {
   }
 
   protected _clientErrorListener(err: NodeJS.ErrnoException, socket: Duplex): void {
-    this._logger.accident('server.clientError', 'http_server_catch_client_error', 'HTTP server catch a client error', {
+    this._logger.accident('server.clientError', 'http_server_catch_client_error', {
       errCode: err.code,
       errMessage: err.message,
     });
@@ -300,12 +297,12 @@ export class AlwatrNanoServer {
     this._logger.logMethod?.('handleRequest');
 
     if (incomingMessage.url == null) {
-      this._logger.accident('handleRequest', 'http_server_url_undefined', 'incomingMessage.url is undefined');
+      this._logger.accident('handleRequest', 'http_server_url_undefined');
       return;
     }
 
     if (incomingMessage.method == null) {
-      this._logger.accident('handleRequest', 'http_server_method_undefined', 'incomingMessage.method is undefined');
+      this._logger.accident('handleRequest', 'http_server_method_undefined');
       return;
     }
 
