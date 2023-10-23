@@ -19,10 +19,10 @@ console.debug('--- logger.logMethodFull ---');
 logger1.logMethodFull?.('add', {a: 1, b: 2}, 3);
 
 console.debug('--- logger.incident ---');
-logger1.incident?.('myMethod', 'abort_signal', 'Aborted signal received', {url: '/test.json'});
+logger1.incident?.('myMethod', 'abort_signal', {url: '/test.json'});
 
 console.debug('--- logger.accident ---');
-logger2.accident('myMethod', 'file_not_found', 'Url requested return 404 not found', {
+logger2.accident('myMethod', 'file_not_found', {
   url: '/test.json',
 });
 
