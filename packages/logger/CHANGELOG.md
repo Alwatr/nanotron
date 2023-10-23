@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/logger@2.0.0...@alwatr/logger@2.1.0) (2023-10-23)
+
+### Features
+
+* **logger:** accident if old Alwatr.registeredList found ([d0ae735](https://github.com/AliMD/alwatr-eslib/commit/d0ae735b2b54cc75a380902d9fbe9dddaad650f4)) by @
+
 # [2.0.0](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/logger@1.2.0...@alwatr/logger@2.0.0) (2023-10-23)
 
 ### Bug Fixes

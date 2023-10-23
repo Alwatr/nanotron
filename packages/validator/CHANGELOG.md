@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/validator@1.1.8...@alwatr/validator@1.1.9) (2023-10-23)
+
+**Note:** Version bump only for package @alwatr/validator
+
 ## [1.1.8](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/validator@1.1.7...@alwatr/validator@1.1.8) (2023-10-23)
 
 **Note:** Version bump only for package @alwatr/validator
