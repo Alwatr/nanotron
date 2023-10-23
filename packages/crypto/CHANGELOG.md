@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/crypto@1.1.7...@alwatr/crypto@1.1.8) (2023-10-23)
+
+### Bug Fixes
+
+* **crypto:** compatible with new logger api ([f867317](https://github.com/AliMD/alwatr-eslib/commit/f8673178d18f14276e13dcb35a7d973f301a722b)) by @AliMD
+
 ## [1.1.7](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/crypto@1.1.6...@alwatr/crypto@1.1.7) (2023-10-23)
 
 **Note:** Version bump only for package @alwatr/crypto

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/nano-server@1.1.7...@alwatr/nano-server@1.1.8) (2023-10-23)
+
+### Bug Fixes
+
+* **nano-server:** compatible with new logger api ([ecace8b](https://github.com/AliMD/alwatr-eslib/commit/ecace8bd5b0007e605c7e4eeebc1c1806d8f84d6)) by @AliMD
+
 ## [1.1.7](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/nano-server@1.1.6...@alwatr/nano-server@1.1.7) (2023-10-23)
 
 **Note:** Version bump only for package @alwatr/nano-server

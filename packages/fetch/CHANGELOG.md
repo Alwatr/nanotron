@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/fetch@2.0.3...@alwatr/fetch@2.0.4) (2023-10-23)
+
+### Bug Fixes
+
+* **fetch:** compatible with new logger api ([a51d7d2](https://github.com/AliMD/alwatr-eslib/commit/a51d7d23e9f7760c4d68685375cc8010456128fc)) by @AliMD
+
 ## [2.0.3](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/fetch@2.0.2...@alwatr/fetch@2.0.3) (2023-10-23)
 
 **Note:** Version bump only for package @alwatr/fetch

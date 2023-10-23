@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/logger@1.2.0...@alwatr/logger@2.0.0) (2023-10-23)
+
+### Bug Fixes
+
+* **logger:** remove globalAlwatr ([e7a7236](https://github.com/AliMD/alwatr-eslib/commit/e7a72361715cbeb05c5dea4dbff7c2b583d2eab2)) by @AliMD
+
+### Features
+
+* **logger:** define logger package ([5beaaf4](https://github.com/AliMD/alwatr-eslib/commit/5beaaf4f6f2f74d4976f9d0d58927526f283d5f9)) by @AliMD
+* **logger:** definePackage, the new api for global alwatr ([e3635e2](https://github.com/AliMD/alwatr-eslib/commit/e3635e2012e5ab5a79622693c5bf7c4639840258)) by @AliMD
+* **logger:** remove desc from incident & accident ([fa38b68](https://github.com/AliMD/alwatr-eslib/commit/fa38b68ce63524f1b53f3ad135450289eff66ae8)) by @AliMD
+
+### BREAKING CHANGES
+
+* **logger:** remove desc from incident & accident
+* **logger:** global Alwatr.registeredList not exist anymore
+
 # [1.2.0](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/logger@1.1.5...@alwatr/logger@1.2.0) (2023-10-23)
 
 ### Features

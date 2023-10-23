@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/math@1.1.7...@alwatr/math@1.1.8) (2023-10-23)
+
+### Bug Fixes
+
+* **math:** compatible with new logger api ([49d1a28](https://github.com/AliMD/alwatr-eslib/commit/49d1a28c8165893febfec3a9867e169bb860fd73)) by @AliMD
+
 ## [1.1.7](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/math@1.1.6...@alwatr/math@1.1.7) (2023-10-23)
 
 **Note:** Version bump only for package @alwatr/math
