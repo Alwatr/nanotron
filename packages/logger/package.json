@@ -32,7 +32,6 @@
     "url": "https://github.com/AliMD/alwatr-eslib/issues"
   },
   "dependencies": {
-    "@alwatr/type": "^1.1.4",
     "tslib": "^2.6.2"
   }
 }

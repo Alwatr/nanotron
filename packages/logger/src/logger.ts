@@ -1,13 +1,4 @@
-import {globalAlwatr} from './global-alwatr.js';
-
 import type {AlwatrLogger} from './type.js';
-
-export {type AlwatrLogger, globalAlwatr};
-
-globalAlwatr.registeredList.push({
-  name: '@alwatr/logger',
-  version: _ALWATR_VERSION_,
-});
 
 export const NODE_MODE = typeof process !== 'undefined';
 export const DEV_MODE = NODE_MODE
