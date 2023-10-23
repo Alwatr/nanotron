@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/math",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Simple useful Math library written in tiny TypeScript module.",
   "keywords": [
     "math",
@@ -30,7 +30,7 @@
     "url": "https://github.com/AliMD/alwatr-eslib/issues"
   },
   "dependencies": {
-    "@alwatr/logger": "^1.1.5",
+    "@alwatr/logger": "^1.2.0",
     "tslib": "^2.6.2"
   }
 }

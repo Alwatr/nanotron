@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/logger@1.1.5...@alwatr/logger@1.2.0) (2023-10-23)
+
+### Features
+
+* **logger:** banner method ([3e3af6d](https://github.com/AliMD/alwatr-eslib/commit/3e3af6d71ccecaaf14ca9d63a8a14c7239afe697)) by @
+
 ## [1.1.5](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/logger@1.1.4...@alwatr/logger@1.1.5) (2023-09-19)
 
 ### Bug Fixes
