@@ -7,25 +7,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* package repo urls ([466cbe9](https://github.com/AliMD/alwatr-eslib/commit/466cbe9188f24e1a1bc36d879a95b52538a58f16)) by @AliMD
+- package repo urls ([466cbe9](https://github.com/AliMD/alwatr-eslib/commit/466cbe9188f24e1a1bc36d879a95b52538a58f16)) by @AliMD
 
 # [2.0.0](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/fetch@1.1.3...@alwatr/fetch@2.0.0) (2023-09-19)
 
 ### Bug Fixes
 
-* **fetch:** remove @alwatr/signal ([03d947b](https://github.com/AliMD/alwatr-eslib/commit/03d947be3889d63805eabb7f4be618fed6da0d55)) by @AliMD
+- **fetch:** remove @alwatr/signal ([03d947b](https://github.com/AliMD/alwatr-eslib/commit/03d947be3889d63805eabb7f4be618fed6da0d55)) by @AliMD
 
-* fix(fetch)!: remove fetchContext ([eba9cf0](https://github.com/AliMD/alwatr-eslib/commit/eba9cf0a443564478b5b985a69d0f54fbd514440)) by @AliMD
+- fix(fetch)!: remove fetchContext ([eba9cf0](https://github.com/AliMD/alwatr-eslib/commit/eba9cf0a443564478b5b985a69d0f54fbd514440)) by @AliMD
 
 ### BREAKING CHANGES
 
-* fetchContext method removed
+- fetchContext method removed
 
 ## 1.1.3 (2023-09-19)
 
 ### Bug Fixes
 
-* cleanup extra packages ([dfc0bd2](https://github.com/AliMD/alwatr-eslib/commit/dfc0bd2b42d49e1094ae0303d34e653aa289d358)) by @AliMD
+- cleanup extra packages ([dfc0bd2](https://github.com/AliMD/alwatr-eslib/commit/dfc0bd2b42d49e1094ae0303d34e653aa289d358)) by @AliMD
 
 ## [1.1.2](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/fetch@1.1.1...@alwatr/fetch@1.1.2) (2023-09-12)
 

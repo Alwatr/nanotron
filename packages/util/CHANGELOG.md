@@ -7,7 +7,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* package repo urls ([466cbe9](https://github.com/AliMD/alwatr-eslib/commit/466cbe9188f24e1a1bc36d879a95b52538a58f16)) by @AliMD
+- package repo urls ([466cbe9](https://github.com/AliMD/alwatr-eslib/commit/466cbe9188f24e1a1bc36d879a95b52538a58f16)) by @AliMD
 
 ## [1.2.2](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/util@1.2.1...@alwatr/util@1.2.2) (2023-09-19)
 

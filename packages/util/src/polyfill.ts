@@ -13,8 +13,8 @@ export const requestAnimationFrame: typeof globalThis.requestAnimationFrame =
   requestAnimationFrameFallback;
 
 const requestIdleCallbackFallback = (
-    callback: () => void,
-    options?: IdleRequestOptions,
+  callback: () => void,
+  options?: IdleRequestOptions,
 ): ReturnType<typeof setTimeout> => setTimeout(callback, options?.timeout ?? 2000);
 
 export const requestIdleCallback: typeof globalThis.requestIdleCallback =

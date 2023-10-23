@@ -6,10 +6,10 @@ import type {Stringifyable, StringifyableRecord} from '@alwatr/type';
 export type {JsonSchema};
 
 export function validator<T extends StringifyableRecord>(
-    validSchema: JsonSchema,
-    targetObject?: StringifyableRecord | null,
-    additionalProperties = false,
-    path = '.',
+  validSchema: JsonSchema,
+  targetObject?: StringifyableRecord | null,
+  additionalProperties = false,
+  path = '.',
 ): T {
   if (targetObject == null || typeof targetObject !== 'object') {
     throw new Error('invalid_type', {
@@ -60,20 +60,20 @@ export function validator<T extends StringifyableRecord>(
       for (let index = itemValue.length - 1; index >= 0; index--) {
         const item = itemValue[index];
         itemValue[index] = validator<StringifyableRecord>(
-            schema,
-            item as StringifyableRecord, // @FIXME: DeMastmalize
-            additionalProperties,
-            `${itemPath}[${index}]`,
+          schema,
+          item as StringifyableRecord, // @FIXME: DeMastmalize
+          additionalProperties,
+          `${itemPath}[${index}]`,
         );
       }
     }
     else if (typeof itemSchema === 'object' && itemSchema != null) {
       // nested object
       targetObject[itemName] = validator<StringifyableRecord>(
-          itemSchema,
-          itemValue as StringifyableRecord,
-          additionalProperties,
-          itemPath,
+        itemSchema,
+        itemValue as StringifyableRecord,
+        additionalProperties,
+        itemPath,
       );
     }
     else if (itemSchema === Boolean) {

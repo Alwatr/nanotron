@@ -90,12 +90,12 @@ export class AlwatrNanoServer {
     this._clientErrorListener = this._clientErrorListener.bind(this);
     this._onHealthCheckRequest = this._onHealthCheckRequest.bind(this);
     this.httpServer = createServer(
-        {
-          keepAlive: true,
-          keepAliveInitialDelay: 0,
-          noDelay: true,
-        },
-        this._requestListener,
+      {
+        keepAlive: true,
+        keepAliveInitialDelay: 0,
+        noDelay: true,
+      },
+      this._requestListener,
     );
     this.httpServer.requestTimeout = this._config.requestTimeout;
     this.httpServer.keepAliveTimeout = this._config.keepAliveTimeout;
@@ -153,9 +153,9 @@ export class AlwatrNanoServer {
    * ```
    */
   route<TData extends Stringifyable = Stringifyable, TMeta extends StringifyableRecord = StringifyableRecord>(
-      method: 'ALL' | Methods,
-      route: 'all' | `/${string}`,
-      middleware: RouteMiddleware<TData, TMeta>,
+    method: 'ALL' | Methods,
+    route: 'all' | `/${string}`,
+    middleware: RouteMiddleware<TData, TMeta>,
   ): void {
     this._logger.logMethodArgs?.('route', {method, route});
 
@@ -211,7 +211,7 @@ export class AlwatrNanoServer {
     catch (err) {
       this._logger.accident('responseData', 'data_stringify_failed', 'JSON.stringify(data) failed!', err);
       return this.reply(
-          serverResponse,
+        serverResponse,
         content.ok === false
           ? {
             ok: false,
@@ -229,7 +229,7 @@ export class AlwatrNanoServer {
     const headers: Record<string, string | number> = {
       'Content-Length': buffer.byteLength,
       'Content-Type': 'application/json',
-      'Server': 'Alwatr NanoServer',
+      Server: 'Alwatr NanoServer',
     };
 
     if (this._config.allowAllOrigin === true) {
@@ -273,7 +273,7 @@ export class AlwatrNanoServer {
     connection.serverResponse.writeHead(200, {
       'Content-Length': body.length,
       'Content-Type': 'plain/text',
-      'Server': 'Alwatr NanoServer',
+      Server: 'Alwatr NanoServer',
     });
     connection.serverResponse.end(body);
 
@@ -381,10 +381,10 @@ export class AlwatrConnection {
    * Request URL.
    */
   readonly url = new URL(
-      (this.incomingMessage.url ?? '')
-          .replace(new RegExp('^/' + this._config.prefixPattern), '')
-          .replace(AlwatrConnection._versionPattern, ''),
-      'http://localhost/',
+    (this.incomingMessage.url ?? '')
+      .replace(new RegExp('^/' + this._config.prefixPattern), '')
+      .replace(AlwatrConnection._versionPattern, ''),
+    'http://localhost/',
   );
 
   /**
@@ -535,8 +535,8 @@ export class AlwatrConnection {
    */
   getUserAuth(): UserAuth | null {
     const auth = this.getAuthBearer()
-        ?.split('/')
-        .filter((item) => item.trim() !== '');
+      ?.split('/')
+      .filter((item) => item.trim() !== '');
 
     return auth == null || auth.length !== 2
       ? null
@@ -619,9 +619,9 @@ export class AlwatrConnection {
     // prettier-ignore
     return (
       this.incomingMessage.headers['x-forwarded-for']
-          ?.split(',')
-          .pop()
-          ?.trim() ||
+        ?.split(',')
+        .pop()
+        ?.trim() ||
       this.incomingMessage.socket.remoteAddress ||
       'unknown'
     );

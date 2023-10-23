@@ -22,7 +22,7 @@ const duplicateRequestStorage: Record<string, Promise<Response>> = {};
  * Fetch from alwatr services and return standard response.
  */
 export async function serviceRequest<T extends AlwatrServiceResponse = AlwatrServiceResponse>(
-    options: FetchOptions,
+  options: FetchOptions,
 ): Promise<T> {
   logger.logMethodArgs?.('serviceRequest', {url: options.url});
 
@@ -133,8 +133,8 @@ function _processOptions(options: FetchOptions): Required<FetchOptions> {
     const queryParameters = options.queryParameters;
     // prettier-ignore
     const queryArray = Object
-        .keys(queryParameters)
-        .map((key) => `${key}=${String(queryParameters[key])}`);
+      .keys(queryParameters)
+      .map((key) => `${key}=${String(queryParameters[key])}`);
 
     if (queryArray.length > 0) {
       options.url += '?' + queryArray.join('&');
@@ -194,10 +194,10 @@ async function _handleCacheStrategy(options: Required<FetchOptions>): Promise<Re
       const cachedResponse = await cacheStorage.match(request);
       if (cachedResponse == null) {
         logger.accident(
-            '_handleCacheStrategy',
-            'fetch_cache_not_found',
-            'cacheStorage is cache_only but no cache found',
-            {url: request.url},
+          '_handleCacheStrategy',
+          'fetch_cache_not_found',
+          'cacheStorage is cache_only but no cache found',
+          {url: request.url},
         );
         throw new Error('fetch_cache_not_found');
       }
@@ -350,12 +350,12 @@ function _handleTimeout(options: FetchOptions): Promise<Response> {
     // });
 
     globalThis
-        .fetch(options.url, options)
-        .then((response) => resolved(response))
-        .catch((reason) => reject(reason))
-        .finally(() => {
-          delete options.signal; // try to avoid memory leak in nodejs!
-          clearTimeout(timeoutId);
-        });
+      .fetch(options.url, options)
+      .then((response) => resolved(response))
+      .catch((reason) => reject(reason))
+      .finally(() => {
+        delete options.signal; // try to avoid memory leak in nodejs!
+        clearTimeout(timeoutId);
+      });
   });
 }
