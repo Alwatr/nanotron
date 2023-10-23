@@ -82,7 +82,7 @@ export interface AlwatrLogger {
    * logger.incident?.('fetch', 'abort_signal', 'aborted signal received', {url: '/test.json'});
    * ```
    */
-  incident?(method: string, code: string, desc: string, ...args: unknown[]): void;
+  incident?(method: string, code: string, ...args: unknown[]): void;
 
   /**
    * `console.warn` an unexpected accident or error that you handled like warning.
@@ -93,7 +93,7 @@ export interface AlwatrLogger {
    * logger.accident('fetch', 'file_not_found', 'url requested return 404 not found', {url: '/test.json'});
    * ```
    */
-  accident(method: string, code: string, desc: string, ...args: unknown[]): void;
+  accident(method: string, code: string, ...args: unknown[]): void;
 
   /**
    * `console.error` an unexpected error.

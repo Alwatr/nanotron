@@ -85,8 +85,8 @@ export const createLogger = (domain: string, devMode = DEV_MODE): AlwatrLogger =
         'font-size: 2rem; background-color: #5858e8; color: #fff; padding: 1rem 4rem; border-radius: 0.5rem;'),
 
     accident: NODE_MODE
-      ? console.warn.bind(console, `${styleScope}⚠️\n%s\x1b[33m.%s() Accident \`%s\` %s!${_style.reset}`, domain)
-      : console.warn.bind(console, '%c%s%c.%s() Accident `%s` %s!', styleScope, domain, _style.reset),
+      ? console.warn.bind(console, `${styleScope}⚠️\n%s\x1b[33m.%s() Accident \`%s\`!${_style.reset}`, domain)
+      : console.warn.bind(console, '%c%s%c.%s() Accident `%s`!', styleScope, domain, _style.reset),
 
     error: NODE_MODE
       ? console.error.bind(console, `${styleScope}❌\n%s\x1b[31m.%s() Error \`%s\`${_style.reset}\n`, domain)
@@ -113,8 +113,8 @@ export const createLogger = (domain: string, devMode = DEV_MODE): AlwatrLogger =
     logOther: console.debug.bind(console, _keySection, styleScope, domain, _style.reset),
 
     incident: NODE_MODE
-      ? console.log.bind(console, `${styleScope}🚸\n%s${_style.reset}.%s() Incident \`%s\` %s!${_style.reset}`, domain)
-      : console.log.bind(console, '%c%s%c.%s() Incident `%s` %s!', styleScope, domain, 'color: orange;'),
+      ? console.log.bind(console, `${styleScope}🚸\n%s${_style.reset}.%s() Incident \`%s\`!${_style.reset}`, domain)
+      : console.log.bind(console, '%c%s%c.%s() Incident `%s`!', styleScope, domain, 'color: orange;'),
 
     time: (label: string) => console.time(domain + '.' + label + ' duration time'),
     timeEnd: (label: string) => console.timeEnd(domain + '.' + label + ' duration time'),
