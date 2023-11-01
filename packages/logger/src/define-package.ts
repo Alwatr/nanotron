@@ -7,9 +7,11 @@ Alwatr.packages ??= {};
 
 const logger = createLogger('logger');
 
-if ('registeredList' in Alwatr) {
-  logger.accident?.('define-package', 'duplicate_old_package_defined', Alwatr.registeredList);
-}
+setTimeout(() => {
+  if ('registeredList' in Alwatr) {
+    logger.accident?.('define-package', 'duplicate_old_package_defined', Alwatr.registeredList);
+  }
+}, 2000);
 
 export const definePackage = (packageName: string, version: string) => {
   logger.logMethodArgs?.('define-package', {packageName, version});
