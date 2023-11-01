@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/logger@2.1.1...@alwatr/logger@2.1.2) (2023-11-01)
+
+### Bug Fixes
+
+* **logger:** show duplicate_old_package_defined error after all packages designed ([8bb3410](https://github.com/AliMD/alwatr-eslib/commit/8bb341033091d25d1128127e00fafdafc25d1827)) by @
+
 ## [2.1.1](https://github.com/AliMD/alwatr-eslib/compare/@alwatr/logger@2.1.0...@alwatr/logger@2.1.1) (2023-10-23)
 
 **Note:** Version bump only for package @alwatr/logger
