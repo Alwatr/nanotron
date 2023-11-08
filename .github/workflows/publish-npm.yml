@@ -14,7 +14,7 @@ env:
 
 jobs:
   publish-npm:
-    if: github.repository_owner == 'AliMD'
+    if: github.repository_owner == 'Alwatr'
 
     name: Publish NPM
     runs-on: ubuntu-latest

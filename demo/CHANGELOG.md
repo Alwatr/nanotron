@@ -292,12 +292,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @alwatr/demo
 
-# [0.6.0](https://github.com/AliMD/vatr/compare/v0.5.0...v0.6.0) (2022-03-11)
+# [0.6.0](https://github.com/Alwatr/eslib/compare/v0.5.0...v0.6.0) (2022-03-11)
 
 ### Bug Fixes
 
-- **demo:** package ([c2b2339](https://github.com/AliMD/vatr/commit/c2b2339f1ca08207ae0d0f8f0d7fff9c98a822ce))
-- old One repo links ([1156b07](https://github.com/AliMD/vatr/commit/1156b077e0abc4712207183e01896fe86f7a05f6))
+- **demo:** package ([c2b2339](https://github.com/Alwatr/eslib/commit/c2b2339f1ca08207ae0d0f8f0d7fff9c98a822ce))
+- old One repo links ([1156b07](https://github.com/Alwatr/eslib/commit/1156b077e0abc4712207183e01896fe86f7a05f6))
 
 # [0.5.0](https://github.com/Alwatr/eslib/compare/v0.4.0...v0.5.0) (2022-03-11)
 
