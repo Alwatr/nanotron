@@ -21,11 +21,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AliMD/alwatr-eslib",
+    "url": "https://github.com/Alwatr/eslib",
     "directory": "packages/type"
   },
-  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/next/packages/type#readme",
+  "homepage": "https://github.com/Alwatr/eslib/tree/next/packages/type#readme",
   "bugs": {
-    "url": "https://github.com/AliMD/alwatr-eslib/issues"
+    "url": "https://github.com/Alwatr/eslib/issues"
   }
 }

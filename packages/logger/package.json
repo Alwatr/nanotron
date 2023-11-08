@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AliMD/alwatr-eslib",
+    "url": "https://github.com/Alwatr/eslib",
     "directory": "packages/logger"
   },
-  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/next/packages/logger#readme",
+  "homepage": "https://github.com/Alwatr/eslib/tree/next/packages/logger#readme",
   "bugs": {
-    "url": "https://github.com/AliMD/alwatr-eslib/issues"
+    "url": "https://github.com/Alwatr/eslib/issues"
   },
   "dependencies": {
     "tslib": "^2.6.2"

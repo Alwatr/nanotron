@@ -32,12 +32,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AliMD/alwatr-eslib",
+    "url": "https://github.com/Alwatr/eslib",
     "directory": "packages/crypto"
   },
-  "homepage": "https://github.com/AliMD/alwatr-eslib/tree/next/packages/crypto#readme",
+  "homepage": "https://github.com/Alwatr/eslib/tree/next/packages/crypto#readme",
   "bugs": {
-    "url": "https://github.com/AliMD/alwatr-eslib/issues"
+    "url": "https://github.com/Alwatr/eslib/issues"
   },
   "dependencies": {
     "@alwatr/logger": "^2.1.2",
