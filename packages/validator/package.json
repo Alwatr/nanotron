@@ -29,8 +29,12 @@
     "url": "https://github.com/Alwatr/eslib/issues"
   },
   "dependencies": {
+    "@alwatr/math": "workspace:^",
     "@alwatr/type": "workspace:^",
     "@alwatr/util": "workspace:^",
     "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0"
   }
 }

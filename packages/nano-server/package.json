@@ -32,10 +32,12 @@
   },
   "dependencies": {
     "@alwatr/logger": "workspace:^",
+    "@alwatr/math": "workspace:^",
     "@alwatr/util": "workspace:^",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@alwatr/type": "workspace:^"
+    "@alwatr/type": "workspace:^",
+    "@types/node": "^20.9.0"
   }
 }

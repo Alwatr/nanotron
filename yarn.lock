@@ -27,7 +27,9 @@ __metadata:
   resolution: "@alwatr/crypto@workspace:packages/crypto"
   dependencies:
     "@alwatr/logger": "workspace:^"
+    "@alwatr/math": "workspace:^"
     "@alwatr/util": "workspace:^"
+    "@types/node": "npm:^20.9.0"
     tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
@@ -43,6 +45,7 @@ __metadata:
     "@alwatr/type": "workspace:^"
     "@alwatr/util": "workspace:^"
     "@alwatr/validator": "workspace:^"
+    "@types/node": "npm:^20.9.0"
   languageName: unknown
   linkType: soft
 
@@ -53,6 +56,7 @@ __metadata:
     "@alwatr/logger": "workspace:^"
     "@alwatr/type": "workspace:^"
     "@alwatr/util": "workspace:^"
+    "@types/node": "npm:^20.9.0"
     tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
@@ -61,6 +65,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/logger@workspace:packages/logger"
   dependencies:
+    "@types/node": "npm:^20.9.0"
     tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
@@ -70,6 +75,7 @@ __metadata:
   resolution: "@alwatr/math@workspace:packages/math"
   dependencies:
     "@alwatr/logger": "workspace:^"
+    "@types/node": "npm:^20.9.0"
     tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
@@ -79,8 +85,10 @@ __metadata:
   resolution: "@alwatr/nano-server@workspace:packages/nano-server"
   dependencies:
     "@alwatr/logger": "workspace:^"
+    "@alwatr/math": "workspace:^"
     "@alwatr/type": "workspace:^"
     "@alwatr/util": "workspace:^"
+    "@types/node": "npm:^20.9.0"
     tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
@@ -88,6 +96,8 @@ __metadata:
 "@alwatr/type@workspace:^, @alwatr/type@workspace:packages/type":
   version: 0.0.0-use.local
   resolution: "@alwatr/type@workspace:packages/type"
+  dependencies:
+    "@types/node": "npm:^20.9.0"
   languageName: unknown
   linkType: soft
 
@@ -96,8 +106,10 @@ __metadata:
   resolution: "@alwatr/util@workspace:packages/util"
   dependencies:
     "@alwatr/logger": "workspace:^"
+    "@alwatr/math": "workspace:^"
     "@alwatr/type": "workspace:^"
     "@alwatr/util": "workspace:^"
+    "@types/node": "npm:^20.9.0"
     flatstr: "npm:^1.0.12"
     tslib: "npm:^2.6.2"
   languageName: unknown
@@ -107,8 +119,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/validator@workspace:packages/validator"
   dependencies:
+    "@alwatr/math": "workspace:^"
     "@alwatr/type": "workspace:^"
     "@alwatr/util": "workspace:^"
+    "@types/node": "npm:^20.9.0"
     tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
@@ -1570,7 +1584,6 @@ __metadata:
     eslint-plugin-import: "npm:^2.29.0"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:^3.0.3"
-    tslib: "npm:^2.6.2"
     typescript: "npm:^5.2.2"
   languageName: unknown
   linkType: soft

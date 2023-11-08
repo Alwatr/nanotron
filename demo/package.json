@@ -13,6 +13,7 @@
     "@alwatr/validator": "workspace:^"
   },
   "devDependencies": {
-    "@alwatr/type": "workspace:^"
+    "@alwatr/type": "workspace:^",
+    "@types/node": "^20.9.0"
   }
 }

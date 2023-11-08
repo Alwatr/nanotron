@@ -27,8 +27,21 @@
   "cSpell.words": [
     "Alwatr"
   ],
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "git.autoStash": true,
-  "git.branchProtection": ["main", "next"],
-  "githubPullRequests.ignoredPullRequestBranches": ["main", "next"]
+  "git.branchProtection": [
+    "main",
+    "next"
+  ],
+  "githubPullRequests.ignoredPullRequestBranches": [
+    "main",
+    "next"
+  ],
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "eslint.nodePath": ".yarn/sdks",
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
