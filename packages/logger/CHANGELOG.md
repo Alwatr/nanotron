@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/Alwatr/eslib/compare/@alwatr/logger@2.1.2...@alwatr/logger@2.1.3) (2023-11-08)
+
+### Bug Fixes
+
+* move repo urls ([719aa3e](https://github.com/Alwatr/eslib/commit/719aa3e7462d3c9c6272958fc93f89fda6793fb1)) by @AliMD
+
 ## [2.1.2](https://github.com/Alwatr/eslib/compare/@alwatr/logger@2.1.1...@alwatr/logger@2.1.2) (2023-11-01)
 
 ### Bug Fixes

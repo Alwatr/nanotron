@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/fetch",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Enhanced fetch API with cache strategy, retry pattern, timeout, helper methods and enhanced types written in tiny TypeScript, ES module.",
   "keywords": [
     "fetch",
@@ -34,8 +34,8 @@
     "url": "https://github.com/Alwatr/eslib/issues"
   },
   "dependencies": {
-    "@alwatr/logger": "^2.1.2",
-    "@alwatr/util": "^1.2.9",
+    "@alwatr/logger": "^2.1.3",
+    "@alwatr/util": "^1.2.10",
     "tslib": "^2.6.2"
   }
 }
