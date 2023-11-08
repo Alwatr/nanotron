@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/Alwatr/eslib/compare/@alwatr/type@1.1.4...@alwatr/type@1.1.5) (2023-11-08)
+
+### Bug Fixes
+
+* move repo urls ([719aa3e](https://github.com/Alwatr/eslib/commit/719aa3e7462d3c9c6272958fc93f89fda6793fb1)) by @AliMD
+
 ## [1.1.4](https://github.com/Alwatr/eslib/compare/@alwatr/type@1.1.3...@alwatr/type@1.1.4) (2023-09-19)
 
 ### Bug Fixes
