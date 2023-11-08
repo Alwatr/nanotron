@@ -40,8 +40,9 @@
     }
   },
   "dependencies": {
-    "@alwatr/math": "^1.1.12",
-    "@alwatr/type": "^1.1.5",
+    "@alwatr/logger": "workspace:^",
+    "@alwatr/type": "workspace:^",
+    "@alwatr/util": "workspace:^",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

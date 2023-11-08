@@ -3,5 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com> (https://ali.mihandoost.com)",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@alwatr/crypto": "workspace:^",
+    "@alwatr/fetch": "workspace:^",
+    "@alwatr/logger": "workspace:^",
+    "@alwatr/math": "workspace:^",
+    "@alwatr/util": "workspace:^",
+    "@alwatr/validator": "workspace:^"
+  },
+  "devDependencies": {
+    "@alwatr/type": "workspace:^"
+  }
 }

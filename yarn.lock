@@ -22,12 +22,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alwatr/crypto@workspace:packages/crypto":
+"@alwatr/crypto@workspace:^, @alwatr/crypto@workspace:packages/crypto":
   version: 0.0.0-use.local
   resolution: "@alwatr/crypto@workspace:packages/crypto"
   dependencies:
-    "@alwatr/logger": "npm:^2.1.3"
-    "@alwatr/math": "npm:^1.1.12"
+    "@alwatr/logger": "workspace:^"
+    "@alwatr/util": "workspace:^"
     tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
@@ -35,20 +35,29 @@ __metadata:
 "@alwatr/demo@workspace:demo":
   version: 0.0.0-use.local
   resolution: "@alwatr/demo@workspace:demo"
+  dependencies:
+    "@alwatr/crypto": "workspace:^"
+    "@alwatr/fetch": "workspace:^"
+    "@alwatr/logger": "workspace:^"
+    "@alwatr/math": "workspace:^"
+    "@alwatr/type": "workspace:^"
+    "@alwatr/util": "workspace:^"
+    "@alwatr/validator": "workspace:^"
   languageName: unknown
   linkType: soft
 
-"@alwatr/fetch@workspace:packages/fetch":
+"@alwatr/fetch@workspace:^, @alwatr/fetch@workspace:packages/fetch":
   version: 0.0.0-use.local
   resolution: "@alwatr/fetch@workspace:packages/fetch"
   dependencies:
-    "@alwatr/logger": "npm:^2.1.3"
-    "@alwatr/util": "npm:^1.2.10"
+    "@alwatr/logger": "workspace:^"
+    "@alwatr/type": "workspace:^"
+    "@alwatr/util": "workspace:^"
     tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
 
-"@alwatr/logger@npm:^2.1.3, @alwatr/logger@workspace:packages/logger":
+"@alwatr/logger@workspace:^, @alwatr/logger@workspace:packages/logger":
   version: 0.0.0-use.local
   resolution: "@alwatr/logger@workspace:packages/logger"
   dependencies:
@@ -56,11 +65,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/math@npm:^1.1.12, @alwatr/math@workspace:packages/math":
+"@alwatr/math@workspace:^, @alwatr/math@workspace:packages/math":
   version: 0.0.0-use.local
   resolution: "@alwatr/math@workspace:packages/math"
   dependencies:
-    "@alwatr/logger": "npm:^2.1.3"
+    "@alwatr/logger": "workspace:^"
     tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
@@ -69,35 +78,37 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/nano-server@workspace:packages/nano-server"
   dependencies:
-    "@alwatr/logger": "npm:^2.1.3"
-    "@alwatr/math": "npm:^1.1.12"
+    "@alwatr/logger": "workspace:^"
+    "@alwatr/type": "workspace:^"
+    "@alwatr/util": "workspace:^"
     tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
 
-"@alwatr/type@npm:^1.1.5, @alwatr/type@workspace:packages/type":
+"@alwatr/type@workspace:^, @alwatr/type@workspace:packages/type":
   version: 0.0.0-use.local
   resolution: "@alwatr/type@workspace:packages/type"
   languageName: unknown
   linkType: soft
 
-"@alwatr/util@npm:^1.2.10, @alwatr/util@workspace:packages/util":
+"@alwatr/util@workspace:^, @alwatr/util@workspace:packages/util":
   version: 0.0.0-use.local
   resolution: "@alwatr/util@workspace:packages/util"
   dependencies:
-    "@alwatr/math": "npm:^1.1.12"
-    "@alwatr/type": "npm:^1.1.5"
+    "@alwatr/logger": "workspace:^"
+    "@alwatr/type": "workspace:^"
+    "@alwatr/util": "workspace:^"
     flatstr: "npm:^1.0.12"
     tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
 
-"@alwatr/validator@workspace:packages/validator":
+"@alwatr/validator@workspace:^, @alwatr/validator@workspace:packages/validator":
   version: 0.0.0-use.local
   resolution: "@alwatr/validator@workspace:packages/validator"
   dependencies:
-    "@alwatr/math": "npm:^1.1.12"
-    "@alwatr/type": "npm:^1.1.5"
+    "@alwatr/type": "workspace:^"
+    "@alwatr/util": "workspace:^"
     tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
