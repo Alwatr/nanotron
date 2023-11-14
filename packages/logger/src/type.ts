@@ -162,5 +162,5 @@ export interface AlwatrLogger {
    * logger.banner('Alwatr PWA v2');
    * ```
    */
-  banner?(message: string): void;
+  banner(message: string): void;
 }
