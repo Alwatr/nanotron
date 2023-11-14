@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/Alwatr/eslib/compare/@alwatr/type@1.1.5...@alwatr/type@1.2.0) (2023-11-14)
+
+### Features
+
+* **yarn:** pnp ([b6a562c](https://github.com/Alwatr/eslib/commit/b6a562c909a35b3e626442e5c325da3fce448e1b)) by @AliMD
+
 ## [1.1.5](https://github.com/Alwatr/eslib/compare/@alwatr/type@1.1.4...@alwatr/type@1.1.5) (2023-11-08)
 
 ### Bug Fixes

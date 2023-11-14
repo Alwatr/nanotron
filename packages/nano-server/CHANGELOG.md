@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/Alwatr/eslib/compare/@alwatr/nano-server@1.1.12...@alwatr/nano-server@1.2.0) (2023-11-14)
+
+### Features
+
+* **yarn:** pnp ([b6a562c](https://github.com/Alwatr/eslib/commit/b6a562c909a35b3e626442e5c325da3fce448e1b)) by @AliMD
+
 ## [1.1.12](https://github.com/Alwatr/eslib/compare/@alwatr/nano-server@1.1.11...@alwatr/nano-server@1.1.12) (2023-11-08)
 
 ### Bug Fixes

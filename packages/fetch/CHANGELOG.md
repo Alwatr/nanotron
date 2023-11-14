@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/Alwatr/eslib/compare/@alwatr/fetch@2.0.8...@alwatr/fetch@2.1.0) (2023-11-14)
+
+### Features
+
+* **yarn:** pnp ([b6a562c](https://github.com/Alwatr/eslib/commit/b6a562c909a35b3e626442e5c325da3fce448e1b)) by @AliMD
+
 ## [2.0.8](https://github.com/Alwatr/eslib/compare/@alwatr/fetch@2.0.7...@alwatr/fetch@2.0.8) (2023-11-08)
 
 ### Bug Fixes

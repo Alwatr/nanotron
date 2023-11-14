@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/Alwatr/eslib/compare/@alwatr/logger@2.1.3...@alwatr/logger@2.2.0) (2023-11-14)
+
+### Bug Fixes
+
+* **logger:** logger.banner type ([1f2586d](https://github.com/Alwatr/eslib/commit/1f2586dab65608c4a54f20859f4ea2dda6028c7c)) by @
+
+### Features
+
+* **yarn:** pnp ([b6a562c](https://github.com/Alwatr/eslib/commit/b6a562c909a35b3e626442e5c325da3fce448e1b)) by @AliMD
+
 ## [2.1.3](https://github.com/Alwatr/eslib/compare/@alwatr/logger@2.1.2...@alwatr/logger@2.1.3) (2023-11-08)
 
 ### Bug Fixes
