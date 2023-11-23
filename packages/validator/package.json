@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/validator",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Simple useful validator library written in tiny TypeScript module.",
   "keywords": [
     "validator",

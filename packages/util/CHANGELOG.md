@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/Alwatr/eslib/compare/@alwatr/util@1.3.0...@alwatr/util@1.3.1) (2023-11-23)
+
+**Note:** Version bump only for package @alwatr/util
+
 # [1.3.0](https://github.com/Alwatr/eslib/compare/@alwatr/util@1.2.10...@alwatr/util@1.3.0) (2023-11-14)
 
 ### Features

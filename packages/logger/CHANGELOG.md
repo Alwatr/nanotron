@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/Alwatr/eslib/compare/@alwatr/logger@2.2.0...@alwatr/logger@2.3.0) (2023-11-23)
+
+### Features
+
+* **logger/global:** globalScope ([8111c10](https://github.com/Alwatr/eslib/commit/8111c108edff13d433d5f2f50470d00058e761ba)) by @AliMD
+
 # [2.2.0](https://github.com/Alwatr/eslib/compare/@alwatr/logger@2.1.3...@alwatr/logger@2.2.0) (2023-11-14)
 
 ### Bug Fixes
