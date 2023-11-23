@@ -1,9 +1,6 @@
-import type {AlwatrLogger} from './type.js';
+import {DEV_MODE, NODE_MODE} from './global.js';
 
-export const NODE_MODE = typeof process !== 'undefined';
-export const DEV_MODE = NODE_MODE
-  ? process.env.ALWATR_DEBUG === '1'
-  : globalThis.localStorage?.getItem('alwatrDebug') === '1';
+import type {AlwatrLogger} from './type.js';
 
 /**
  * Color list storage for logger.
@@ -81,8 +78,11 @@ export const createLogger = (domain: string, devMode = DEV_MODE): AlwatrLogger =
 
     banner: NODE_MODE
       ? console.log.bind(console, `\x1b[1;37;45m\n\n     %s${_style.reset}`)
-      : console.log.bind(console, '%c%s',
-        'font-size: 2rem; background-color: #5858e8; color: #fff; padding: 1rem 4rem; border-radius: 0.5rem;'),
+      : console.log.bind(
+        console,
+        '%c%s',
+        'font-size: 2rem; background-color: #5858e8; color: #fff; padding: 1rem 4rem; border-radius: 0.5rem;',
+      ),
 
     accident: NODE_MODE
       ? console.warn.bind(console, `${styleScope}⚠️\n%s\x1b[33m.%s() Accident \`%s\`!${_style.reset}`, domain)
