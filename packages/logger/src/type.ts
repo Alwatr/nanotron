@@ -1,12 +1,3 @@
-export interface GlobalAlwatr {
-  packages: Record<string, string>;
-}
-
-declare global {
-  // eslint-disable-next-line no-var
-  var Alwatr: GlobalAlwatr;
-}
-
 export interface AlwatrLogger {
   /**
    * Debug state for current scope base on localStorage `ALWATR_LOG` pattern.

@@ -1,8 +1,6 @@
+import './global.js';
 import {createLogger} from './logger.js';
 
-import type {} from './type.js';
-
-globalThis.Alwatr ??= {packages: {}};
 Alwatr.packages ??= {};
 
 const logger = createLogger('logger');
