@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/Alwatr/eslib/compare/@alwatr/logger@2.3.0...@alwatr/logger@2.3.1) (2023-11-29)
+
+**Note:** Version bump only for package @alwatr/logger
+
 # [2.3.0](https://github.com/Alwatr/eslib/compare/@alwatr/logger@2.2.0...@alwatr/logger@2.3.0) (2023-11-23)
 
 ### Features

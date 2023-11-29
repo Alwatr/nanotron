@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/fetch",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Enhanced fetch API with cache strategy, retry pattern, timeout, helper methods and enhanced types written in tiny TypeScript, ES module.",
   "keywords": [
     "fetch",

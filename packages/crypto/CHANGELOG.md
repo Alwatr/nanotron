@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/Alwatr/eslib/compare/@alwatr/crypto@1.2.1...@alwatr/crypto@2.0.0) (2023-11-29)
+
+### Features
+
+* **crypto/hash:** review and update all methods and documents ([14acd26](https://github.com/Alwatr/eslib/commit/14acd265a19b1b67bd32f725468fe66985464fe6)) by @AliMD
+* **crypto/preConfig:** update prefix and secret algorithm ([0cfff12](https://github.com/Alwatr/eslib/commit/0cfff124e692d02aad0b5c97908df63bc692f896)) by @AliMD
+* **crypto/token:** review and update all methods and documents ([dc943f8](https://github.com/Alwatr/eslib/commit/dc943f8a007567b58e9e3b7f9cada556ac76ae9b)) by @AliMD
+* **crypto/user:** review and update all methods and documents ([bb79fa8](https://github.com/Alwatr/eslib/commit/bb79fa81f8632d5fe75cac813238b04094d0bb6a)) by @AliMD
+* **crypto:** prefix option ([6be5c90](https://github.com/Alwatr/eslib/commit/6be5c90dad4674e8ae3e27611a13dcf1e08ce11a)) by @AliMD
+
+### BREAKING CHANGES
+
+* **crypto/user:** methods name updated
+* **crypto/token:** methods name updated
+* **crypto/hash:** methods name updated
+
 ## [1.2.1](https://github.com/Alwatr/eslib/compare/@alwatr/crypto@1.2.0...@alwatr/crypto@1.2.1) (2023-11-23)
 
 **Note:** Version bump only for package @alwatr/crypto
