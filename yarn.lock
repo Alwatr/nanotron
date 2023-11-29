@@ -30,7 +30,6 @@ __metadata:
     "@alwatr/math": "workspace:^"
     "@alwatr/util": "workspace:^"
     "@types/node": "npm:^20.10.0"
-    tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
 
@@ -57,7 +56,6 @@ __metadata:
     "@alwatr/type": "workspace:^"
     "@alwatr/util": "workspace:^"
     "@types/node": "npm:^20.10.0"
-    tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
 
@@ -66,7 +64,6 @@ __metadata:
   resolution: "@alwatr/logger@workspace:packages/logger"
   dependencies:
     "@types/node": "npm:^20.10.0"
-    tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
 
@@ -76,7 +73,6 @@ __metadata:
   dependencies:
     "@alwatr/logger": "workspace:^"
     "@types/node": "npm:^20.10.0"
-    tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
 
@@ -89,7 +85,6 @@ __metadata:
     "@alwatr/type": "workspace:^"
     "@alwatr/util": "workspace:^"
     "@types/node": "npm:^20.10.0"
-    tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
 
@@ -111,7 +106,6 @@ __metadata:
     "@alwatr/util": "workspace:^"
     "@types/node": "npm:^20.10.0"
     flatstr: "npm:^1.0.12"
-    tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
 
@@ -123,7 +117,6 @@ __metadata:
     "@alwatr/type": "workspace:^"
     "@alwatr/util": "workspace:^"
     "@types/node": "npm:^20.10.0"
-    tslib: "npm:^2.6.2"
   languageName: unknown
   linkType: soft
 
@@ -7390,7 +7383,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.1.0, tslib@npm:^2.6.2":
+"tslib@npm:^2.1.0":
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
   checksum: e03a8a4271152c8b26604ed45535954c0a45296e32445b4b87f8a5abdb2421f40b59b4ca437c4346af0f28179780d604094eb64546bee2019d903d01c6c19bdb

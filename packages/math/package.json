@@ -30,8 +30,7 @@
     "url": "https://github.com/Alwatr/eslib/issues"
   },
   "dependencies": {
-    "@alwatr/logger": "workspace:^",
-    "tslib": "^2.6.2"
+    "@alwatr/logger": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "^20.10.0"
