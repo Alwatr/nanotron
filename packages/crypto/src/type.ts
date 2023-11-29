@@ -7,6 +7,8 @@ export type TokenStatus = 'valid' | 'invalid' | 'expired';
 export type HashStatus = 'valid' | 'invalid';
 
 export interface TokenGeneratorConfig {
+  prefix: string;
+
   /**
    * Secret string data to generate token.
    */
@@ -31,6 +33,8 @@ export interface TokenGeneratorConfig {
 }
 
 export interface HashGeneratorConfig {
+  prefix: string;
+
   /**
    * OpenSSl digest algorithm.
    */
@@ -47,7 +51,7 @@ export interface HashGeneratorConfig {
   crcLength?: number;
 }
 
-export interface UserFactoryConfig {
-  tokenConfig: TokenGeneratorConfig;
-  hashConfig: HashGeneratorConfig;
+export interface UserGeneratorConfig {
+  userId: HashGeneratorConfig;
+  token: TokenGeneratorConfig;
 }

@@ -4,7 +4,8 @@ import {HashGeneratorConfig, TokenGeneratorConfig} from './type.js';
  * Hash generator pre configuration for making random self-validate **secrets**.
  */
 export const secretGeneratorPreConfig: HashGeneratorConfig = {
-  algorithm: 'sha256',
+  prefix: 's',
+  algorithm: 'sha384',
   encoding: 'base64url',
   crcLength: 4,
 };
@@ -13,6 +14,7 @@ export const secretGeneratorPreConfig: HashGeneratorConfig = {
  * Hash generator pre configuration for making random self-validate **user-id**.
  */
 export const userIdGeneratorPreConfig: HashGeneratorConfig = {
+  prefix: 'u',
   algorithm: 'sha1',
   encoding: 'base64url',
   crcLength: 4,
@@ -21,7 +23,8 @@ export const userIdGeneratorPreConfig: HashGeneratorConfig = {
 /**
  * Token generator pre configuration for making secure self-validate **user-token**.
  */
-export const userTokenGeneratorPreConfig: Pick<TokenGeneratorConfig, 'algorithm' | 'encoding'> = {
+export const userTokenGeneratorPreConfig: Pick<TokenGeneratorConfig, 'algorithm' | 'encoding' | 'prefix'> = {
+  prefix: 't',
   algorithm: 'sha224',
   encoding: 'base64url',
 };

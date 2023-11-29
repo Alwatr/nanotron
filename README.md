@@ -4,7 +4,7 @@
 
 An indispensable compendium for all ECMAScript (JavaScript/TypeScript) ventures.
 
-This assemblage includes:
+**This assemblage includes:**
 
 1. [Logger](./packages/logger): Sophisticated, colorful console debugger with customizable scope
 2. [Crypto](./packages/crypto): Secure authentication HOTP token generator (based on the HMAC-based One-Time Password algorithm) and cryptographic utilities written in a concise TypeScript module.

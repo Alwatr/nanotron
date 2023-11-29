@@ -10,25 +10,27 @@ import type {TokenGeneratorConfig, TokenStatus} from './type.js';
 export class AlwatrTokenGenerator {
   protected _duration: number | null;
 
+  /**
+   * The current epoch based on the configured duration.
+   */
   get epoch(): number {
     return this._duration == null ? 0 : Math.floor(Date.now() / this._duration);
   }
 
+  /**
+   * Creates a new instance of AlwatrTokenGenerator.
+   * @param config The configuration for the token generator.
+   */
   constructor(public config: TokenGeneratorConfig) {
     this._duration = config.duration == null ? null : parseDuration(config.duration);
   }
 
-  protected _generate(data: string, epoch: number): string {
-    return createHmac(this.config.algorithm, data)
-      .update(data + epoch)
-      .digest(this.config.encoding)
-    ;
-  }
-
   /**
-   * Generate HOTP token from data base on special duration.
-   *
-   * ```ts
+   * Generates a HOTP token based on the provided data for special duration.
+   * @param data The data to generate the token from.
+   * @returns The generated token.
+   * @example
+   * ```typescript
    * user.auth = tokenGenerator.generate(`${user.id}-${user.role}`);
    * ```
    */
@@ -37,9 +39,12 @@ export class AlwatrTokenGenerator {
   }
 
   /**
-   * Token verification.
-   *
-   * ```ts
+   * Verifies if a token is valid.
+   * @param data The data used to generate the token.
+   * @param token The token to verify.
+   * @returns The status of the token verification.
+   * @example
+   * ```typescript
    * const validateStatus = tokenGenerator.verify(`${user.id}-${user.role}`, user.auth);
    * ```
    */
@@ -57,5 +62,17 @@ export class AlwatrTokenGenerator {
     else {
       return 'invalid';
     }
+  }
+
+  /**
+   * Generates a cryptographic token based on the provided data and epoch.
+   * @param data - The data to be used in the token generation.
+   * @param epoch - The epoch value to be used in the token generation.
+   * @returns The generated cryptographic token.
+   */
+  protected _generate(data: string, epoch: number): string {
+    return this.config.prefix + createHmac(this.config.algorithm, data)
+      .update(data + epoch)
+      .digest(this.config.encoding);
   }
 }

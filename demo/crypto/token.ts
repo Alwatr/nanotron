@@ -4,6 +4,7 @@ import {createLogger} from '@alwatr/logger';
 const logger = createLogger('token/demo', true);
 
 const tokenGenerator = new AlwatrTokenGenerator({
+  prefix: 't_',
   secret: 'my-very-secret-key',
   duration: '2s',
   algorithm: 'sha512',

@@ -1,13 +1,14 @@
 import {AlwatrHashGenerator} from '@alwatr/crypto';
 
 const hashGenerator = new AlwatrHashGenerator({
+  prefix: 'h_',
   algorithm: 'sha1',
   encoding: 'base64url',
   crcLength: 8,
 });
 
 const test = (): void => {
-  const hash = hashGenerator.randomSelfValidate();
+  const hash = hashGenerator.generateRandomSelfValidate();
   console.log('hash: %s validation: %s', hash, hashGenerator.verifySelfValidate(hash));
 };
 

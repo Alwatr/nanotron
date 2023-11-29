@@ -1,6 +1,13 @@
 # Alwatr Crypto - `@alwatr/crypto`
 
-Secure authentication HOTP token generator (the HMAC-based One-Time Password algorithm) and crypto utils written in tiny TypeScript module.
+A robust generator of secure authentication HOTP tokens, employing the HMAC-based One-Time Password algorithm, accompanied by a suite of cryptographic utilities, all encapsulated within a compact TypeScript module.
+
+**This package includes:**
+
+1. [AlwatrHashGenerator](./src/hash.ts): Secure **self-validate** hash generator.
+2. [AlwatrTokenGenerator](./src/token.ts): Secure authentication HOTP token generator (HMAC-based One-Time Password algorithm).
+3. [AlwatrUserGenerator](./src/user.ts): User factory for generating self-validate user-id and user-token.
+4. [PreConfiguration](./src/pre-config.ts): Pre-configuration object for the hash/token generators.
 
 ## References
 

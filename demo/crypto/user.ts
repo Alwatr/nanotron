@@ -1,4 +1,4 @@
-import {AlwatrUserFactory} from '@alwatr/crypto';
+import {AlwatrUserGenerator, userIdGeneratorPreConfig, userTokenGeneratorPreConfig} from '@alwatr/crypto';
 import {createLogger} from '@alwatr/logger';
 import {delay} from '@alwatr/util';
 
@@ -6,22 +6,18 @@ import type {User} from '@alwatr/type';
 
 const logger = createLogger('crypto/user', true);
 
-const userFactory = new AlwatrUserFactory(
-  {
-    algorithm: 'sha1',
-    encoding: 'base64url',
-    crcLength: 4,
-  },
-  {
-    secret: 'my-very-secret-key',
+const newLocal = 'my-very-secret-key';
+const userGenerator = new AlwatrUserGenerator({
+  userId: userIdGeneratorPreConfig,
+  token: {
+    ...userTokenGeneratorPreConfig,
+    secret: newLocal,
     duration: '2s',
-    algorithm: 'sha512',
-    encoding: 'base64url',
   },
-);
+});
 
 const user: User = {
-  id: userFactory.generateId(),
+  id: userGenerator.generateUserId(),
   country: 'iran',
   fullName: 'امیرمحمد نجفی',
   gender: 'male',
@@ -29,14 +25,15 @@ const user: User = {
   phoneNumber: 989151234567,
 };
 
-const userIdValidation = userFactory.verifyId(user.id);
-logger.logOther?.('user id validation:', userIdValidation);
+logger.logProperty?.('user', user);
 
-const userToken = userFactory.generateToken([user.id, user.lpe]);
+logger.logOther?.('verifyUserId:', userGenerator.verifyUserId(user.id));
+
+const userToken = userGenerator.generateToken([user.id, user.lpe]);
 logger.logOther?.('user token:', userToken);
 
 const userTokenValidation = (): void => {
-  const tokenValidationStatus = userFactory.verifyToken([user.id, user.lpe], userToken);
+  const tokenValidationStatus = userGenerator.verifyToken([user.id, user.lpe], userToken);
   logger.logOther?.('user token validation status:', tokenValidationStatus);
 };
 

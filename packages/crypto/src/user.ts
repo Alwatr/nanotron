@@ -1,57 +1,61 @@
-import {AlwatrHashGenerator} from './hash.js';
-import {AlwatrTokenGenerator} from './token.js';
+import { AlwatrHashGenerator } from './hash.js';
+import { AlwatrTokenGenerator } from './token.js';
 
-import type {HashGeneratorConfig, TokenGeneratorConfig, TokenStatus} from './type.js';
+import type {UserGeneratorConfig, TokenStatus } from './type.js';
 
 /**
  * User factory for generating self-validate user-id and user-token.
  */
-export class AlwatrUserFactory {
-  protected _tokenGenerator;
-  protected _hashGenerator;
+export class AlwatrUserGenerator {
+  protected _tokenGenerator: AlwatrTokenGenerator;
+  protected _hashGenerator: AlwatrHashGenerator;
 
-  constructor(hashConfig: HashGeneratorConfig, tokenConfig: TokenGeneratorConfig) {
-    this._hashGenerator = new AlwatrHashGenerator(hashConfig);
-    this._tokenGenerator = new AlwatrTokenGenerator(tokenConfig);
+  /**
+   * Creates a new instance of AlwatrUserFactory.
+   * @param hashConfig The configuration for the hash generator.
+   * @param tokenConfig The configuration for the token generator.
+   */
+  constructor(config: UserGeneratorConfig) {
+    this._hashGenerator = new AlwatrHashGenerator(config.userId);
+    this._tokenGenerator = new AlwatrTokenGenerator(config.token);
   }
 
   /**
-   * Generate new self-verifiable user-id.
-   *
-   * Example:
-   *
-   * ```ts
+   * Generates a new self-verifiable user ID.
+   * @returns The generated user ID.
+   * @example
+   * ```typescript
    * const newUser = {
-   *   id: userFactory.generateId(),
+   *   id: userFactory.generateUserId(),
    *   ...
    * }
    * ```
    */
-  generateId(): string {
-    return 'U' + this._hashGenerator.randomSelfValidate();
+  generateUserId(): string {
+    return this._hashGenerator.generateRandomSelfValidate();
   }
 
   /**
-   * Validate user-id without token.
-   *
-   * Example:
-   *
-   * ```ts
-   * if (!userFactory.verifyId(user.id)) {
-   *   new Error('invalid_user');
+   * Validates a user ID without token.
+   * @param userId The user ID to verify.
+   * @returns A boolean indicating whether the user ID is valid.
+   * @example
+   * ```typescript
+   * if (!userFactory.verifyUserId(user.id)) {
+   *   throw new Error('invalid_user');
    * }
    * ```
    */
-  verifyId(id: string): boolean {
-    return this._hashGenerator.verifySelfValidate(id.substring(1));
+  verifyUserId(userId: string): boolean {
+    return this._hashGenerator.verifySelfValidate(userId);
   }
 
   /**
-   * Generate user auth token.
-   *
-   * Example:
-   *
-   * ```ts
+   * Generates a user authentication token.
+   * @param uniquelyList The list of values to generate the token from.
+   * @returns The generated user token.
+   * @example
+   * ```typescript
    * const userToken = userFactory.generateToken([user.id, user.lpe]);
    * ```
    */
@@ -60,13 +64,14 @@ export class AlwatrUserFactory {
   }
 
   /**
-   * Verify user auth token.
-   *
-   * Example:
-   *
-   * ```ts
+   * Verifies a user authentication token.
+   * @param uniquelyList The list of values used to generate the token.
+   * @param token The user token to verify.
+   * @returns The status of the token verification.
+   * @example
+   * ```typescript
    * if (!userFactory.verifyToken([user.id, user.lpe], userToken)) {
-   *   new error('invalid_token');
+   *   throw new Error('invalid_token');
    * }
    * ```
    */
