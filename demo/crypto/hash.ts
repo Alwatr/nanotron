@@ -7,7 +7,7 @@ const hashGenerator = new AlwatrHashGenerator({
 });
 
 const test = (): void => {
-  const hash = hashGenerator.randomSelfValidate();
+  const hash = hashGenerator.generateRandomSelfValidate();
   console.log('hash: %s validation: %s', hash, hashGenerator.verifySelfValidate(hash));
 };
 

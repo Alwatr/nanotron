@@ -1,4 +1,4 @@
-import {AlwatrUserFactory} from '@alwatr/crypto';
+import {AlwatrUserGenerator} from '@alwatr/crypto';
 import {createLogger} from '@alwatr/logger';
 import {delay} from '@alwatr/util';
 
@@ -6,22 +6,22 @@ import type {User} from '@alwatr/type';
 
 const logger = createLogger('crypto/user', true);
 
-const userFactory = new AlwatrUserFactory(
-  {
+const userFactory = new AlwatrUserGenerator({
+  userId: {
     algorithm: 'sha1',
     encoding: 'base64url',
     crcLength: 4,
   },
-  {
+  token: {
     secret: 'my-very-secret-key',
     duration: '2s',
     algorithm: 'sha512',
     encoding: 'base64url',
   },
-);
+});
 
 const user: User = {
-  id: userFactory.generateId(),
+  id: userFactory.generateUserId(),
   country: 'iran',
   fullName: 'امیرمحمد نجفی',
   gender: 'male',
@@ -29,7 +29,7 @@ const user: User = {
   phoneNumber: 989151234567,
 };
 
-const userIdValidation = userFactory.verifyId(user.id);
+const userIdValidation = userFactory.verifyUserId(user.id);
 logger.logOther?.('user id validation:', userIdValidation);
 
 const userToken = userFactory.generateToken([user.id, user.lpe]);
