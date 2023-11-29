@@ -7,6 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const tokenGenerator = new AlwatrTokenGenerator({
+  prefix: 't_',
   secret: 'my-very-secret-key',
   duration: null,
   algorithm: 'md5',

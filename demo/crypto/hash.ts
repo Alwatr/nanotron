@@ -1,6 +1,7 @@
 import {AlwatrHashGenerator} from '@alwatr/crypto';
 
 const hashGenerator = new AlwatrHashGenerator({
+  prefix: 'h_',
   algorithm: 'sha1',
   encoding: 'base64url',
   crcLength: 8,

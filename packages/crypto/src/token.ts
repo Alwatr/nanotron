@@ -71,7 +71,7 @@ export class AlwatrTokenGenerator {
    * @returns The generated cryptographic token.
    */
   protected _generate(data: string, epoch: number): string {
-    return createHmac(this.config.algorithm, data)
+    return this.config.prefix + createHmac(this.config.algorithm, data)
       .update(data + epoch)
       .digest(this.config.encoding);
   }

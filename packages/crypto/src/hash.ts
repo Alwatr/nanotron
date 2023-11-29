@@ -46,7 +46,7 @@ export class AlwatrHashGenerator {
    * ```
    */
   generate(data: BinaryLike): string {
-    return createHash(this.config.algorithm).update(data).digest(this.config.encoding);
+    return this.config.prefix + createHash(this.config.algorithm).update(data).digest(this.config.encoding);
   }
 
   /**
@@ -56,7 +56,7 @@ export class AlwatrHashGenerator {
    */
   generateCrc(data: BinaryLike): string {
     const crc = createHash('sha1').update(data).digest(this.config.encoding);
-    return this.config.crcLength == null || this.config.crcLength < 1 ? crc : crc.substring(0, this.config.crcLength);
+    return this.config.crcLength == null || this.config.crcLength < 1 ? crc : crc.slice(0, this.config.crcLength);
   }
 
   /**
@@ -104,10 +104,10 @@ export class AlwatrHashGenerator {
   verifySelfValidate(hash: string): boolean {
     const gapPos =
       this.config.crcLength == null || this.config.crcLength < 1
-        ? hash.length / 2
+        ? hash.length - (hash.length - this.config.prefix.length) / 2
         : hash.length - this.config.crcLength;
-    const mainHash = hash.substring(0, gapPos);
-    const crcHash = hash.substring(gapPos);
+    const mainHash = hash.slice(0, gapPos);
+    const crcHash = hash.slice(gapPos);
     return crcHash === this.generateCrc(mainHash);
   }
 }
