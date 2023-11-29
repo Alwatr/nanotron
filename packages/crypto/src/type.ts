@@ -47,7 +47,7 @@ export interface HashGeneratorConfig {
   crcLength?: number;
 }
 
-export interface UserFactoryConfig {
-  tokenConfig: TokenGeneratorConfig;
-  hashConfig: HashGeneratorConfig;
+export interface UserGeneratorConfig {
+  userId: HashGeneratorConfig;
+  token: TokenGeneratorConfig;
 }
