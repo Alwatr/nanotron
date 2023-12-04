@@ -1668,9 +1668,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"alwatr-eslib@workspace:.":
+"alwatr-es-sdk@workspace:.":
   version: 0.0.0-use.local
-  resolution: "alwatr-eslib@workspace:."
+  resolution: "alwatr-es-sdk@workspace:."
   dependencies:
     "@lerna-lite/changed": "npm:^3.0.0"
     "@lerna-lite/cli": "npm:^3.0.0"
