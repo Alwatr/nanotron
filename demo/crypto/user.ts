@@ -1,4 +1,4 @@
-import {AlwatrUserGenerator, userIdGeneratorPreConfig, userTokenGeneratorPreConfig} from '@alwatr/crypto';
+import {AlwatrCryptoFactory, userIdGeneratorPreConfig, userTokenGeneratorPreConfig} from '@alwatr/crypto';
 import {createLogger} from '@alwatr/logger';
 import {delay} from '@alwatr/util';
 
@@ -7,9 +7,9 @@ import type {User} from '@alwatr/type';
 const logger = createLogger('crypto/user', true);
 
 const newLocal = 'my-very-secret-key';
-const userGenerator = new AlwatrUserGenerator({
-  userId: userIdGeneratorPreConfig,
-  token: {
+const userGenerator = new AlwatrCryptoFactory({
+  hashGeneratorConfig: userIdGeneratorPreConfig,
+  tokenGeneratorConfig: {
     ...userTokenGeneratorPreConfig,
     secret: newLocal,
     duration: '2s',

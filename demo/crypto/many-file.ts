@@ -1,9 +1,9 @@
-import {AlwatrUserGenerator, userIdGeneratorPreConfig, userTokenGeneratorPreConfig} from '@alwatr/crypto';
+import {AlwatrCryptoFactory, userIdGeneratorPreConfig, userTokenGeneratorPreConfig} from '@alwatr/crypto';
 import {writeJsonFile} from '@alwatr/util/node.js';
 
-const userFactory = new AlwatrUserGenerator({
-  userId: userIdGeneratorPreConfig,
-  token: {
+const userFactory = new AlwatrCryptoFactory({
+  hashGeneratorConfig: userIdGeneratorPreConfig,
+  tokenGeneratorConfig: {
     ...userTokenGeneratorPreConfig,
     secret: 'my-very-secret-key',
     duration: '1y',
