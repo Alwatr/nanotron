@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Alwatr/eslib",
+    "url": "https://github.com/Alwatr/alwatr-es-sdk",
     "directory": "packages/validator"
   },
-  "homepage": "https://github.com/Alwatr/eslib/tree/next/packages/validator#readme",
+  "homepage": "https://github.com/Alwatr/alwatr-es-sdk/tree/next/packages/validator#readme",
   "bugs": {
-    "url": "https://github.com/Alwatr/eslib/issues"
+    "url": "https://github.com/Alwatr/alwatr-es-sdk/issues"
   },
   "dependencies": {
     "@alwatr/math": "workspace:^",

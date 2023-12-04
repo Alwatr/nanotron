@@ -26,12 +26,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Alwatr/eslib",
+    "url": "https://github.com/Alwatr/alwatr-es-sdk",
     "directory": "packages/fetch"
   },
-  "homepage": "https://github.com/Alwatr/eslib/tree/next/packages/fetch#readme",
+  "homepage": "https://github.com/Alwatr/alwatr-es-sdk/tree/next/packages/fetch#readme",
   "bugs": {
-    "url": "https://github.com/Alwatr/eslib/issues"
+    "url": "https://github.com/Alwatr/alwatr-es-sdk/issues"
   },
   "dependencies": {
     "@alwatr/logger": "workspace:^",
