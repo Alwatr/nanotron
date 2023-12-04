@@ -2,9 +2,9 @@
 
 ## Introduction
 
-An indispensable compendium for all ECMAScript (JavaScript/TypeScript) ventures.
+The Alwatr ECMAScript (JavaScript/TypeScript) SDK is a collection of client-side libraries that are used by applications utilizing Alwatr services. These libraries provide functionality for various purposes, such as logging, cryptography, fetching data, mathematical operations, server implementation, utility functions, and data validation.
 
-**This assemblage includes:**
+Here is a brief overview of the included libraries:
 
 1. [Logger](./packages/logger): Sophisticated, colorful console debugger with customizable scope
 2. [Crypto](./packages/crypto): Secure authentication HOTP token generator (based on the HMAC-based One-Time Password algorithm) and cryptographic utilities written in a concise TypeScript module.
@@ -14,7 +14,7 @@ An indispensable compendium for all ECMAScript (JavaScript/TypeScript) ventures.
 6. [Util](./packages/util): Utility library crafted in a concise TypeScript module.
 7. [Validator](./packages/validator): Straightforward and valuable validator library written in a concise TypeScript module.
 
-For comprehensive understanding and application guidelines, refer to each package's README.
+For more detailed information and guidelines on how to use each package, please refer to to each package's README.
 
 ## License
 
