@@ -16,9 +16,11 @@ const user = {
   lname: 'نجفی',
 };
 
-logger.logProperty?.('user', user);
+logger.logProperty?.('user.id', user.id);
 
 logger.logProperty?.('verifyUserId', cryptoFactory.verifyUserId(user.id));
+
+await delay(999);
 
 const userToken = cryptoFactory.generateToken([user.id, user.lpe]);
 logger.logProperty?.('user.token', userToken);
@@ -29,9 +31,11 @@ const verifyAuth = (): void => {
 };
 
 verifyAuth();
-await delay(1000);
+await delay(999);
 verifyAuth();
-await delay(1000);
+await delay(999);
 verifyAuth();
-await delay(1000);
+await delay(999);
+verifyAuth();
+await delay(999);
 verifyAuth();
