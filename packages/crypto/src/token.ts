@@ -1,20 +1,52 @@
 import {createHmac} from 'node:crypto';
 
-import {parseDuration} from '@alwatr/math';
+import {DurationString, parseDuration} from '@alwatr/math';
 
-import type {TokenGeneratorConfig, TokenStatus} from './type.js';
+import {CryptoAlgorithm, CryptoEncoding} from './type.js';
+
+export type TokenValidity = 'valid' | 'invalid' | 'expired';
+
+/**
+ * Represents the configuration for a token generator.
+ */
+export interface TokenGeneratorConfig {
+  /**
+   * The prefix to be added to the generated hash.
+   */
+  prefix: string;
+
+  /**
+   * The algorithm used for hashing.
+   */
+  algorithm: CryptoAlgorithm;
+
+  /**
+   * The encoding used for the generated hash.
+   */
+  encoding: CryptoEncoding;
+
+  /**
+   * The secret used for encryption and decryption tokens.
+   */
+  secret: string;
+
+  /**
+   * The duration for which the token is valid.
+   */
+  duration: DurationString | 'infinite';
+}
 
 /**
  * Secure authentication HOTP token generator (HMAC-based One-Time Password algorithm).
  */
 export class AlwatrTokenGenerator {
-  protected _duration: number | null;
+  private _duration: number;
 
   /**
    * The current epoch based on the configured duration.
    */
-  get epoch(): number {
-    return this._duration == null ? 0 : Math.floor(Date.now() / this._duration);
+  protected get _epoch(): number {
+    return this._duration == 0 ? 0 : Math.floor(Date.now() / this._duration);
   }
 
   /**
@@ -22,7 +54,7 @@ export class AlwatrTokenGenerator {
    * @param config The configuration for the token generator.
    */
   constructor(public config: TokenGeneratorConfig) {
-    this._duration = config.duration == null ? null : parseDuration(config.duration);
+    this._duration = config.duration == 'infinite' ? 0 : parseDuration(config.duration);
   }
 
   /**
@@ -35,33 +67,25 @@ export class AlwatrTokenGenerator {
    * ```
    */
   generate(data: string): string {
-    return this._generate(data, this.epoch);
+    return this._generate(data, this._epoch);
   }
 
   /**
    * Verifies if a token is valid.
    * @param data The data used to generate the token.
    * @param token The token to verify.
-   * @returns The status of the token verification.
+   * @returns The validity of the token.
    * @example
    * ```typescript
-   * const validateStatus = tokenGenerator.verify(`${user.id}-${user.role}`, user.auth);
+   * const validateStatus = tokenGenerator.verify([user.id,user.role].join(), user.auth);
    * ```
    */
-  verify(data: string, token: string): TokenStatus {
-    const epoch = this.epoch;
-    if (token === this._generate(data, epoch)) {
-      return 'valid';
-    }
-    else if (this._duration == null) {
-      return 'invalid';
-    }
-    else if (token === this._generate(data, epoch - 1)) {
-      return 'expired';
-    }
-    else {
-      return 'invalid';
-    }
+  verify(data: string, token: string): TokenValidity {
+    const epoch = this._epoch;
+    if (token === this._generate(data, epoch)) return 'valid';
+    if (this._duration == 0) return 'invalid';
+    if (token === this._generate(data, epoch - 1)) return 'expired';
+    return 'invalid';
   }
 
   /**
@@ -71,8 +95,11 @@ export class AlwatrTokenGenerator {
    * @returns The generated cryptographic token.
    */
   protected _generate(data: string, epoch: number): string {
-    return this.config.prefix + createHmac(this.config.algorithm, data)
-      .update(data + epoch)
-      .digest(this.config.encoding);
+    return (
+      this.config.prefix +
+      createHmac(this.config.algorithm, data)
+        .update(data + epoch)
+        .digest(this.config.encoding)
+    );
   }
 }

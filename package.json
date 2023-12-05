@@ -22,6 +22,7 @@
     "cb": "run-s clean build",
     "s": "run-s build serve",
     "w": "yarn run watch",
+    "d": "yarn run build && yarn node",
     "f": "yarn run format",
     "fl": "yarn run format:eslint",
     "fp": "yarn run format:prettier",

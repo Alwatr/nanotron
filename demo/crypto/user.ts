@@ -1,44 +1,41 @@
-import {AlwatrUserGenerator, userIdGeneratorPreConfig, userTokenGeneratorPreConfig} from '@alwatr/crypto';
+import {AlwatrCryptoFactory} from '@alwatr/crypto';
 import {createLogger} from '@alwatr/logger';
 import {delay} from '@alwatr/util';
 
-import type {User} from '@alwatr/type';
-
 const logger = createLogger('crypto/user', true);
 
-const newLocal = 'my-very-secret-key';
-const userGenerator = new AlwatrUserGenerator({
-  userId: userIdGeneratorPreConfig,
-  token: {
-    ...userTokenGeneratorPreConfig,
-    secret: newLocal,
-    duration: '2s',
-  },
+const cryptoFactory = new AlwatrCryptoFactory({
+  secret: 'my-very-secret-key',
+  duration: '2s',
 });
 
-const user: User = {
-  id: userGenerator.generateUserId(),
-  country: 'iran',
-  fullName: 'امیرمحمد نجفی',
-  gender: 'male',
+const user = {
+  id: cryptoFactory.generateUserId(),
   lpe: 1,
-  phoneNumber: 989151234567,
+  fname: 'امیرمحمد',
+  lname: 'نجفی',
 };
 
-logger.logProperty?.('user', user);
+logger.logProperty?.('user.id', user.id);
 
-logger.logOther?.('verifyUserId:', userGenerator.verifyUserId(user.id));
+logger.logProperty?.('verifyUserId', cryptoFactory.verifyUserId(user.id));
 
-const userToken = userGenerator.generateToken([user.id, user.lpe]);
-logger.logOther?.('user token:', userToken);
+await delay(999);
 
-const userTokenValidation = (): void => {
-  const tokenValidationStatus = userGenerator.verifyToken([user.id, user.lpe], userToken);
-  logger.logOther?.('user token validation status:', tokenValidationStatus);
+const userToken = cryptoFactory.generateToken([user.id, user.lpe]);
+logger.logProperty?.('user.token', userToken);
+
+const verifyAuth = (): void => {
+  const tokenValidity = cryptoFactory.verifyToken([user.id, user.lpe], userToken);
+  logger.logProperty?.('tokenValidity', tokenValidity);
 };
 
-userTokenValidation();
-await delay(2000);
-userTokenValidation();
-await delay(1000);
-userTokenValidation();
+verifyAuth();
+await delay(999);
+verifyAuth();
+await delay(999);
+verifyAuth();
+await delay(999);
+verifyAuth();
+await delay(999);
+verifyAuth();
