@@ -1,6 +1,5 @@
-import { HashGeneratorConfig } from "./hash.js";
-import { TokenGeneratorConfig } from "./token.js";
-
+import type {HashGeneratorConfig} from './hash.js';
+import type {TokenGeneratorConfig} from './token.js';
 
 /**
  * Alwatr hash generator recommended configuration for making random self-validate **user-id**.
@@ -38,5 +37,3 @@ export const userTokenGeneratorRecommendedConfig: Omit<TokenGeneratorConfig, 'se
   algorithm: 'sha224',
   encoding: 'base64url',
 };
-
-

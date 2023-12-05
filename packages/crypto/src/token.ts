@@ -2,7 +2,7 @@ import {createHmac} from 'node:crypto';
 
 import {DurationString, parseDuration} from '@alwatr/math';
 
-import {CryptoAlgorithm, CryptoEncoding} from './type.js';
+import type {CryptoAlgorithm, CryptoEncoding} from './type.js';
 
 export type TokenValidity = 'valid' | 'invalid' | 'expired';
 

@@ -7,7 +7,7 @@ import {
   userIdGeneratorRecommendedConfig,
   userTokenGeneratorRecommendedConfig,
 } from './pre-config.js';
-import {AlwatrTokenGenerator, TokenValidity} from './token.js';
+import {AlwatrTokenGenerator, type TokenValidity} from './token.js';
 
 /**
  * Configuration options for the CryptoFactory.

@@ -1,6 +1,6 @@
-import { createHash, randomBytes, type BinaryLike } from 'node:crypto';
+import {createHash, randomBytes, type BinaryLike} from 'node:crypto';
 
-import { CryptoAlgorithm, CryptoEncoding } from './type.js';
+import type {CryptoAlgorithm, CryptoEncoding} from './type.js';
 
 /**
  * Represents the configuration for a hash generator.
