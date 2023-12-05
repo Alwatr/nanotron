@@ -6,4 +6,4 @@ export * from './api.js';
 export * from './type.js';
 export * from './pre-config.js';
 
-definePackage('crypto', '1.x');
+definePackage('crypto', '3.x');
