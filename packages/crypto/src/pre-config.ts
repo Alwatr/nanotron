@@ -1,9 +1,11 @@
-import {HashGeneratorConfig, TokenGeneratorConfig} from './type.js';
+import { HashGeneratorConfig } from "./hash.js";
+import { TokenGeneratorConfig } from "./token.js";
+
 
 /**
- * Hash generator pre configuration for making random self-validate **user-id**.
+ * Alwatr hash generator recommended configuration for making random self-validate **user-id**.
  */
-export const userIdGeneratorPreConfig: HashGeneratorConfig = {
+export const userIdGeneratorRecommendedConfig: HashGeneratorConfig = {
   prefix: 'u',
   algorithm: 'sha1',
   encoding: 'base64url',
@@ -11,18 +13,17 @@ export const userIdGeneratorPreConfig: HashGeneratorConfig = {
 };
 
 /**
- * Token generator pre configuration for making secure self-validate **user-token**.
+ * Hash generator recommended configuration for making random self-validate **device-id**.
  */
-export const userTokenGeneratorPreConfig: Pick<TokenGeneratorConfig, 'algorithm' | 'encoding' | 'prefix'> = {
-  prefix: 't',
-  algorithm: 'sha224',
-  encoding: 'base64url',
+export const deviceIdGeneratorRecommendedConfig: HashGeneratorConfig = {
+  ...userIdGeneratorRecommendedConfig,
+  prefix: 'd',
 };
 
 /**
  * Hash generator pre configuration for making random self-validate **secrets**.
  */
-export const secretGeneratorPreConfig: HashGeneratorConfig = {
+export const secretGeneratorRecommendedConfig: HashGeneratorConfig = {
   prefix: 's',
   algorithm: 'sha384',
   encoding: 'base64url',
@@ -30,11 +31,12 @@ export const secretGeneratorPreConfig: HashGeneratorConfig = {
 };
 
 /**
- * Hash generator pre configuration for making random self-validate **device-id**.
+ * Token generator recommended configuration for making secure self-validate **user-token**.
  */
-export const deviceIdGeneratorPreConfig: HashGeneratorConfig = {
-  prefix: 'd',
+export const userTokenGeneratorRecommendedConfig: Omit<TokenGeneratorConfig, 'secret' | 'duration'> = {
+  prefix: 't',
   algorithm: 'sha224',
   encoding: 'base64url',
-  crcLength: 4,
 };
+
+

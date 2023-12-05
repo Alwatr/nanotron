@@ -1,26 +1,53 @@
-import {AlwatrHashGenerator} from './hash.js';
-import {AlwatrTokenGenerator} from './token.js';
+import {DurationString} from '@alwatr/math';
 
-import type {CryptoFactoryConfig, TokenStatus} from './type.js';
+import {AlwatrHashGenerator} from './hash.js';
+import {
+  deviceIdGeneratorRecommendedConfig,
+  secretGeneratorRecommendedConfig,
+  userIdGeneratorRecommendedConfig,
+  userTokenGeneratorRecommendedConfig,
+} from './pre-config.js';
+import {AlwatrTokenGenerator, TokenValidity} from './token.js';
+
+/**
+ * Configuration options for the CryptoFactory.
+ */
+export interface CryptoFactoryConfig {
+  /**
+   * The secret used for encryption and decryption tokens.
+   */
+  secret: string;
+
+  /**
+   * The duration for which the token is valid.
+   */
+  duration: DurationString | 'infinite';
+}
 
 /**
  * Crypto factory for generating self-validate user-id, user-token, secret, device-id.
  */
 export class AlwatrCryptoFactory {
-  protected _tokenGenerator: AlwatrTokenGenerator;
-  protected _hashGenerator: AlwatrHashGenerator;
+  protected _generators;
 
   /**
    * Creates a new instance of crypto factory.
    * @param config The configuration used to create the crypto factory.
    */
   constructor(config: CryptoFactoryConfig) {
-    this._hashGenerator = new AlwatrHashGenerator(config.hashGeneratorConfig);
-    this._tokenGenerator = new AlwatrTokenGenerator(config.tokenGeneratorConfig);
+    this._generators = {
+      secret: new AlwatrHashGenerator(secretGeneratorRecommendedConfig),
+      deviceId: new AlwatrHashGenerator(deviceIdGeneratorRecommendedConfig),
+      userId: new AlwatrHashGenerator(userIdGeneratorRecommendedConfig),
+      token: new AlwatrTokenGenerator({
+        ...userTokenGeneratorRecommendedConfig,
+        ...config
+      }),
+    } as const;
   }
 
   /**
-   * Generates a new self-verifiable user ID.
+   * Generate self-verifiable user ID.
    * @returns The generated user ID.
    * @example
    * ```typescript
@@ -31,11 +58,11 @@ export class AlwatrCryptoFactory {
    * ```
    */
   generateUserId(): string {
-    return this._hashGenerator.generateRandomSelfValidate();
+    return this._generators.userId.generateRandomSelfValidate();
   }
 
   /**
-   * Validates a user ID without token.
+   * Verify a user ID without token.
    * @param userId The user ID to verify.
    * @returns A boolean indicating whether the user ID is valid.
    * @example
@@ -46,27 +73,27 @@ export class AlwatrCryptoFactory {
    * ```
    */
   verifyUserId(userId: string): boolean {
-    return this._hashGenerator.verifySelfValidate(userId);
+    return this._generators.userId.verifySelfValidate(userId);
   }
 
   /**
-   * Generates a user authentication token.
-   * @param uniquelyList The list of values to generate the token from.
+   * Generate authentication token.
+   * @param uniquelyList The list of uniq values to generate the token from.
    * @returns The generated user token.
    * @example
    * ```typescript
    * const userToken = cryptoFactory.generateToken([user.id, user.lpe]);
    * ```
    */
-  generateToken(uniquelyList: (string | number | boolean)[]): string {
-    return this._tokenGenerator.generate(uniquelyList.join());
+  generateToken(uniquelyList: (string | number)[]): string {
+    return this._generators.token.generate(uniquelyList.join());
   }
 
   /**
-   * Verifies a user authentication token.
-   * @param uniquelyList The list of values used to generate the token.
+   * Verify a authentication token.
+   * @param uniquelyList The list of uniq values used to generate the token.
    * @param token The user token to verify.
-   * @returns The status of the token verification.
+   * @returns The validity of the token.
    * @example
    * ```typescript
    * if (!cryptoFactory.verifyToken([user.id, user.lpe], userToken)) {
@@ -74,12 +101,12 @@ export class AlwatrCryptoFactory {
    * }
    * ```
    */
-  verifyToken(uniquelyList: (string | number | boolean)[], token: string): TokenStatus {
-    return this._tokenGenerator.verify(uniquelyList.join(), token);
+  verifyToken(uniquelyList: (string | number)[], token: string): TokenValidity {
+    return this._generators.token.verify(uniquelyList.join(), token);
   }
 
   /**
-   * Generates a new self-verifiable secret.
+   * Generate self-verifiable secret.
    * @returns The generated secret.
    * @example
    * ```typescript
@@ -90,13 +117,13 @@ export class AlwatrCryptoFactory {
    * ```
    */
   generateSecret(): string {
-    return this._hashGenerator.generateRandomSelfValidate();
+    return this._generators.secret.generateRandomSelfValidate();
   }
 
   /**
-   * Validates a user ID without token.
-   * @param secret The user ID to verify.
-   * @returns A boolean indicating whether the user ID is valid.
+   * Verify a secret.
+   * @param secret The secret to verify.
+   * @returns A boolean indicating whether the secret is valid.
    * @example
    * ```typescript
    * if (!cryptoFactory.verifySecret(config.storageToken)) {
@@ -105,11 +132,11 @@ export class AlwatrCryptoFactory {
    * ```
    */
   verifySecret(secret: string): boolean {
-    return this._hashGenerator.verifySelfValidate(secret);
+    return this._generators.secret.verifySelfValidate(secret);
   }
 
   /**
-   * Generates a new self-verifiable device ID.
+   * Generate self-verifiable device ID.
    * @returns The generated device ID.
    * @example
    * ```typescript
@@ -117,11 +144,11 @@ export class AlwatrCryptoFactory {
    * ```
    */
   generateDeviceId(): string {
-    return this._hashGenerator.generateRandomSelfValidate();
+    return this._generators.deviceId.generateRandomSelfValidate();
   }
 
   /**
-   * Validates a device ID.
+   * Verify a device ID.
    * @param deviceId The device ID to verify.
    * @returns A boolean indicating whether the device ID is valid.
    * @example
@@ -136,6 +163,6 @@ export class AlwatrCryptoFactory {
    * ```
    */
   verifyDeviceId(deviceId: string): boolean {
-    return this._hashGenerator.verifySelfValidate(deviceId);
+    return this._generators.deviceId.verifySelfValidate(deviceId);
   }
 }

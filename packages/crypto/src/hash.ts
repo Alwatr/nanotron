@@ -1,6 +1,31 @@
 import { createHash, randomBytes, type BinaryLike } from 'node:crypto';
 
-import type { HashGeneratorConfig } from './type.js';
+import { CryptoAlgorithm, CryptoEncoding } from './type.js';
+
+/**
+ * Represents the configuration for a hash generator.
+ */
+export interface HashGeneratorConfig {
+  /**
+   * The prefix to be added to the generated hash.
+   */
+  prefix: string;
+
+  /**
+   * The algorithm used for hashing.
+   */
+  algorithm: CryptoAlgorithm;
+
+  /**
+   * The encoding used for the generated hash.
+   */
+  encoding: CryptoEncoding;
+
+  /**
+   * The length of the CRC (Cyclic Redundancy Check) value.
+   */
+  crcLength: number;
+}
 
 /**
  * Secure **self-validate** hash generator.
@@ -97,15 +122,12 @@ export class AlwatrHashGenerator {
    * @example
    * ```typescript
    * if (!hashGenerator.verifySelfValidate(hash)) {
-   *   new Error('invalid_user');
+   *   new Error('invalid_hash');
    * }
    * ```
    */
   verifySelfValidate(hash: string): boolean {
-    const gapPos =
-      this.config.crcLength == null || this.config.crcLength < 1
-        ? hash.length - (hash.length - this.config.prefix.length) / 2
-        : hash.length - this.config.crcLength;
+    const gapPos = hash.length - this.config.crcLength;
     const mainHash = hash.slice(0, gapPos);
     const crcHash = hash.slice(gapPos);
     return crcHash === this.generateCrc(mainHash);
