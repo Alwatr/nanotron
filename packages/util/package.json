@@ -46,7 +46,7 @@
     "@alwatr/util": "workspace:^"
   },
   "devDependencies": {
-    "@types/node": "^20.10.3",
+    "@types/node": "^20.10.4",
     "flatstr": "^1.0.12"
   }
 }
