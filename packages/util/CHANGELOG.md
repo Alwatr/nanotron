@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.3](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/util@1.3.2...@alwatr/util@1.3.3) (2023-12-09)
+
+**Note:** Version bump only for package @alwatr/util
+
 ## [1.3.2](https://github.com/Alwatr/eslib/compare/@alwatr/util@1.3.1...@alwatr/util@1.3.2) (2023-11-29)
 
 **Note:** Version bump only for package @alwatr/util

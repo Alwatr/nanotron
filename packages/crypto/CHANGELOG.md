@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/crypto@2.0.0...@alwatr/crypto@3.0.0) (2023-12-09)
+
+### Bug Fixes
+
+* **crypto:** use import type ([30e3bac](https://github.com/Alwatr/alwatr-es-sdk/commit/30e3bacb187d58417cb62e2a1511de4ade3f80c0)) by @njfamirm
+
+### Features
+
+* **crypto/api:**  AlwatrCryptoFactory with secret and device id ([2d754a1](https://github.com/Alwatr/alwatr-es-sdk/commit/2d754a19b2f04f64d0828e31ba004fc192f466d3)) by @njfamirm
+* **crypto/api:**  device id generator preconfig ([71e80d6](https://github.com/Alwatr/alwatr-es-sdk/commit/71e80d63743579505a6be17d014c364e9f6cf55c)) by @njfamirm
+* **crypto:** complete rewrite with new api ([3d56861](https://github.com/Alwatr/alwatr-es-sdk/commit/3d56861a2857e760c7cd5f03be98f003738fc7a9)) by @AliMD
+* **crypto:** rename user file to api ([52343ea](https://github.com/Alwatr/alwatr-es-sdk/commit/52343ead04c23f50bedac2caa01f46bf489ab318)) by @njfamirm
+
+### BREAKING CHANGES
+
+* **crypto:** new api
+* **crypto/api:** rename AlwatrUserGenerator to AlwatrCryptoFactory and change config
+
 # [2.0.0](https://github.com/Alwatr/eslib/compare/@alwatr/crypto@1.2.1...@alwatr/crypto@2.0.0) (2023-11-29)
 
 ### Features
