@@ -15,12 +15,19 @@ export const definePackage = (packageName: string, version: string) => {
   logger.logMethodArgs?.('define-package', {packageName, version});
 
   if (packageName in Alwatr.packages) {
-    logger.accident?.('define-package', 'duplicate_package_defined', {
+    logger.error('define-package', 'duplicate_package_defined', {
       packageName,
       new: version,
       old: Alwatr.packages[packageName],
     });
-    return;
+    throw new Error('duplicate_package_defined');
+  }
+
+  if (packageName.indexOf('@alwatr') === -1) {
+    logger.error('define-package', 'package_name_starts_with_alwatr_scope', {
+      packageName,
+    });
+    throw new Error('package_name_starts_with_alwatr_scope');
   }
 
   Alwatr.packages[packageName] = version;
