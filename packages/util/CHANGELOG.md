@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/util@1.3.4...@alwatr/util@1.3.5) (2023-12-11)
+
+### Bug Fixes
+
+* **util:** dependency cycle ([65831a7](https://github.com/Alwatr/alwatr-es-sdk/commit/65831a7458e33f972b83801d9d8f78326aa8872f)) by @njfamirm
+
 ## [1.3.4](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/util@1.3.3...@alwatr/util@1.3.4) (2023-12-11)
 
 **Note:** Version bump only for package @alwatr/util
