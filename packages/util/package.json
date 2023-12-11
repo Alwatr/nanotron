@@ -42,8 +42,7 @@
   "dependencies": {
     "@alwatr/logger": "workspace:^",
     "@alwatr/math": "workspace:^",
-    "@alwatr/type": "workspace:^",
-    "@alwatr/util": "workspace:^"
+    "@alwatr/type": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "^20.10.4",
