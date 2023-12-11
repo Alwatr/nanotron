@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/nano-server",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Elegant powerful nodejs server for nanoservice use cases, written in tiny TypeScript module.",
   "keywords": [
     "server",

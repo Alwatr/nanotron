@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.3](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/logger@2.3.2...@alwatr/logger@2.3.3) (2023-12-11)
+
+### Bug Fixes
+
+* **logger/define-package:** throw error if duplicate_package_defined ([c32be46](https://github.com/Alwatr/alwatr-es-sdk/commit/c32be4680bd8b8315c54f63d380634448a989bff)) by @njfamirm
+
 ## [2.3.2](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/logger@2.3.1...@alwatr/logger@2.3.2) (2023-12-09)
 
 **Note:** Version bump only for package @alwatr/logger
