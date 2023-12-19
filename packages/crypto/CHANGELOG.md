@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/crypto@3.0.3...@alwatr/crypto@3.0.4) (2023-12-19)
+
+**Note:** Version bump only for package @alwatr/crypto
+
 ## [3.0.3](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/crypto@3.0.2...@alwatr/crypto@3.0.3) (2023-12-19)
 
 **Note:** Version bump only for package @alwatr/crypto

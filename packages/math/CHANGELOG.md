@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/math@1.3.0...@alwatr/math@1.3.1) (2023-12-19)
+
+**Note:** Version bump only for package @alwatr/math
+
 # [1.3.0](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/math@1.2.4...@alwatr/math@1.3.0) (2023-12-19)
 
 ### Features
