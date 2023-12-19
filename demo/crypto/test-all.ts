@@ -1,4 +1,4 @@
-import { AlwatrCryptoFactory } from "@alwatr/crypto";
+import {AlwatrCryptoFactory} from '@alwatr/crypto';
 
 const cryptoFactory = new AlwatrCryptoFactory({
   secret: 'my-very-secret-key',
@@ -11,11 +11,11 @@ for (let i = 0; i <= 10; i++) {
   const userId = cryptoFactory.generateUserId();
   const token = cryptoFactory.generateToken([userId]);
 
-  console.log({ deviceId, secret, userId, token})
+  console.log({deviceId, secret, userId, token});
   console.log({
     verifyDeviceId: cryptoFactory.verifyDeviceId(deviceId),
     verifySecret: cryptoFactory.verifySecret(secret),
     verifyUserId: cryptoFactory.verifyUserId(userId),
     verifyToken: cryptoFactory.verifyToken([userId], token),
-  })
+  });
 }

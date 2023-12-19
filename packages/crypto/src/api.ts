@@ -41,7 +41,7 @@ export class AlwatrCryptoFactory {
       userId: new AlwatrHashGenerator(userIdGeneratorRecommendedConfig),
       token: new AlwatrTokenGenerator({
         ...userTokenGeneratorRecommendedConfig,
-        ...config
+        ...config,
       }),
     } as const;
   }
