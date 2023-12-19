@@ -37,7 +37,6 @@ export type {
 
 definePackage('nano-server', '1.x');
 
-
 export class AlwatrNanoServer {
   protected _config: NanoServerConfig;
   protected _logger: AlwatrLogger;
