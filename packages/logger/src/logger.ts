@@ -66,7 +66,7 @@ const _sanitizeDomain = (domain: string): string => {
  */
 export const createLogger = (domain: string, devMode = DEV_MODE): AlwatrLogger => {
   const color = _getNextColor();
-  const styleScope = _style.scope.replaceAll('{{color}}', color);
+  const styleScope = _style.scope.replace('{{color}}', color);
   domain = _sanitizeDomain(domain);
 
   /**
