@@ -1,12 +1,14 @@
+import {globalScope} from '@alwatr/logger';
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type IndexableWindow = Record<string, any>;
 
-export const win = globalThis as IndexableWindow;
+export const win = globalScope as IndexableWindow;
 
 const requestAnimationFrameFallback = (callback: FrameRequestCallback): ReturnType<typeof setTimeout> =>
   setTimeout(() => callback(Date.now()), 1000 / 60);
 
-export const requestAnimationFrame: typeof globalThis.requestAnimationFrame =
+export const requestAnimationFrame: typeof globalScope.requestAnimationFrame =
   win.requestAnimationFrame ||
   win.webkitRequestAnimationFrame ||
   win.mozRequestAnimationFrame ||
@@ -17,5 +19,5 @@ const requestIdleCallbackFallback = (
   options?: IdleRequestOptions,
 ): ReturnType<typeof setTimeout> => setTimeout(callback, options?.timeout ?? 2000);
 
-export const requestIdleCallback: typeof globalThis.requestIdleCallback =
+export const requestIdleCallback: typeof globalScope.requestIdleCallback =
   win.requestIdleCallback || win.webkitRequestIdleCallback || win.mozRequestIdleCallback || requestIdleCallbackFallback;

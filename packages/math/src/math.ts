@@ -1,4 +1,4 @@
-import {definePackage} from '@alwatr/logger';
+import {definePackage, globalScope} from '@alwatr/logger';
 
 import type {TransformRangeOptions} from './type.js';
 export {UnicodeDigits, type UnicodeLangKeys} from './unicode-digits.js';
@@ -158,7 +158,7 @@ export const random = {
   shuffle: <T>(array: T[]): T[] => array.sort(() => random.number - 0.5),
 
   getRandomValues: <T extends ArrayBufferView | null>(array: T): T => {
-    return globalThis.crypto.getRandomValues(array);
+    return globalScope.crypto.getRandomValues(array);
     // TODO: check msCrypto
   },
 
@@ -172,8 +172,8 @@ export const random = {
    * ```
    */
   get uuid(): `${string}-${string}-${string}-${string}-${string}` {
-    if (globalThis.crypto?.randomUUID) {
-      return globalThis.crypto.randomUUID() as `${string}-${string}-${string}-${string}-${string}`;
+    if (globalScope.crypto?.randomUUID) {
+      return globalScope.crypto.randomUUID() as `${string}-${string}-${string}-${string}-${string}`;
     }
     // else
     const bytes = random.getRandomValues(new Uint8Array(16));
