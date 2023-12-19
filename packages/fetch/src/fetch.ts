@@ -1,4 +1,4 @@
-import {createLogger, definePackage, NODE_MODE} from '@alwatr/logger';
+import {createLogger, definePackage, NODE_MODE, globalScope} from '@alwatr/logger';
 import {getClientId, delay} from '@alwatr/util';
 
 import type {FetchOptions} from './type.js';
@@ -10,9 +10,8 @@ const logger = createLogger('alwatr/fetch');
 
 definePackage('fetch', '2.x');
 
-
 let alwatrCacheStorage: Cache;
-const cacheSupported = 'caches' in globalThis;
+const cacheSupported = 'caches' in globalScope;
 
 const duplicateRequestStorage: Record<string, Promise<Response>> = {};
 
@@ -191,11 +190,7 @@ async function _handleCacheStrategy(options: Required<FetchOptions>): Promise<Re
     case 'cache_only': {
       const cachedResponse = await cacheStorage.match(request);
       if (cachedResponse == null) {
-        logger.accident(
-          '_handleCacheStrategy',
-          'fetch_cache_not_found',
-          {url: request.url},
-        );
+        logger.accident('_handleCacheStrategy', 'fetch_cache_not_found', {url: request.url});
         throw new Error('fetch_cache_not_found');
       }
       // else
@@ -304,7 +299,7 @@ async function _handleRetryPattern(options: Required<FetchOptions>): Promise<Res
   catch (err) {
     logger.accident('fetch', 'fetch_failed_retry', err);
 
-    if (globalThis.navigator?.onLine === false) {
+    if (globalScope.navigator?.onLine === false) {
       throw new Error('offline');
     }
 
@@ -320,7 +315,7 @@ async function _handleRetryPattern(options: Required<FetchOptions>): Promise<Res
  */
 function _handleTimeout(options: FetchOptions): Promise<Response> {
   if (options.timeout === 0) {
-    return globalThis.fetch(options.url, options);
+    return globalScope.fetch(options.url, options);
   }
   // else
   logger.logMethod?.('_handleTimeout');
@@ -346,7 +341,7 @@ function _handleTimeout(options: FetchOptions): Promise<Response> {
     //   });
     // });
 
-    globalThis
+    globalScope
       .fetch(options.url, options)
       .then((response) => resolved(response))
       .catch((reason) => reject(reason))
