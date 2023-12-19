@@ -24,7 +24,7 @@ export const definePackage = (packageName: string, version: string) => {
     throw new Error('duplicate_package_defined');
   }
 
-  if (packageName.indexOf('@alwatr') === -1) {
+  if (packageName.indexOf('@alwatr') !== -1) {
     logger.accident('define-package', 'package_name_starts_with_alwatr_scope', {
       packageName,
     });
