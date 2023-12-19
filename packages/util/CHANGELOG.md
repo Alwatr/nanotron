@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/util@1.3.5...@alwatr/util@1.4.0) (2023-12-19)
+
+### Features
+
+* use globalScope instead globalThis ([94342bb](https://github.com/Alwatr/alwatr-es-sdk/commit/94342bb7b467376173a65d8cdf6bb106338f425b)) by @njfamirm
+
 ## [1.3.5](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/util@1.3.4...@alwatr/util@1.3.5) (2023-12-11)
 
 ### Bug Fixes

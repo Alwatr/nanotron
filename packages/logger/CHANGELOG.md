@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/logger@2.3.3...@alwatr/logger@2.4.0) (2023-12-19)
+
+### Bug Fixes
+
+* **logger:** duplicate package definition and throw error ([640ce6a](https://github.com/Alwatr/alwatr-es-sdk/commit/640ce6acff999205569d978e8c32c458834d85ed)) by @AliMD
+* **logger:** styleScope.replace in createLogger function ([d209a9b](https://github.com/Alwatr/alwatr-es-sdk/commit/d209a9ba770a4e939726e80731c08a4bc00c6202)) by @AliMD
+
+### Features
+
+* use globalScope instead globalThis ([94342bb](https://github.com/Alwatr/alwatr-es-sdk/commit/94342bb7b467376173a65d8cdf6bb106338f425b)) by @njfamirm
+
 ## [2.3.3](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/logger@2.3.2...@alwatr/logger@2.3.3) (2023-12-11)
 
 ### Bug Fixes

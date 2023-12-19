@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/fetch@2.1.5...@alwatr/fetch@2.2.0) (2023-12-19)
+
+### Bug Fixes
+
+* **fetch:** AbortController not support issue ([10f6dbc](https://github.com/Alwatr/alwatr-es-sdk/commit/10f6dbc816d6f07a81d49945ec0291b132a75fb7)) by @AliMD
+
+### Features
+
+* use globalScope instead globalThis ([94342bb](https://github.com/Alwatr/alwatr-es-sdk/commit/94342bb7b467376173a65d8cdf6bb106338f425b)) by @njfamirm
+
 ## [2.1.5](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/fetch@2.1.4...@alwatr/fetch@2.1.5) (2023-12-11)
 
 **Note:** Version bump only for package @alwatr/fetch
