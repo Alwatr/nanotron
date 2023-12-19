@@ -33,7 +33,8 @@ export async function serviceRequest<T extends AlwatrServiceResponse = AlwatrSer
   let response: Response;
   try {
     response = await fetch(options);
-  } catch (err) {
+  }
+  catch (err) {
     const errMessage = (err as Error).message;
     if (errMessage !== 'fetch_cache_not_found') {
       logger.error('serviceRequest', (err as Error).message || 'fetch_failed', err, options);
@@ -44,7 +45,8 @@ export async function serviceRequest<T extends AlwatrServiceResponse = AlwatrSer
   let responseText: string;
   try {
     responseText = await response.text();
-  } catch (err) {
+  }
+  catch (err) {
     logger.error('serviceRequest', 'invalid_response', err, {
       response,
     });
@@ -54,7 +56,8 @@ export async function serviceRequest<T extends AlwatrServiceResponse = AlwatrSer
   let responseJson: T;
   try {
     responseJson = JSON.parse(responseText);
-  } catch (err) {
+  }
+  catch (err) {
     logger.error('serviceRequest', 'invalid_json', err, {responseText});
     throw err;
   }
@@ -63,7 +66,8 @@ export async function serviceRequest<T extends AlwatrServiceResponse = AlwatrSer
     if (typeof responseJson.errorCode === 'string') {
       logger.accident('serviceRequest', responseJson.errorCode, {responseJson});
       throw new Error(responseJson.errorCode);
-    } else {
+    }
+    else {
       logger.error('serviceRequest', 'fetch_nok', {responseJson});
       throw new Error('fetch_nok');
     }
@@ -200,7 +204,8 @@ async function _handleCacheStrategy(options: Required<FetchOptions>): Promise<Re
           cacheStorage.put(request, networkResponse.clone());
         }
         return networkResponse;
-      } catch (err) {
+      }
+      catch (err) {
         const cachedResponse = await cacheStorage.match(request);
         if (cachedResponse != null) {
           return cachedResponse;
@@ -263,7 +268,8 @@ async function _handleRemoveDuplicate(options: Required<FetchOptions>): Promise<
     }
 
     return response.clone();
-  } catch (err) {
+  }
+  catch (err) {
     // clean cache on any error.
     delete duplicateRequestStorage[cacheKey];
     throw err;
@@ -289,7 +295,8 @@ async function _handleRetryPattern(options: Required<FetchOptions>): Promise<Res
     }
     // else
     throw new Error('fetch_server_error');
-  } catch (err) {
+  }
+  catch (err) {
     logger.accident('fetch', 'fetch_failed_retry', err);
 
     if (globalScope.navigator?.onLine === false) {
