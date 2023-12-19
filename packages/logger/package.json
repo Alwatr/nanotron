@@ -32,6 +32,6 @@
     "url": "https://github.com/Alwatr/alwatr-es-sdk/issues"
   },
   "devDependencies": {
-    "@types/node": "^20.10.4"
+    "@types/node": "^20.10.5"
   }
 }
