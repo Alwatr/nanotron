@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/logger@2.4.0...@alwatr/logger@2.4.1) (2023-12-19)
+
+### Bug Fixes
+
+* **logger:** define package scope ([b54c2ef](https://github.com/Alwatr/alwatr-es-sdk/commit/b54c2ef08a7b9e61068fd6a3faeccd3e4e7a6a09)) by @njfamirm
+
 # [2.4.0](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/logger@2.3.3...@alwatr/logger@2.4.0) (2023-12-19)
 
 ### Bug Fixes

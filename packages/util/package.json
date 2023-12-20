@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/util",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Util library written in tiny TypeScript module.",
   "keywords": [
     "util",

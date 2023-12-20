@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/util@1.4.0...@alwatr/util@1.4.1) (2023-12-19)
+
+**Note:** Version bump only for package @alwatr/util
+
 # [1.4.0](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/util@1.3.5...@alwatr/util@1.4.0) (2023-12-19)
 
 ### Features
