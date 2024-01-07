@@ -34,7 +34,7 @@
     "url": "https://github.com/Alwatr/alwatr-es-sdk/issues"
   },
   "dependencies": {
-    "@alwatr/logger": "workspace:^",
+    "@alwatr/logger": "^2.4.1",
     "@alwatr/util": "workspace:^"
   },
   "devDependencies": {

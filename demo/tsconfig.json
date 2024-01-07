@@ -14,7 +14,6 @@
   "include": ["**/*.ts"],
   "exclude": ["*.d.ts", "node_modules"],
   "references": [
-    {"path": "../packages/logger"},
     {"path": "../packages/fetch"},
     {"path": "../packages/type"},
     {"path": "../packages/crypto"},

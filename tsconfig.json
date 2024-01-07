@@ -10,7 +10,6 @@
   "exclude": [],
   "references": [
     // packages
-    {"path": "./packages/logger"},
     {"path": "./packages/fetch"},
     {"path": "./packages/math"},
     {"path": "./packages/crypto"},

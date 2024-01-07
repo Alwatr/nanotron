@@ -8,7 +8,7 @@
   "dependencies": {
     "@alwatr/crypto": "workspace:^",
     "@alwatr/fetch": "workspace:^",
-    "@alwatr/logger": "workspace:^",
+    "@alwatr/logger": "^2.4.1",
     "@alwatr/math": "workspace:^",
     "@alwatr/util": "workspace:^",
     "@alwatr/validator": "workspace:^"
