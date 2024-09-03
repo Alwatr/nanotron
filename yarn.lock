@@ -6,12 +6,12 @@ __metadata:
   cacheKey: 10c0
 
 "@75lb/deep-merge@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "@75lb/deep-merge@npm:1.1.1"
+  version: 1.1.2
+  resolution: "@75lb/deep-merge@npm:1.1.2"
   dependencies:
-    lodash.assignwith: "npm:^4.2.0"
+    lodash: "npm:^4.17.21"
     typical: "npm:^7.1.1"
-  checksum: cbff3cc6410e91e268452f147fc40be660c3accb0a9cd066bff0729d52047fb7a74816a7bd02544bfa16ae0fef5ae8c92f66fa3f6db5f6785da2730617600614
+  checksum: 6183be2879b31b5bbcf1d234cee212db7345fda09a8d77f69045702e5923ea34dd06542362fff7348f27aa1be7c3222c8b51bb06ba65b0579a43585a85e65888
   languageName: node
   linkType: hard
 
@@ -4787,13 +4787,6 @@ __metadata:
   dependencies:
     p-locate: "npm:^6.0.0"
   checksum: 139e8a7fe11cfbd7f20db03923cacfa5db9e14fa14887ea121345597472b4a63c1a42a8a5187defeeff6acf98fd568da7382aa39682d38f0af27433953a97751
-  languageName: node
-  linkType: hard
-
-"lodash.assignwith@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "lodash.assignwith@npm:4.2.0"
-  checksum: 069b0ce72d05ee19ec848ac1dddf612ab956960a347d7b4da07c4880debaea391896fd35cd731690eef70ea2ed165d983387af75bb0b15fbeba293eb15d39464
   languageName: node
   linkType: hard
 
