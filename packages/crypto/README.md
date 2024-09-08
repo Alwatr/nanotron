@@ -1,4 +1,4 @@
-# Alwatr Crypto - `@alwatr/crypto`
+# Crypto
 
 A robust generator of secure authentication HOTP tokens, employing the HMAC-based One-Time Password algorithm, accompanied by a suite of cryptographic utilities, all encapsulated within a compact TypeScript module.
 

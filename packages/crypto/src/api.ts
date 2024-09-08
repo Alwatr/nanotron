@@ -1,5 +1,3 @@
-import {DurationString} from '@alwatr/math';
-
 import {AlwatrHashGenerator} from './hash.js';
 import {
   deviceIdGeneratorRecommendedConfig,
@@ -8,6 +6,8 @@ import {
   userTokenGeneratorRecommendedConfig,
 } from './pre-config.js';
 import {AlwatrTokenGenerator, type TokenValidity} from './token.js';
+
+import type {DurationString} from '@alwatr/math';
 
 /**
  * Configuration options for the CryptoFactory.
