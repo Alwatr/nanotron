@@ -10,15 +10,7 @@
   "exclude": [],
   "references": [
     // packages
-    {"path": "./packages/fetch"},
-    {"path": "./packages/math"},
     {"path": "./packages/crypto"},
-    {"path": "./packages/util"},
-    {"path": "./packages/type"},
-    {"path": "./packages/nano-server"},
-    {"path": "./packages/validator"},
-
-    // demo
-    {"path": "./demo"}
+    {"path": "./packages/nano-server"}
   ]
 }
