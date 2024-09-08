@@ -1,4 +1,4 @@
-# Alwatr NanoServer - `@alwatr/nano-server`
+# NanoServer
 
 Elegant powerful nodejs server for nanoservice use cases, written in tiny TypeScript module.
 
