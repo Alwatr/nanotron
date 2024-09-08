@@ -9,7 +9,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/crypto@workspace:packages/crypto"
   dependencies:
-    "@alwatr/logger": "npm:^2.4.1"
+    "@alwatr/logger": "npm:^3.2.12"
     "@alwatr/math": "npm:^1.3.1"
     "@alwatr/nano-build": "npm:^1.3.8"
     "@alwatr/prettier-config": "npm:^1.0.4"
@@ -20,6 +20,13 @@ __metadata:
     typescript: "npm:^5.4.3"
   languageName: unknown
   linkType: soft
+
+"@alwatr/dedupe@npm:^1.0.12":
+  version: 1.0.12
+  resolution: "@alwatr/dedupe@npm:1.0.12"
+  checksum: 10c0/b2ac59809e7c568260a14d898ec4167bb52d5967fbccfe9a9b02b8512919d464b2e20872addad0beff7f8505e1dd343e57649f69ff8b0595541d0cb4956991d4
+  languageName: node
+  linkType: hard
 
 "@alwatr/eslint-config@npm:^1.2.5":
   version: 1.2.5
@@ -41,6 +48,16 @@ __metadata:
   version: 2.4.1
   resolution: "@alwatr/logger@npm:2.4.1"
   checksum: 10c0/6fef967cab9a2e734d2c1f7bdc66fb3fd1b515830a9734ca5e035973011b7708863005b49181e5fa19313ea71bfd02974c602511eba00bd632ef6cdfcfd5460a
+  languageName: node
+  linkType: hard
+
+"@alwatr/logger@npm:^3.2.12":
+  version: 3.2.12
+  resolution: "@alwatr/logger@npm:3.2.12"
+  dependencies:
+    "@alwatr/dedupe": "npm:^1.0.12"
+    "@alwatr/platform-info": "npm:^1.1.11"
+  checksum: 10c0/4445ea4ad025091c9bf6a1d07878d3d48fa1721137a03d79ad543ae9a2218b7ad68c77d855310733ab196b59f065cf547fd6d3281a097bbfa9dc430a78494c60
   languageName: node
   linkType: hard
 
@@ -68,7 +85,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/nano-server@workspace:packages/nano-server"
   dependencies:
-    "@alwatr/logger": "npm:^2.4.1"
+    "@alwatr/logger": "npm:^3.2.12"
     "@alwatr/math": "npm:^1.3.1"
     "@alwatr/nano-build": "npm:^1.3.8"
     "@alwatr/prettier-config": "npm:^1.0.4"
@@ -79,6 +96,13 @@ __metadata:
     typescript: "npm:^5.4.3"
   languageName: unknown
   linkType: soft
+
+"@alwatr/platform-info@npm:^1.1.11":
+  version: 1.1.11
+  resolution: "@alwatr/platform-info@npm:1.1.11"
+  checksum: 10c0/9c04a76459f31b1bbac37f2ae802554a9af593f9037e3b1fa6254d2ff5de3bf0e2cb81545fb57e7550173433f2cacaddb1f391fb6452c1df6d0f9c3ca1440228
+  languageName: node
+  linkType: hard
 
 "@alwatr/prettier-config@npm:^1.0.4":
   version: 1.0.4
