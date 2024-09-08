@@ -1,21 +1,27 @@
-# Alwatr ES SDK
+# ECMAScript Nano Libs
 
-## Introduction
-
-The Alwatr ECMAScript (JavaScript/TypeScript) SDK is a collection of client-side libraries that are used by applications utilizing Alwatr services. These libraries provide functionality for various purposes, such as logging, cryptography, fetching data, mathematical operations, server implementation, utility functions, and data validation.
+This repository contains numerous small utility packages. These packages serve various useful purposes and are written in nano ESModule without any dependencies.
 
 Here is a brief overview of the included libraries:
 
-1. [Logger](./packages/logger): Sophisticated, colorful console debugger with customizable scope
-2. [Crypto](./packages/crypto): Secure authentication HOTP token generator (based on the HMAC-based One-Time Password algorithm) and cryptographic utilities written in a concise TypeScript module.
-3. [Fetch](./packages/fetch): Enhanced fetch API with cache strategy, retry pattern, timeout, auxiliary methods, and improved types written in a concise TypeScript ES module.
-4. [Math](./packages/math): Simple yet practical Math library written in a concise TypeScript module.
-5. [Nano Server](./packages/nano-server): Exquisite, powerful nodejs server tailored for nanoservice use cases, written in a concise TypeScript module.
-6. [Util](./packages/util): Utility library crafted in a concise TypeScript module.
-7. [Validator](./packages/validator): Straightforward and valuable validator library written in a concise TypeScript module.
+1. [`tsconfig-base`](./packages/tsconfig-base#readme): This is a foundational TypeScript configuration used for Alwatr projects.
+2. [`flat-string`](./packages/flat-string#readme): The `flat-string` function flattens the underlying C structures of a concatenated JavaScript string.
+3. [`global-scope`](./packages/global-scope#readme): This TypeScript module provides a cross-platform alternative to `globalThis` named `globalScope`. This object works across different environments, including browsers (`window`), Node.js (`global`), and Web Workers (`self`).
+4. [`platform-info`](./packages/platform-info#readme): This module offers a method to identify the current platform where the script is being executed. It defines a `platformInfo` constant that contains details about the current platform.
+5. [`prettier-config`](./packages/prettier-config#readme): These are Alwatr's shared configurations for Prettier.
+6. [`eslint-config`](./packages/eslint-config#readme): This is Alwatr's ECMAScript Style Guide presented as shareable ESLint configurations.
+7. [`deep-clone`](./packages/deep-clone#readme): This function allows you to clone deeply nested objects and arrays in JavaScript.
+8. [`nano-build`](./packages/nano-build#readme): This is a tool for building/bundling ECMAScript, TypeScript, and JavaScript libraries. It's user-friendly, requires no setup, follows best practices, has no dependencies, and uses esbuild for improved performance.
+9. [`type-helper`](./packages/type-helper#readme): Collection of useful typescript type helpers.
+10. [`wait`](./packages/wait#readme): Comprehensive toolkit for managing asynchronous operations.
+11. [`exit-hook`](./packages/exit-hook#readme): A utility for registering exit handlers in Node.js.
+12. [`flatomise`](./packages/flatomise#readme): A utility for creating promises that can be externally resolved or rejected.
+13. [`async-queue`](./packages/async-queue#readme): A queue that executes async tasks in order like mutex and semaphore methodology for javascript and typescript.
+14. [`node-fs`](./packages/node-fs#readme): Enhanced file system operations in Node.js, including reading, writing, and handling JSON files, with both synchronous and asynchronous options.
+15. [`is-number`](./packages/is-number#readme): A simple utility to check if a value is a number.
+16. [`parse-duration`](./packages/parse-duration#readme): A simple utility to parse a duration string into milliseconds number.
+17. [`local-storage`](./packages/local-storage#readme): `localJsonStorage` is a utility object in our TypeScript package that provides methods for interacting with the local storage in a structured and versioned manner.
+18. [`polyfill-has-own`](./packages/polyfill-has-own#readme): A polyfill for `Object.hasOwn`.
+19. [`fetch`](./packages/fetch/README.md): Enhanced fetch API with cache strategy, retry pattern, timeout, helper methods and enhanced types.
 
-For more detailed information and guidelines on how to use each package, please refer to to each package's README.
-
-## License
-
-The entire library is made available under the [MIT License](./LICENSE), ensuring unfettered and broad usage for developers and contributors alike.
+For more detailed information and guidelines on how to use each package, please refer to each package's README.
