@@ -99,3 +99,50 @@ export interface DefineRouteOption {
     allowAllOrigin: false,
     prefix: '/api/',
   };
+
+  constructor(config?: Partial<NanotronApiServerConfig>) {
+    // Merge the config with the default config.
+    this.config_ = {
+      ...NanotronApiServer.defaultConfig_,
+      ...config,
+    };
+
+    // Create logger.
+    this.logger_ = createLogger('nanotron-api-server' + (this.config_.port !== 80 ? ':' + this.config_.port : ''));
+    this.logger_.logMethodArgs?.('new', {config: this.config_});
+
+    // Bind methods.
+    this.handleIncomingRequest_ = this.handleIncomingRequest_.bind(this);
+    this.handleServerError_ = this.handleServerError_.bind(this);
+    this.handleClientError_ = this.handleClientError_.bind(this);
+
+    // Initialize route handler list.
+    this.routeHandlerList__ = {
+      exact: {},
+      startsWith: {},
+    };
+
+    // Create the HTTP server.
+    this.httpServer = createServer(
+      {
+        keepAlive: true,
+        keepAliveInitialDelay: 0,
+        noDelay: true,
+      },
+      this.handleIncomingRequest_,
+    );
+
+    // Configure the server.
+    this.httpServer.requestTimeout = this.config_.requestTimeout;
+    this.httpServer.keepAliveTimeout = this.config_.keepAliveTimeout;
+    this.httpServer.headersTimeout = this.config_.headersTimeout;
+
+    // Start the server.
+    this.httpServer.listen(this.config_.port, this.config_.host, () => {
+      this.logger_.logOther?.(`listening on ${this.config_.host}:${this.config_.port}`);
+    });
+
+    // Handle server errors.
+    this.httpServer.on('error', this.handleServerError_);
+    this.httpServer.on('clientError', this.handleClientError_);
+  }
