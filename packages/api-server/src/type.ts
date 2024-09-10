@@ -7,7 +7,7 @@ declare module 'http' {
   }
 }
 
-export interface NanoServerConfig {
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS' | 'HEAD' | 'CONNECT' | 'TRACE';
   /**
    * The port number to listen on.
    *
