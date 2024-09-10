@@ -168,4 +168,28 @@ export class NanotronApiServer {
     this.logger_.logMethod?.('close');
     this.httpServer.close();
   }
+
+  protected getRouteOption_(option: Required<Pick<DefineRouteOption, 'method' | 'url'>>): Required<DefineRouteOption> | null {
+    this.logger_.logMethodArgs?.('getRouteOption_', option);
+
+    if (
+      Object.hasOwn(this.routeHandlerList__.exact, option.method) &&
+      Object.hasOwn(this.routeHandlerList__.exact[option.method], option.url)
+    ) {
+      return this.routeHandlerList__.exact[option.method][option.url];
+    }
+
+    if (Object.hasOwn(this.routeHandlerList__.startsWith, option.method)) {
+      const routeList = this.routeHandlerList__.startsWith[option.method];
+      for (const url in routeList) {
+        if (url.indexOf(option.url) === 0) {
+          return routeList[url];
+        }
+      }
+    }
+
+    this.logger_.incident?.('getRouteOption_', 'route_not_found', option);
+    return null;
+  }
+
 }
