@@ -104,4 +104,26 @@ export class NanotronApiConnection {
     this.replyHeaders['content-type'] = 'application/json';
     this.reply(responseString);
   }
+
+  replyError(error?: Error | unknown): void {
+    this.logger_.logMethodArgs?.('replyError', {error});
+
+    const statusCode = this.replyStatusCode;
+
+    if (error === undefined || error instanceof Error === false) {
+      this.replyJson({
+        ok: false,
+        errorCode: ('error_' + statusCode) as Lowercase<string>,
+        errorMessage: HttpStatusMessages[statusCode]
+      } as ErrorResponse);
+      return;
+    }
+
+    this.replyJson({
+      ok: false,
+      errorCode: error.name,
+      errorMessage: error.message,
+    });
+  }
+
 }
