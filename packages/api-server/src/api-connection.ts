@@ -76,4 +76,9 @@ export class NanotronApiConnection {
     }
   }
 
+  replyJsonError(errorResponse: ErrorResponse): void {
+    this.logger_.logMethodArgs?.('replyJsonError', {errorResponse});
+    this.replyJson(errorResponse);
+  }
+
 }
