@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0-alpha.0](https://github.com/Alwatr/nanotron/compare/v1.2.7...v4.0.0-alpha.0) (2024-09-10)
+
+### Bug Fixes
+
+* build issue after update package.json ([9df6a58](https://github.com/Alwatr/nanotron/commit/9df6a5866d2b5542e89788f1cf2a1bea5cc369d3)) by @njfamirm
+
+### Code Refactoring
+
+* Update import paths for duration parsing ([97dd8aa](https://github.com/Alwatr/nanotron/commit/97dd8aa68e050127e444ef268e48246b6b7318c6)) by @AliMD
+* Update import paths for duration parsing and update typescript SDK version to 5.6.2 ([7d8ea97](https://github.com/Alwatr/nanotron/commit/7d8ea97ed8d7741e26d3a609b30e42992d9fb051)) by @AliMD
+
+### Miscellaneous Chores
+
+* add required deps ([32b8ade](https://github.com/Alwatr/nanotron/commit/32b8adeba96dbd68879d004fe44f2f2c88b2b624)) by @njfamirm
+* update package.json of each package from nanolib ([b8a7c8a](https://github.com/Alwatr/nanotron/commit/b8a7c8af9f88d36ac3c1ab6324b78890dc2023b3)) by @njfamirm
+
+### Dependencies update
+
+* update ([f95134f](https://github.com/Alwatr/nanotron/commit/f95134fe5a4b61ee01eb84450807efb9ef099010)) by @AliMD
+
 ## [3.0.4](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/crypto@3.0.3...@alwatr/crypto@3.0.4) (2023-12-19)
 
 **Note:** Version bump only for package @alwatr/crypto
