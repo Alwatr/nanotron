@@ -34,4 +34,31 @@ export class NanotronApiConnection {
     return this.replySent_;
   }
 
+  constructor(
+    public incomingMessage: IncomingMessage,
+    public serverResponse: ServerResponse,
+    protected config_: NanotronApiConnectionConfig,
+  ) {
+    // Create logger.
+    this.logger_ = createLogger('nanotron-api-connection'); // TODO: add client ip
+    this.logger_.logMethodArgs?.('new', {method: incomingMessage.method, url: incomingMessage.url});
+
+    // Parse request method.
+    this.method = (this.incomingMessage.method ?? 'GET').toUpperCase() as HttpMethod;
+
+    // Parse request URL.
+    let url = this.incomingMessage.url ?? '';
+    if (this.config_.prefix !== '/' && url.indexOf(this.config_.prefix) === 0) {
+      url = url.slice(this.config_.prefix.length - 1);
+    }
+    url = url.replace(NanotronApiConnection.versionPattern_, '/');
+    this.url = new URL(url, 'http://hostname/');
+
+    // Set default reply headers.
+    this.replyHeaders = {
+      server: 'Alwatr Nanotron',
+      'content-type': 'text/plain',
+    };
+  }
+
 }
