@@ -61,3 +61,31 @@ export interface NanotronApiServerConfig {
    */
   prefix?: `/${string}/` | '/';
 }
+
+/**
+ * Configuration options for defining a route.
+ */
+export interface DefineRouteOption {
+  /**
+   * The HTTP method for this route.
+   */
+  method: HttpMethod;
+
+  /**
+   * The URL path for this route.
+   */
+  url: string;
+
+  /**
+   * The function to handle requests to this route.
+   */
+  handler: RouteHandler;
+
+  /**
+   * Specifies how the `url` should be matched against incoming requests.
+   *
+   * @default 'exact'
+   */
+  matchType?: MatchType;
+}
+
