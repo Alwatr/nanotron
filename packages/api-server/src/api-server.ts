@@ -99,6 +99,7 @@ export interface DefineRouteOption {
   matchType?: MatchType;
 }
 
+export class NanotronApiServer {
   protected static readonly defaultConfig_: Readonly<Required<NanotronApiServerConfig>> = {
     host: '0.0.0.0',
     port: 80,
@@ -109,6 +110,13 @@ export interface DefineRouteOption {
     allowAllOrigin: false,
     prefix: '/api/',
   };
+
+  protected readonly config_;
+  protected readonly logger_;
+
+  readonly httpServer;
+
+  protected readonly routeHandlerList__: Record<MatchType, Dictionary<Dictionary<Required<DefineRouteOption>>>>;
 
   constructor(config?: Partial<NanotronApiServerConfig>) {
     // Merge the config with the default config.
@@ -156,3 +164,4 @@ export interface DefineRouteOption {
     this.httpServer.on('error', this.handleServerError_);
     this.httpServer.on('clientError', this.handleClientError_);
   }
+}
