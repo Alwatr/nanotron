@@ -3,6 +3,64 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.0-alpha.0 (2024-09-10)
+
+### ⚠ BREAKING CHANGES
+
+* **crypto:** new api
+* **crypto/api:** rename AlwatrUserGenerator to AlwatrCryptoFactory and change config
+* **crypto/user:** methods name updated
+* **crypto/token:** methods name updated
+* **crypto/hash:** methods name updated
+
+### Features
+
+* **crypto/api:**  AlwatrCryptoFactory with secret and device id ([2d754a1](https://github.com/Alwatr/nanotron/commit/2d754a19b2f04f64d0828e31ba004fc192f466d3)) by @
+* **crypto/api:**  device id generator preconfig ([71e80d6](https://github.com/Alwatr/nanotron/commit/71e80d63743579505a6be17d014c364e9f6cf55c)) by @
+* **crypto/hash:** review and update all methods and documents ([14acd26](https://github.com/Alwatr/nanotron/commit/14acd265a19b1b67bd32f725468fe66985464fe6)) by @
+* **crypto/preConfig:** update prefix and secret algorithm ([0cfff12](https://github.com/Alwatr/nanotron/commit/0cfff124e692d02aad0b5c97908df63bc692f896)) by @
+* **crypto/token:** review and update all methods and documents ([dc943f8](https://github.com/Alwatr/nanotron/commit/dc943f8a007567b58e9e3b7f9cada556ac76ae9b)) by @
+* **crypto/user:** review and update all methods and documents ([bb79fa8](https://github.com/Alwatr/nanotron/commit/bb79fa81f8632d5fe75cac813238b04094d0bb6a)) by @
+* **crypto:** complete rewrite with new api ([3d56861](https://github.com/Alwatr/nanotron/commit/3d56861a2857e760c7cd5f03be98f003738fc7a9)) by @
+* **crypto:** prefix option ([6be5c90](https://github.com/Alwatr/nanotron/commit/6be5c90dad4674e8ae3e27611a13dcf1e08ce11a)) by @
+* **crypto:** rename user file to api ([52343ea](https://github.com/Alwatr/nanotron/commit/52343ead04c23f50bedac2caa01f46bf489ab318)) by @
+* **yarn:** pnp ([b6a562c](https://github.com/Alwatr/nanotron/commit/b6a562c909a35b3e626442e5c325da3fce448e1b)) by @
+
+### Bug Fixes
+
+* build issue after update package.json ([9df6a58](https://github.com/Alwatr/nanotron/commit/9df6a5866d2b5542e89788f1cf2a1bea5cc369d3)) by @njfamirm
+* **crypto:** compatible with new logger api ([f867317](https://github.com/Alwatr/nanotron/commit/f8673178d18f14276e13dcb35a7d973f301a722b)) by @
+* **crypto:** use import type ([30e3bac](https://github.com/Alwatr/nanotron/commit/30e3bacb187d58417cb62e2a1511de4ade3f80c0)) by @
+* move repo urls ([719aa3e](https://github.com/Alwatr/nanotron/commit/719aa3e7462d3c9c6272958fc93f89fda6793fb1)) by @
+* package repo urls ([466cbe9](https://github.com/Alwatr/nanotron/commit/466cbe9188f24e1a1bc36d879a95b52538a58f16)) by @
+
+### Code Refactoring
+
+* change build config and remove tslib ([81eabfa](https://github.com/Alwatr/nanotron/commit/81eabfa7ba4db432333f11f854e054304e80e922)) by @
+* rename core ro packages ([680604f](https://github.com/Alwatr/nanotron/commit/680604fb6af49273e5ad0745194b7186cb818faa)) by @
+* Update import paths for duration parsing ([97dd8aa](https://github.com/Alwatr/nanotron/commit/97dd8aa68e050127e444ef268e48246b6b7318c6)) by @AliMD
+* Update import paths for duration parsing and update typescript SDK version to 5.6.2 ([7d8ea97](https://github.com/Alwatr/nanotron/commit/7d8ea97ed8d7741e26d3a609b30e42992d9fb051)) by @AliMD
+
+### Miscellaneous Chores
+
+* add required deps ([32b8ade](https://github.com/Alwatr/nanotron/commit/32b8adeba96dbd68879d004fe44f2f2c88b2b624)) by @njfamirm
+* **crypto:** define package version ([cd54226](https://github.com/Alwatr/nanotron/commit/cd5422634edf7f29f19fb7fccc880397c02c18c0)) by @
+* **deps-dev:** bump the development-dependencies group with 1 update ([97fcdb3](https://github.com/Alwatr/nanotron/commit/97fcdb3487be289c3c6a718335fea9ba441bfef9)) by @
+* **deps-dev:** bump the development-dependencies group with 1 update ([0e580fa](https://github.com/Alwatr/nanotron/commit/0e580fa23274e6ddc626512b00ba5b7612ad9ed4)) by @
+* **deps-dev:** bump the development-dependencies group with 12 updates ([c908185](https://github.com/Alwatr/nanotron/commit/c908185df0bdd4acf361382ec6c1cfbcf6667256)) by @
+* **deps-dev:** bump the development-dependencies group with 4 updates ([0334169](https://github.com/Alwatr/nanotron/commit/033416915a9b8a6d62ce5d1831c31ff953f6c54c)) by @
+* **deps-dev:** bump the development-dependencies group with 5 updates ([64f796d](https://github.com/Alwatr/nanotron/commit/64f796ddfb8b1073da586cfdf526172b20b70903)) by @
+* **deps-dev:** bump the development-dependencies group with 9 updates ([4d50729](https://github.com/Alwatr/nanotron/commit/4d50729cdc8d0fdb6d5a9c0c3b98e3d9ad057a1b)) by @
+* **deps-dev:** bump the development-dependencies group with 9 updates ([e0f9bde](https://github.com/Alwatr/nanotron/commit/e0f9bdeb13fae513334c56d8e6414caca0611fab)) by @
+* rename project ([3f54d28](https://github.com/Alwatr/nanotron/commit/3f54d289c004ee1454f4906ad46baca7e3060d16)) by @
+* update package.json of each package from nanolib ([b8a7c8a](https://github.com/Alwatr/nanotron/commit/b8a7c8af9f88d36ac3c1ab6324b78890dc2023b3)) by @njfamirm
+* update repository url ([3d96754](https://github.com/Alwatr/nanotron/commit/3d96754b11740b18c02e4f11f6a559f90b09d726)) by @
+* **yarn:** fix packages version ([aaf3818](https://github.com/Alwatr/nanotron/commit/aaf381844ac253e9b0e5ffaf2e039a33edee0668)) by @
+
+### Dependencies update
+
+* update ([f95134f](https://github.com/Alwatr/nanotron/commit/f95134fe5a4b61ee01eb84450807efb9ef099010)) by @AliMD
+
 ## [3.0.4](https://github.com/Alwatr/alwatr-es-sdk/compare/@alwatr/crypto@3.0.3...@alwatr/crypto@3.0.4) (2023-12-19)
 
 **Note:** Version bump only for package @alwatr/crypto
