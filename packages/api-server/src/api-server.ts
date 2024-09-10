@@ -233,4 +233,10 @@ export class NanotronApiServer {
     socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
   }
 
+  protected handleHttpError_(connection: NanotronApiConnection, error?: unknown): void {
+    this.logger_.logMethod?.('handleHttpError_');
+    // TODO: custom error template by the user.
+    connection.replyError(error);
+  }
+
 }
