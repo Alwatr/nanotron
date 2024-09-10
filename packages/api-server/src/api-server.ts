@@ -216,4 +216,13 @@ export class NanotronApiServer {
     this.setRouteOption_(option_);
   }
 
+  protected handleServerError_(err: NodeJS.ErrnoException): void {
+    if (err.code === 'EADDRINUSE') {
+      this.logger_.error('handleServerError_', 'address_in_use', err);
+    }
+    else {
+      this.logger_.error('handleServerError_', 'http_server_error', err.message || 'HTTP server catch an error', err);
+    }
+  }
+
 }
