@@ -177,3 +177,4 @@ export type ErrorResponse = {
   meta?: Json;
 }
 
+export type RouteHandler = (connection: NanotronApiConnection) => MaybePromise<void>;
