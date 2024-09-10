@@ -1,6 +1,6 @@
 import {createHmac} from 'node:crypto';
 
-import {parseDuration, type DurationString} from '@alwatr/math';
+import {parseDuration, type DurationString} from '@alwatr/parse-duration';
 
 import type {CryptoAlgorithm, CryptoEncoding} from './type.js';
 
