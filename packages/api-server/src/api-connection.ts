@@ -24,4 +24,5 @@ export class NanotronApiConnection {
   readonly method;
 
   protected readonly logger_;
+  readonly replyHeaders: HttpResponseHeaders;
 }
