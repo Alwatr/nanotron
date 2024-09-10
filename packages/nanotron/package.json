@@ -1,21 +1,12 @@
 {
-  "name": "@alwatr/crypto",
-  "version": "3.0.4",
-  "description": "A robust generator of secure authentication HOTP tokens, employing the HMAC-based One-Time Password algorithm, accompanied by a suite of cryptographic utilities, all encapsulated within a compact TypeScript module.",
+  "name": "@alwatr/nanotron",
+  "version": "0.0.0",
+  "description": "Elegant powerful nodejs server for nanoservice use cases, written in tiny TypeScript module.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
-    "crypto",
-    "hash",
-    "token",
-    "authentication",
-    "auth",
-    "access",
-    "token",
-    "hmac",
-    "time",
-    "otp",
-    "hotp",
-    "otp-token",
+    "server",
+    "nanoservice",
+    "api",
     "typescript",
     "esm",
     "alwatr"
@@ -42,9 +33,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Alwatr/nanotron",
-    "directory": "packages/crypto"
+    "directory": "packages/nanotron"
   },
-  "homepage": "https://github.com/Alwatr/nanotron/tree/next/packages/crypto#readme",
+  "homepage": "https://github.com/Alwatr/nanotron#readme",
   "bugs": {
     "url": "https://github.com/Alwatr/nanotron/issues"
   },
@@ -66,8 +57,7 @@
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@alwatr/logger": "^3.2.12",
-    "@alwatr/parse-duration": "^1.0.9"
+    "@alwatr/nanotron-api-server": "workspace:^"
   },
   "devDependencies": {
     "@alwatr/nano-build": "^1.3.8",

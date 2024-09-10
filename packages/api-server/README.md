@@ -1,6 +1,6 @@
-# NanoServer
+# Alwatr Nanotron Api Server
 
-Elegant powerful nodejs server for nanoservice use cases, written in tiny TypeScript module.
+Nanotron: Your Lightweight, High-Performance Micro/Nano Service Framework.
 
 ## Example usage
 

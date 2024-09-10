@@ -7,7 +7,7 @@ import {
 } from './pre-config.js';
 import {AlwatrTokenGenerator, type TokenValidity} from './token.js';
 
-import type {DurationString} from '@alwatr/math';
+import type {DurationString} from '@alwatr/parse-duration';
 
 /**
  * Configuration options for the CryptoFactory.
