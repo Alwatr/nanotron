@@ -9,80 +9,162 @@ declare module 'http' {
 export type MatchType = 'exact' | 'startsWith';
 
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS' | 'HEAD' | 'CONNECT' | 'TRACE';
+
+/**
+ * Represents the collection of HTTP response headers.
+ */
+export interface HttpResponseHeaders {
   /**
-   * The port number to listen on.
-   *
-   * @default 80
+   * Indicates if the server supports range requests for the target resource.
    */
-  port: number;
+  'accept-ranges'?: string;
 
   /**
-   * The hostname to listen on.
-   *
-   * @default '0.0.0.0'
+   * Specifies the time in seconds the object has been in a proxy cache.
    */
-  host: string;
+  'age'?: string;
 
   /**
-   * Sets the timeout (ms) for receiving the entire request from the client.
-   *
-   * @default 10_000 ms
+   * Lists the set of HTTP methods supported by the resource identified by the Request-URI.
    */
-  requestTimeout: number;
+  'allow'?: string;
 
   /**
-   * Sets the timeout (ms) for receiving the complete HTTP headers from the client.
-   *
-   * This should be bigger than `keepAliveTimeout + your server's expected response time`.
-   *
-   * @default 130_000 ms
+   * Specifies caching directives for both requests and responses.
    */
-  headersTimeout: number;
+  'cache-control'?: string;
 
   /**
-   * Sets the timeout (ms) for receiving the complete HTTP headers from the client.
-   *
-   * @default 120_000 ms
+   * Controls whether the network connection stays open after the current transaction.
    */
-  keepAliveTimeout: number;
+  'connection'?: string;
 
   /**
-   * Add /health route.
-   *
-   * @default true
+   * Suggests a filename for the downloaded resource or how the content should be displayed.
    */
-  healthRoute: boolean;
+  'content-disposition'?: string;
 
   /**
-   * Add OPTIONS route for preflight requests to allow access all origins.
-   *
-   * @default false
+   * Indicates what content encodings have been applied to the entity-body.
    */
-  allowAllOrigin: boolean;
+  'content-encoding'?: string;
 
   /**
-   * API URL prefix pattern.
-   *
-   * @default `api`
+   * Describes the natural language(s) of the intended audience for the enclosed entity.
    */
-  prefixPattern: string;
+  'content-language'?: string;
+
+  /**
+   * Indicates the size of the entity-body, in bytes, sent to the recipient.
+   */
+  'content-length'?: string | number;
+
+  /**
+   * Indicates an alternate location for the returned data.
+   */
+  'content-location'?: string;
+
+  /**
+   * Indicates where in a full body message a partial message belongs.
+   */
+  'content-range'?: string;
+
+  /**
+   * Indicates the media type of the entity-body sent to the recipient.
+   */
+  'content-type'?: string;
+
+  /**
+   * Indicates the date and time at which the message was originated.
+   */
+  'date'?: string;
+
+  /**
+   * Provides the current value of the entity tag for the requested variant.
+   */
+  'etag'?: string;
+
+  /**
+   * Gives the date/time after which the response is considered stale.
+   */
+  'expires'?: string;
+
+  /**
+   * Indicates the date and time at which the origin server believes the variant was last modified.
+   */
+  'last-modified'?: string;
+
+  /**
+   * Provides a list of URIs associated with the resource.
+   */
+  'link'?: string;
+
+  /**
+   * Used in redirection, or when a new resource has been created.
+   */
+  'location'?: string;
+
+  /**
+   * Used for backward compatibility with HTTP/1.0 caches.
+   */
+  'pragma'?: string;
+
+  /**
+   * Requests authentication information from the client for a proxy server.
+   */
+  'proxy-authenticate'?: string;
+
+  /**
+   * Indicates how long the user agent should wait before making a follow-up request.
+   */
+  'retry-after'?: string;
+
+  /**
+   * Contains information about the software used by the origin server to handle the request.
+   */
+  'server'?: string;
+
+  /**
+   * Used to send cookies from the server to the user agent.
+   */
+  'set-cookie'?: string[];
+
+  /**
+   * Tells browsers to access the server using HTTPS only.
+   */
+  'strict-transport-security'?: string;
+
+  /**
+   * Allows the sender to include additional fields at the end of chunked messages.
+   */
+  'trailer'?: string;
+
+  /**
+   * Specifies the form of encoding used to safely transfer the entity to the user.
+   */
+  'transfer-encoding'?: string;
+
+  /**
+   * Determines how to match future request headers to decide whether a cached response
+   * can be used rather than requesting a fresh one from the origin server.
+   */
+  'vary'?: string;
+
+  /**
+   * Lists all intermediate proxies the message has traversed
+   */
+  'via'?: string;
+
+  /**
+   * Contains additional information about the status or transformation of a message that might not be reflected in the status code.
+   */
+  'warning'?: string;
+
+  /**
+   * Indicates the authentication scheme that should be used to access the requested entity.
+   */
+  'www-authenticate'?: string;
+
+  // Additional headers can be added here as needed
+  [headerName: Lowercase<string>]: string | string[] | number | undefined;
 }
-
-export interface ConnectionConfig {
-  /**
-   * Add `Access-Control-Allow-Origin: *` header.
-   *
-   * @default false
-   */
-  allowAllOrigin: boolean;
-
-  /**
-   * API URL prefix pattern.
-   *
-   * @default `api`
-   */
-  prefixPattern: string;
-}
-
-export type ParamKeyType = 'string' | 'number' | 'boolean';
-export type ParamValueType = string | number | boolean | null;
