@@ -6,6 +6,7 @@ declare module 'http' {
     'x-forwarded-for'?: string;
   }
 }
+
 export type MatchType = 'exact' | 'startsWith';
 
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS' | 'HEAD' | 'CONNECT' | 'TRACE';
@@ -168,3 +169,11 @@ export interface HttpResponseHeaders {
   // Additional headers can be added here as needed
   [headerName: Lowercase<string>]: string | string[] | number | undefined;
 }
+
+export type ErrorResponse = {
+  ok: false;
+  errorCode: Lowercase<string>;
+  errorMessage: string;
+  meta?: Json;
+}
+
