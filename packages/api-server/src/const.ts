@@ -443,3 +443,4 @@ export const HttpStatusMessages = {
   511: 'Network Authentication Required',
 };
 
+export type HttpStatusCode = keyof typeof HttpStatusMessages;
