@@ -18,4 +18,10 @@ export interface NanotronApiConnectionConfig {
   prefix: `/${string}/` | '/';
 }
 export class NanotronApiConnection {
+  protected static versionPattern_ = new RegExp('^/v[0-9]+/');
+  readonly url;
+
+  readonly method;
+
+  protected readonly logger_;
 }
