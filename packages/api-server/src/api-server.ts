@@ -89,3 +89,13 @@ export interface DefineRouteOption {
   matchType?: MatchType;
 }
 
+  protected static readonly defaultConfig_: Readonly<Required<NanotronApiServerConfig>> = {
+    host: '0.0.0.0',
+    port: 80,
+    requestTimeout: 10_000,
+    headersTimeout: 130_000,
+    keepAliveTimeout: 120_000,
+    healthRoute: true,
+    allowAllOrigin: false,
+    prefix: '/api/',
+  };
