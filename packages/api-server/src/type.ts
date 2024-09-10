@@ -6,6 +6,7 @@ declare module 'http' {
     'x-forwarded-for'?: string;
   }
 }
+export type MatchType = 'exact' | 'startsWith';
 
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS' | 'HEAD' | 'CONNECT' | 'TRACE';
   /**
