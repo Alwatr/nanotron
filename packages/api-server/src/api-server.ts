@@ -206,4 +206,14 @@ export class NanotronApiServer {
 
     routeHandlerList[option.method][option.url] = option;
   }
+
+  defineRoute(option: DefineRouteOption): void {
+    const option_: Required<DefineRouteOption> = {
+      ...option,
+      matchType: 'exact',
+    };
+    this.logger_.logMethodArgs?.('defineRoute', {...option_, handler: 'function'});
+    this.setRouteOption_(option_);
+  }
+
 }
