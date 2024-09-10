@@ -81,4 +81,27 @@ export class NanotronApiConnection {
     this.replyJson(errorResponse);
   }
 
+  replyJson(responseJson: Json): void {
+    this.logger_.logMethodArgs?.('replyJson', {responseJson});
+
+    let responseString: string;
+    try {
+      responseString = JSON.stringify(responseJson);
+    }
+    catch (error) {
+      this.logger_.error('replyJson', 'reply_json_stringify_failed', error, {
+        url: this.url.pathname,
+        method: this.method,
+      });
+      this.replyStatusCode = HttpStatusCodes.Error_Server_500_Internal_Server_Error;
+      responseString = JSON.stringify({
+        ok: false,
+        errorCode: 'reply_json_stringify_failed',
+        errorMessage: 'Failed to stringify response JSON.',
+      } as ErrorResponse);
+    }
+
+    this.replyHeaders['content-type'] = 'application/json';
+    this.reply(responseString);
+  }
 }
