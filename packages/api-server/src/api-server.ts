@@ -192,4 +192,18 @@ export class NanotronApiServer {
     return null;
   }
 
+  protected setRouteOption_(option: Required<DefineRouteOption>): void {
+    this.logger_.logMethodArgs?.('setRouteOption_', {...option, handler: 'function'});
+
+    const routeHandlerList = this.routeHandlerList__[option.matchType];
+
+    routeHandlerList[option.method] ??= {};
+
+    if (Object.hasOwn(routeHandlerList[option.method], option.url)) {
+      this.logger_.error('defineRoute', 'route_already_exists', {...option, handler: 'function'});
+      throw new Error('route_already_exists');
+    }
+
+    routeHandlerList[option.method][option.url] = option;
+  }
 }
