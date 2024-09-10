@@ -1,3 +1,11 @@
+import {createLogger} from '@alwatr/logger';
+
+import {type HttpStatusCode, HttpStatusCodes, HttpStatusMessages} from './const.js';
+
+import type {HttpResponseHeaders, HttpMethod, ErrorResponse} from './type.js';
+import type {Json} from '@alwatr/type-helper';
+import type {IncomingMessage, ServerResponse} from 'node:http';
+
 /**
  * Configuration options for the NanotronApiConnection.
  */
@@ -8,4 +16,6 @@ export interface NanotronApiConnectionConfig {
    * @default '/api/'
    */
   prefix: `/${string}/` | '/';
+}
+export class NanotronApiConnection {
 }
