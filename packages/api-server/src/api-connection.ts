@@ -61,4 +61,11 @@ export class NanotronApiConnection {
     };
   }
 
+  get replyStatusCode(): HttpStatusCode {
+    return this.serverResponse.statusCode as HttpStatusCode;
+  }
+
+  set replyStatusCode(value: HttpStatusCode) {
+    this.serverResponse.statusCode = value;
+  }
 }
