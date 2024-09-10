@@ -126,4 +126,33 @@ export class NanotronApiConnection {
     });
   }
 
+  reply(context: string | Buffer): void {
+    this.logger_.logMethodArgs?.('reply', {url: this.url.pathname, method: this.method});
+
+    if (this.replySent_ || this.serverResponse.writableFinished) {
+      this.logger_.accident('reply', 'reply_already_sent', {
+        url: this.url.pathname,
+        method: this.method,
+        replySent: this.replySent_,
+        writableFinished: this.serverResponse.writableFinished,
+      });
+      return;
+    }
+
+    try {
+      if (typeof context === 'string') {
+        context = Buffer.from(context);
+      }
+
+      this.replyHeaders['content-length'] = context.byteLength;
+
+      this.applyReplyHeaders_();
+      this.serverResponse.end(context, 'binary');
+
+      this.replySent_ = true;
+    }
+    catch (error) {
+      this.logger_.error('reply', 'server_response_error', error, {url: this.url.pathname, method: this.method});
+    }
+  }
 }
