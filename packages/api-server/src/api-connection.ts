@@ -17,12 +17,21 @@ export interface NanotronApiConnectionConfig {
    */
   prefix: `/${string}/` | '/';
 }
+
 export class NanotronApiConnection {
   protected static versionPattern_ = new RegExp('^/v[0-9]+/');
+
   readonly url;
 
   readonly method;
 
   protected readonly logger_;
+
   readonly replyHeaders: HttpResponseHeaders;
+
+  protected replySent_ = false;
+  get replySent(): boolean {
+    return this.replySent_;
+  }
+
 }
