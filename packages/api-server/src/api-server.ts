@@ -164,6 +164,7 @@ export class NanotronApiServer {
     this.httpServer.on('error', this.handleServerError_);
     this.httpServer.on('clientError', this.handleClientError_);
   }
+
   close(): void {
     this.logger_.logMethod?.('close');
     this.httpServer.close();
@@ -239,4 +240,45 @@ export class NanotronApiServer {
     connection.replyError(error);
   }
 
+  protected async handleIncomingRequest_(incomingMessage: IncomingMessage, serverResponse: ServerResponse): Promise<void> {
+    this.logger_.logMethod?.('handleIncomingRequest_');
+
+    if (incomingMessage.url === undefined) {
+      this.logger_.accident('handleIncomingRequest_', 'http_server_url_undefined');
+      return;
+    }
+
+    if (incomingMessage.method === undefined) {
+      this.logger_.accident('handleIncomingRequest_', 'http_server_method_undefined');
+      return;
+    }
+
+    const connection = new NanotronApiConnection(incomingMessage, serverResponse, {prefix: this.config_.prefix});
+
+    const routeOption = this.getRouteOption_({
+      method: connection.method,
+      url: connection.url.pathname,
+    });
+
+    if (routeOption === null) {
+      connection.replyStatusCode = HttpStatusCodes.Error_Client_404_Not_Found;
+      return this.handleHttpError_(connection);
+    }
+
+    try {
+      // TODO: hooks
+      await routeOption.handler(connection);
+    }
+    catch (error) {
+      this.logger_.error('handleIncomingRequest_', 'route_handler_error', error, {
+        url: connection.url.pathname,
+        method: connection.method,
+      });
+
+      connection.replyStatusCode = HttpStatusCodes.Error_Server_500_Internal_Server_Error;
+      this.handleHttpError_(connection, error);
+    }
+
+    // TODO: handled open remained connections.
+  }
 }
