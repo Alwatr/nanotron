@@ -164,4 +164,8 @@ export class NanotronApiServer {
     this.httpServer.on('error', this.handleServerError_);
     this.httpServer.on('clientError', this.handleClientError_);
   }
+  close(): void {
+    this.logger_.logMethod?.('close');
+    this.httpServer.close();
+  }
 }
