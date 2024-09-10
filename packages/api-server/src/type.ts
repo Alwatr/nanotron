@@ -1,10 +1,8 @@
+import type { NanotronApiConnection } from './api-connection.js';
+import type { Json, MaybePromise } from '@alwatr/type-helper';
+
 declare module 'http' {
   interface IncomingHttpHeaders {
-    /**
-     * Alwatr Client UUID
-     */
-    'client-id'?: string;
-
     'x-forwarded-for'?: string;
   }
 }
