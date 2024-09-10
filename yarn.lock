@@ -10,14 +10,14 @@ __metadata:
   resolution: "@alwatr/crypto@workspace:packages/crypto"
   dependencies:
     "@alwatr/logger": "npm:^3.2.12"
-    "@alwatr/math": "npm:^1.3.1"
     "@alwatr/nano-build": "npm:^1.3.8"
+    "@alwatr/parse-duration": "npm:^1.0.9"
     "@alwatr/prettier-config": "npm:^1.0.4"
     "@alwatr/tsconfig-base": "npm:^1.2.0"
-    "@alwatr/type": "npm:^1.2.4"
     "@alwatr/type-helper": "npm:^1.2.5"
     "@types/node": "npm:^22.5.4"
-    typescript: "npm:^5.5.4"
+    jest: "npm:^29.7.0"
+    typescript: "npm:^5.6.2"
   languageName: unknown
   linkType: soft
 
@@ -44,10 +44,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alwatr/logger@npm:^2.4.1":
-  version: 2.4.1
-  resolution: "@alwatr/logger@npm:2.4.1"
-  checksum: 10c0/6fef967cab9a2e734d2c1f7bdc66fb3fd1b515830a9734ca5e035973011b7708863005b49181e5fa19313ea71bfd02974c602511eba00bd632ef6cdfcfd5460a
+"@alwatr/is-number@npm:^1.0.9":
+  version: 1.0.9
+  resolution: "@alwatr/is-number@npm:1.0.9"
+  checksum: 10c0/6b6fc29eb849daab66aef9252487547d7e797859637679c251acfdc80e978b8528c04e2f83dfe82396c69a7ef5a6e740dc688a1d08ac54af42d8b450ace386ed
   languageName: node
   linkType: hard
 
@@ -58,15 +58,6 @@ __metadata:
     "@alwatr/dedupe": "npm:^1.0.12"
     "@alwatr/platform-info": "npm:^1.1.11"
   checksum: 10c0/4445ea4ad025091c9bf6a1d07878d3d48fa1721137a03d79ad543ae9a2218b7ad68c77d855310733ab196b59f065cf547fd6d3281a097bbfa9dc430a78494c60
-  languageName: node
-  linkType: hard
-
-"@alwatr/math@npm:^1.3.1":
-  version: 1.3.1
-  resolution: "@alwatr/math@npm:1.3.1"
-  dependencies:
-    "@alwatr/logger": "npm:^2.4.1"
-  checksum: 10c0/646acce0420ca2f3f338962e69f2800961679709c957f3654cdcd7dbb893d7957917a99d0c414d4f56286644d976eb0c785fe04830d2048b3d3c7c70c4baa0dc
   languageName: node
   linkType: hard
 
@@ -81,26 +72,57 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alwatr/nanotron-api-server@workspace:packages/api-server":
+"@alwatr/nanotron-api-server@workspace:^, @alwatr/nanotron-api-server@workspace:packages/api-server":
   version: 0.0.0-use.local
   resolution: "@alwatr/nanotron-api-server@workspace:packages/api-server"
   dependencies:
     "@alwatr/logger": "npm:^3.2.12"
-    "@alwatr/math": "npm:^1.3.1"
     "@alwatr/nano-build": "npm:^1.3.8"
+    "@alwatr/polyfill-has-own": "npm:^1.0.8"
     "@alwatr/prettier-config": "npm:^1.0.4"
     "@alwatr/tsconfig-base": "npm:^1.2.0"
-    "@alwatr/type": "npm:^1.2.4"
     "@alwatr/type-helper": "npm:^1.2.5"
     "@types/node": "npm:^22.5.4"
-    typescript: "npm:^5.5.4"
+    jest: "npm:^29.7.0"
+    typescript: "npm:^5.6.2"
   languageName: unknown
   linkType: soft
+
+"@alwatr/nanotron@workspace:packages/nanotron":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/nanotron@workspace:packages/nanotron"
+  dependencies:
+    "@alwatr/nano-build": "npm:^1.3.8"
+    "@alwatr/nanotron-api-server": "workspace:^"
+    "@alwatr/prettier-config": "npm:^1.0.4"
+    "@alwatr/tsconfig-base": "npm:^1.2.0"
+    "@alwatr/type-helper": "npm:^1.2.5"
+    "@types/node": "npm:^22.5.4"
+    jest: "npm:^29.7.0"
+    typescript: "npm:^5.6.2"
+  languageName: unknown
+  linkType: soft
+
+"@alwatr/parse-duration@npm:^1.0.9":
+  version: 1.0.9
+  resolution: "@alwatr/parse-duration@npm:1.0.9"
+  dependencies:
+    "@alwatr/is-number": "npm:^1.0.9"
+  checksum: 10c0/bab73a466f4d0b6711c9d0f7420ae8a475c9dab05984fb60b1ff98b3accc45751cce39404efc6d831a5cefa02a669ebe7c0cfef44752113d782ff8686d4ca8bf
+  languageName: node
+  linkType: hard
 
 "@alwatr/platform-info@npm:^1.1.11":
   version: 1.1.11
   resolution: "@alwatr/platform-info@npm:1.1.11"
   checksum: 10c0/9c04a76459f31b1bbac37f2ae802554a9af593f9037e3b1fa6254d2ff5de3bf0e2cb81545fb57e7550173433f2cacaddb1f391fb6452c1df6d0f9c3ca1440228
+  languageName: node
+  linkType: hard
+
+"@alwatr/polyfill-has-own@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "@alwatr/polyfill-has-own@npm:1.0.8"
+  checksum: 10c0/7599bb5a098ff084f47ae384465303b8be9be19e74db624c34a5cda9484c46de91928b4fdae3b208a12f68c299c8e1a050e8e2ba08f1fa2e68866673342dfc3a
   languageName: node
   linkType: hard
 
@@ -122,13 +144,6 @@ __metadata:
   version: 1.2.5
   resolution: "@alwatr/type-helper@npm:1.2.5"
   checksum: 10c0/ca994f0ae79150f4cba836c77ed2089882c47b9dd03ce02f5bd8883cf70988aa9400f3124b464618d6fc2eb71927430536a385d85ad04a42264caa5fdd4d176f
-  languageName: node
-  linkType: hard
-
-"@alwatr/type@npm:^1.2.4":
-  version: 1.2.4
-  resolution: "@alwatr/type@npm:1.2.4"
-  checksum: 10c0/9835f61a768ea295a062d1ac50b5e935a4b6c0f175f0d37f55b9bd848cf48a0af3bb5633fc31408b636a2966f6c8dce36036d648a51de25c7d76aeacf0f804b3
   languageName: node
   linkType: hard
 
@@ -2315,7 +2330,7 @@ __metadata:
     eslint-plugin-require-extensions: "npm:^0.1.3"
     jest: "npm:^29.7.0"
     prettier: "npm:^3.3.3"
-    typescript: "npm:^5.5.4"
+    typescript: "npm:^5.6.2"
   languageName: unknown
   linkType: soft
 
@@ -2336,9 +2351,9 @@ __metadata:
   linkType: hard
 
 "ansi-regex@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "ansi-regex@npm:6.0.1"
-  checksum: 10c0/cbe16dbd2c6b2735d1df7976a7070dd277326434f0212f43abf6d87674095d247968209babdaad31bb00882fa68807256ba9be340eec2f1004de14ca75f52a08
+  version: 6.1.0
+  resolution: "ansi-regex@npm:6.1.0"
+  checksum: 10c0/a91daeddd54746338478eef88af3439a7edf30f8e23196e2d6ed182da9add559c601266dbef01c2efa46a958ad6f1f8b176799657616c702b5b02e799e7fd8dc
   languageName: node
   linkType: hard
 
@@ -2747,9 +2762,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001646":
-  version: 1.0.30001658
-  resolution: "caniuse-lite@npm:1.0.30001658"
-  checksum: 10c0/e01f19ac72f056d2b4b680ff2e83d1abf99c0ce0863593bc6abbc40c53589a5c1697b4605b0937a3a431addb2145615e941b91c10d6b63475b7292500339406f
+  version: 1.0.30001660
+  resolution: "caniuse-lite@npm:1.0.30001660"
+  checksum: 10c0/d28900b56c597176d515c3175ca75c454f2d30cb2c09a44d7bdb009bb0c4d8a2557905adb77642889bbe9feb85fbfe9d974c8b8e53521fb4b50ee16ab246104e
   languageName: node
   linkType: hard
 
@@ -4700,11 +4715,11 @@ __metadata:
   linkType: hard
 
 "is-bun-module@npm:^1.0.2":
-  version: 1.1.0
-  resolution: "is-bun-module@npm:1.1.0"
+  version: 1.2.1
+  resolution: "is-bun-module@npm:1.2.1"
   dependencies:
     semver: "npm:^7.6.3"
-  checksum: 10c0/17cae968c3fe08e2bd66f8477e4d5a166d6299b5e7ce5c7558355551c50267f77dd386297fada6b68e4a32f01ce8920b0423e4d258242ea463b45901ec474beb
+  checksum: 10c0/819e63cd4468265a3e89cdc241554e37aeb85e40375a56dd559c022f4395491273267a0f843274fda6cad1eac3b0f8dc6d9e06cc349e33e2bf45098761184736
   languageName: node
   linkType: hard
 
@@ -6706,9 +6721,9 @@ __metadata:
   linkType: hard
 
 "promise-call-limit@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "promise-call-limit@npm:3.0.1"
-  checksum: 10c0/2bf66a7238b9986c9b1ae0b3575c1446485b85b4befd9ee359d8386d26050d053cb2aaa57e0fc5d91e230a77e29ad546640b3afe3eb86bcfc204aa0d330f49b4
+  version: 3.0.2
+  resolution: "promise-call-limit@npm:3.0.2"
+  checksum: 10c0/1f984c16025925594d738833f5da7525b755f825a198d5a0cac1c0280b4f38ecc3c32c1f4e5ef614ddcfd6718c1a8c3f98a3290ae6f421342281c9a88c488bf7
   languageName: node
   linkType: hard
 
@@ -7655,23 +7670,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.5.4":
-  version: 5.5.4
-  resolution: "typescript@npm:5.5.4"
+"typescript@npm:^5.6.2":
+  version: 5.6.2
+  resolution: "typescript@npm:5.6.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/422be60f89e661eab29ac488c974b6cc0a660fb2228003b297c3d10c32c90f3bcffc1009b43876a082515a3c376b1eefcce823d6e78982e6878408b9a923199c
+  checksum: 10c0/3ed8297a8c7c56b7fec282532503d1ac795239d06e7c4966b42d4330c6cf433a170b53bcf93a130a7f14ccc5235de5560df4f1045eb7f3550b46ebed16d3c5e5
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.5.4#optional!builtin<compat/typescript>":
-  version: 5.5.4
-  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"
+"typescript@patch:typescript@npm%3A^5.6.2#optional!builtin<compat/typescript>":
+  version: 5.6.2
+  resolution: "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/73409d7b9196a5a1217b3aaad929bf76294d3ce7d6e9766dd880ece296ee91cf7d7db6b16c6c6c630ee5096eccde726c0ef17c7dfa52b01a243e57ae1f09ef07
+  checksum: 10c0/94eb47e130d3edd964b76da85975601dcb3604b0c848a36f63ac448d0104e93819d94c8bdf6b07c00120f2ce9c05256b8b6092d23cf5cf1c6fa911159e4d572f
   languageName: node
   linkType: hard
 
