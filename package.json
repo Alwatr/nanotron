@@ -28,7 +28,7 @@
     "lint:es": "eslint . --config .eslintrc.json --ext .ts",
     "lint:ts": "lerna run build:ts",
     "build": "lerna run build",
-    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --enable-source-maps --experimental-vm-modules\" jest --verbose",
+    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --enable-source-maps --experimental-vm-modules\" jest --verbose --passWithNoTests",
     "watch": "lerna run --parallel watch",
     "format": "yarn run format:prettier && yarn run format:eslint",
     "format:eslint": "yarn run lint --fix",
