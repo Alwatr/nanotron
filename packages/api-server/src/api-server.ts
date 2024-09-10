@@ -225,4 +225,12 @@ export class NanotronApiServer {
     }
   }
 
+  protected handleClientError_(err: NodeJS.ErrnoException, socket: Duplex): void {
+    this.logger_.accident('handleClientError_', 'http_server_client_error', {
+      errCode: err.code,
+      errMessage: err.message,
+    });
+    socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+  }
+
 }
