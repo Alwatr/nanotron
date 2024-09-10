@@ -68,4 +68,12 @@ export class NanotronApiConnection {
   set replyStatusCode(value: HttpStatusCode) {
     this.serverResponse.statusCode = value;
   }
+
+  protected applyReplyHeaders_() {
+    this.logger_.logMethodArgs?.('applyReplyHeaders_', this.replyHeaders);
+    for (const key in this.replyHeaders) {
+      this.serverResponse.setHeader(key, this.replyHeaders[key as Lowercase<string>]!);
+    }
+  }
+
 }
