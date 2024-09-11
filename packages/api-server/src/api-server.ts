@@ -2,7 +2,8 @@ import {createServer, IncomingMessage, ServerResponse} from 'node:http';
 
 import {createLogger} from '@alwatr/logger';
 
-import {NanotronApiConnection} from './api-connection.js';
+import {NanotronClientRequest} from './api-client-request.js';
+import { NanotronServerResponse } from './api-server-response.js';
 import {HttpStatusCodes} from './const.js';
 
 import type {HttpMethod, MatchType, RouteHandler} from './type.js';
@@ -140,7 +141,7 @@ export class NanotronApiServer {
     this.logger_.logMethodArgs?.('new', {config: this.config_});
 
     // Bind methods.
-    this.handleIncomingRequest_ = this.handleIncomingRequest_.bind(this);
+    this.handleClientRequest_ = this.handleClientRequest_.bind(this);
     this.handleServerError_ = this.handleServerError_.bind(this);
     this.handleClientError_ = this.handleClientError_.bind(this);
 
@@ -157,7 +158,7 @@ export class NanotronApiServer {
         keepAliveInitialDelay: 0,
         noDelay: true,
       },
-      this.handleIncomingRequest_,
+      this.handleClientRequest_,
     );
 
     // Configure the server.
@@ -246,66 +247,68 @@ export class NanotronApiServer {
     socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
   }
 
-  protected handleHttpError_(connection: NanotronApiConnection, error?: unknown): void {
+  protected handleHttpError_(serverResponse: NanotronServerResponse, error?: unknown): void {
     this.logger_.logMethod?.('handleHttpError_');
     // TODO: custom error template by the user.
-    // connection.terminatedHandlers = true;
-    connection.replyError(error);
+    serverResponse.replyError(error);
   }
 
-  protected async handleIncomingRequest_(incomingMessage: IncomingMessage, serverResponse: ServerResponse): Promise<void> {
-    this.logger_.logMethod?.('handleIncomingRequest_');
+  protected async handleClientRequest_(clientRequest: IncomingMessage, serverResponse: ServerResponse): Promise<void> {
+    this.logger_.logMethod?.('handleClientRequest_');
 
-    if (incomingMessage.url === undefined) {
-      this.logger_.accident('handleIncomingRequest_', 'http_server_url_undefined');
+    if (clientRequest.url === undefined) {
+      this.logger_.accident('handleClientRequest_', 'http_server_url_undefined');
       return;
     }
 
-    if (incomingMessage.method === undefined) {
-      this.logger_.accident('handleIncomingRequest_', 'http_server_method_undefined');
+    if (clientRequest.method === undefined) {
+      this.logger_.accident('handleClientRequest_', 'http_server_method_undefined');
       return;
     }
 
-    const connection = new NanotronApiConnection(incomingMessage, serverResponse, {prefix: this.config_.prefix});
+    const nanotronClientRequest = new NanotronClientRequest(clientRequest, {prefix: this.config_.prefix});
+    const nanotronServerResponse = new NanotronServerResponse(serverResponse, {clientRequest: nanotronClientRequest});
 
     const routeOption = this.getRouteOption_({
-      method: connection.method,
-      url: connection.url.pathname,
+      method: nanotronClientRequest.method,
+      url: nanotronClientRequest.url.pathname,
     });
 
     if (routeOption === null) {
-      connection.replyStatusCode = HttpStatusCodes.Error_Client_404_Not_Found;
-      return this.handleHttpError_(connection);
+      nanotronServerResponse.statusCode = HttpStatusCodes.Error_Client_404_Not_Found;
+      return this.handleHttpError_(nanotronServerResponse);
     }
 
+    const sharedMeta = {};
+
     try {
-      for (const handler of connection.preHandlers_) {
-        if (connection.terminatedHandlers === true) return;
-        await handler(connection);
+      for (const handler of nanotronClientRequest.preHandlers_) {
+        if (nanotronClientRequest.terminatedHandlers === true) return;
+        await handler(nanotronClientRequest, nanotronServerResponse, sharedMeta);
       }
 
       for (const handler of routeOption.preHandlers) {
-        if (connection.terminatedHandlers === true) return;
-        await handler(connection);
+        if (nanotronClientRequest.terminatedHandlers === true) return;
+        await handler(nanotronClientRequest, nanotronServerResponse, sharedMeta);
       }
 
-      await routeOption.handler(connection);
+      await routeOption.handler(nanotronClientRequest, nanotronServerResponse, sharedMeta);
 
       for (const handler of routeOption.postHandlers) {
-        if (connection.terminatedHandlers === true) return;
-        await handler(connection);
+        if (nanotronClientRequest.terminatedHandlers === true) return;
+        await handler(nanotronClientRequest, nanotronServerResponse, sharedMeta);
       }
     }
     catch (error) {
-      this.logger_.error('handleIncomingRequest_', 'route_handler_error', error, {
-        url: connection.url.pathname,
-        method: connection.method,
+      this.logger_.error('handleClientRequest_', 'route_handler_error', error, {
+        url: nanotronClientRequest.url.pathname,
+        method: nanotronClientRequest.method,
       });
 
-      if (connection.replyStatusCode < HttpStatusCodes.Error_Client_400_Bad_Request) {
-        connection.replyStatusCode = HttpStatusCodes.Error_Server_500_Internal_Server_Error;
+      if (nanotronServerResponse.statusCode < HttpStatusCodes.Error_Client_400_Bad_Request) {
+        nanotronServerResponse.statusCode = HttpStatusCodes.Error_Server_500_Internal_Server_Error;
       }
-      this.handleHttpError_(connection, error);
+      this.handleHttpError_(nanotronServerResponse, error);
     }
 
     // TODO: handled open remained connections.
