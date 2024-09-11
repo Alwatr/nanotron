@@ -105,31 +105,56 @@ export class NanotronApiConnection {
     this.reply(responseString);
   }
 
-  replyError(error?: Error | unknown): void {
+  replyError(error?: Error | string | Json | unknown): void {
     this.logger_.logMethodArgs?.('replyError', {error});
 
-    const statusCode = this.replyStatusCode;
+    let statusCode = this.replyStatusCode;
 
-    if (error === undefined || error instanceof Error === false) {
+    if (statusCode < HttpStatusCodes.Error_Client_400_Bad_Request) {
+      this.replyStatusCode = statusCode = 500;
+    }
+
+    if (error instanceof Error) {
+      this.replyJson({
+        ok: false,
+        errorCode: error.name === 'Error'
+          ? ('error_' + statusCode) as Lowercase<string>
+          : (error.name + '').toLowerCase(),
+        errorMessage: error.message,
+      });
+    }
+
+    else if (typeof error === 'string') {
+      this.replyJson({
+        ok: false,
+        errorCode: ('error_' + statusCode) as Lowercase<string>,
+        errorMessage: error,
+      });
+    }
+
+    else if (typeof error === 'object' && error !== null) {
+      this.replyJson(error as Json);
+    }
+
+    else {
       this.replyJson({
         ok: false,
         errorCode: ('error_' + statusCode) as Lowercase<string>,
         errorMessage: HttpStatusMessages[statusCode]
       } as ErrorResponse);
-      return;
     }
-
-    this.replyJson({
-      ok: false,
-      errorCode: error.name,
-      errorMessage: error.message,
-    });
   }
 
   reply(context: string | Buffer): void {
     this.logger_.logMethodArgs?.('reply', {url: this.url.pathname, method: this.method});
 
-    if (this.replySent_ || this.serverResponse.writableFinished) {
+    if (this.serverResponse.writableFinished && this.replySent_ === false) {
+      // The response has already been sent by direct access to the server api.
+      this.logger_.accident('reply', 'server_response_writable_finished_directly');
+      this.replySent_ = true;
+    }
+
+    if (this.replySent_) {
       this.logger_.accident('reply', 'reply_already_sent', {
         url: this.url.pathname,
         method: this.method,
@@ -138,6 +163,8 @@ export class NanotronApiConnection {
       });
       return;
     }
+
+    this.replySent_ = true;
 
     try {
       if (typeof context === 'string') {
@@ -149,10 +176,10 @@ export class NanotronApiConnection {
       this.applyReplyHeaders_();
       this.serverResponse.end(context, 'binary');
 
-      this.replySent_ = true;
     }
     catch (error) {
       this.logger_.error('reply', 'server_response_error', error, {url: this.url.pathname, method: this.method});
+      this.replySent_ = false;
     }
   }
 }
