@@ -137,7 +137,7 @@ export class NanotronApiServer {
     };
 
     // Create logger.
-    this.logger_ = createLogger('nanotron-api-server' + (this.config_.port !== 80 ? ':' + this.config_.port : ''));
+    this.logger_ = createLogger('nt-api-server' + (this.config_.port !== 80 ? ':' + this.config_.port : ''));
     this.logger_.logMethodArgs?.('new', {config: this.config_});
 
     // Bind methods.
