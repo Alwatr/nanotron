@@ -249,6 +249,7 @@ export class NanotronApiServer {
   protected handleHttpError_(connection: NanotronApiConnection, error?: unknown): void {
     this.logger_.logMethod?.('handleHttpError_');
     // TODO: custom error template by the user.
+    // connection.terminatedHandlers = true;
     connection.replyError(error);
   }
 
@@ -279,19 +280,19 @@ export class NanotronApiServer {
 
     try {
       for (const handler of connection.preHandlers_) {
-        if (connection.errorHappened) return;
+        if (connection.terminatedHandlers === true) return;
         await handler(connection);
       }
 
       for (const handler of routeOption.preHandlers) {
-        if (connection.errorHappened) return;
+        if (connection.terminatedHandlers === true) return;
         await handler(connection);
       }
 
       await routeOption.handler(connection);
 
       for (const handler of routeOption.postHandlers) {
-        if (connection.errorHappened) return;
+        if (connection.terminatedHandlers === true) return;
         await handler(connection);
       }
     }
