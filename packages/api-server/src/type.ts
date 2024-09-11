@@ -1,5 +1,6 @@
-import type { NanotronApiConnection } from './api-connection.js';
-import type { Json, MaybePromise } from '@alwatr/type-helper';
+import type { NanotronClientRequest } from './api-client-request.js';
+import type { NanotronServerResponse } from './api-server-response.js';
+import type { Dictionary, Json, MaybePromise } from '@alwatr/type-helper';
 
 declare module 'http' {
   interface IncomingHttpHeaders {
@@ -177,4 +178,8 @@ export type ErrorResponse = {
   meta?: Json;
 }
 
-export type RouteHandler = (connection: NanotronApiConnection) => MaybePromise<void>;
+export type RouteHandler = (
+  clientRequest: NanotronClientRequest,
+  serverResponse: NanotronServerResponse,
+  sharedMeta: Dictionary,
+) => MaybePromise<void>;
