@@ -87,16 +87,26 @@ export interface DefineRouteOption {
   url: string;
 
   /**
-   * The function to handle requests to this route.
-   */
-  handler: RouteHandler;
-
-  /**
    * Specifies how the `url` should be matched against incoming requests.
    *
    * @default 'exact'
    */
   matchType?: MatchType;
+
+  /**
+   * The functions call before the main handler.
+   */
+  preHandlers?: RouteHandler[];
+
+  /**
+   * The function to handle requests to this route.
+   */
+  handler: RouteHandler;
+
+  /**
+   * The functions call after the main handler.
+   */
+  postHandlers?: RouteHandler[];
 }
 
 export class NanotronApiServer {
@@ -210,8 +220,10 @@ export class NanotronApiServer {
 
   defineRoute(option: DefineRouteOption): void {
     const option_: Required<DefineRouteOption> = {
-      ...option,
       matchType: 'exact',
+      preHandlers: [],
+      postHandlers: [],
+      ...option,
     };
     this.logger_.logMethodArgs?.('defineRoute', {...option_, handler: 'function'});
     this.setRouteOption_(option_);
@@ -266,8 +278,22 @@ export class NanotronApiServer {
     }
 
     try {
-      // TODO: hooks
+      for (const handler of connection.preHandlers_) {
+        if (connection.errorHappened) return;
+        await handler(connection);
+      }
+
+      for (const handler of routeOption.preHandlers) {
+        if (connection.errorHappened) return;
+        await handler(connection);
+      }
+
       await routeOption.handler(connection);
+
+      for (const handler of routeOption.postHandlers) {
+        if (connection.errorHappened) return;
+        await handler(connection);
+      }
     }
     catch (error) {
       this.logger_.error('handleIncomingRequest_', 'route_handler_error', error, {
@@ -275,7 +301,9 @@ export class NanotronApiServer {
         method: connection.method,
       });
 
-      connection.replyStatusCode = HttpStatusCodes.Error_Server_500_Internal_Server_Error;
+      if (connection.replyStatusCode < HttpStatusCodes.Error_Client_400_Bad_Request) {
+        connection.replyStatusCode = HttpStatusCodes.Error_Server_500_Internal_Server_Error;
+      }
       this.handleHttpError_(connection, error);
     }
 
