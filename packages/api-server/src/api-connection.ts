@@ -29,6 +29,8 @@ export class NanotronApiConnection {
 
   readonly replyHeaders: HttpResponseHeaders;
 
+  readonly errorHappened;
+
   protected replySent_ = false;
   get replySent(): boolean {
     return this.replySent_;
@@ -59,6 +61,8 @@ export class NanotronApiConnection {
       server: 'Alwatr Nanotron',
       'content-type': 'text/plain',
     };
+
+    this.errorHappened = false;
   }
 
   get replyStatusCode(): HttpStatusCode {
