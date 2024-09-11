@@ -2,7 +2,7 @@ import {createLogger} from '@alwatr/logger';
 
 import {type HttpStatusCode, HttpStatusCodes, HttpStatusMessages} from './const.js';
 
-import type {HttpResponseHeaders, HttpMethod, ErrorResponse} from './type.js';
+import type {HttpResponseHeaders, HttpMethod, ErrorResponse, RouteHandler} from './type.js';
 import type {Json} from '@alwatr/type-helper';
 import type {IncomingMessage, ServerResponse} from 'node:http';
 
@@ -30,6 +30,8 @@ export class NanotronApiConnection {
   readonly replyHeaders: HttpResponseHeaders;
 
   readonly errorHappened;
+
+  protected readonly preHandlers_: RouteHandler[];
 
   protected replySent_ = false;
   get replySent(): boolean {
@@ -63,6 +65,8 @@ export class NanotronApiConnection {
     };
 
     this.errorHappened = false;
+
+    this.preHandlers_ = [];
   }
 
   get replyStatusCode(): HttpStatusCode {
