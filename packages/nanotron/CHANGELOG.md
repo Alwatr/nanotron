@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0-alpha.1](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.0...v4.0.0-alpha.1) (2024-09-11)
+
+### Features
+
+* **demo:** add 404 test ([b15bf5d](https://github.com/Alwatr/nanotron/commit/b15bf5d4dded330f710dc6b2516506c8dc31261a)) by @AliMD
+
+### Bug Fixes
+
+* **demo:** update with new apis ([16fceca](https://github.com/Alwatr/nanotron/commit/16fceca7df279bf908878d15b0ef78adfaeed582)) by @
+
 ## [4.0.0-alpha.0](https://github.com/Alwatr/nanotron/compare/v1.2.7...v4.0.0-alpha.0) (2024-09-10)
 
 ### Features

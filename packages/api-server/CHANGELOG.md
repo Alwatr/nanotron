@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0-alpha.1](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.0...v4.0.0-alpha.1) (2024-09-11)
+
+### ⚠ BREAKING CHANGES
+
+* **api-server:** separate NanotronClientRequest and NanotronServerResponse classes
+
+Co-authored-by: Mohammad Honarvar <honarvar.info@gmail.com>
+Co-authored-by: James Sumners <321201+jsumners@users.noreply.github.com>
+Co-authored-by: Frazer Smith <frazer.dev@icloud.com>
+Co-authored-by: Simone Busoli <simone.busoli@gmail.com>
+Co-authored-by: Carlos Fuentes <me@metcoder.dev>
+Co-authored-by: KaKa <23028015+climba03003@users.noreply.github.com>
+
+### Features
+
+* **api-server:** add `preHandlers_` property ([80a301e](https://github.com/Alwatr/nanotron/commit/80a301e2ef7fb54e681ca7085582ad48bd47e4e2)) by @AliMD
+* **api-server:** Add preHandlers_ and postHandlers_ properties in DefineRouteOption ([d4f3e8c](https://github.com/Alwatr/nanotron/commit/d4f3e8c20bc94ad16585e64afa4012a5a649e5a4)) by @AliMD
+* **api-server:** prevent to run the handlers when `terminatedHandlers` equals `true` ([185bc11](https://github.com/Alwatr/nanotron/commit/185bc114dbdef952823b5b2be72c87bb01f6780e)) by @AliMD
+* **api-server:** Refactor `replyError` method and add `terminatedHandlers` property ([c6f9c69](https://github.com/Alwatr/nanotron/commit/c6f9c69bdbb3b996b5b0b602476a6f88ecfcbfd5)) by @AliMD
+* **api-server:** Update replyError method and add errorHappened property in api-connection.ts ([166c950](https://github.com/Alwatr/nanotron/commit/166c950fcced582bb2aa5fbc55d29798e8e09b91)) by @AliMD
+* **api-server:** Update replyError method in api-connection.ts ([968b024](https://github.com/Alwatr/nanotron/commit/968b02441610f906032b822ac655ac43a9768fdf)) by @AliMD
+
+### Bug Fixes
+
+* **api-server:** update exports ([8ed905b](https://github.com/Alwatr/nanotron/commit/8ed905b1f85394a4ce1c42c8bde88d13616d687f)) by @AliMD
+
+### Code Refactoring
+
+* **api-server:** separate NanotronClientRequest and NanotronServerResponse classes ([c207488](https://github.com/Alwatr/nanotron/commit/c2074888809e6b7ea6fc7ffe1d0dec7e0d60de2a)) by @AliMD
+* **api-server:** Separate NanotronClientRequest and NanotronServerResponse classes ([c02d51b](https://github.com/Alwatr/nanotron/commit/c02d51bd7427493aacdc630a7d08c5bda4f54e59)) by @AliMD
+* **api-server:** Update logger name in NanotronApiServer ([6f0a959](https://github.com/Alwatr/nanotron/commit/6f0a959bfd2bf6d5f60fc518c6a916cd255a9bd0)) by @
+* NanotronApiServer to separate NanotronClientRequest and NanotronServerResponse classes ([3116fdf](https://github.com/Alwatr/nanotron/commit/3116fdf6dc93af93a1e3ff47755f431e12efa228)) by @AliMD
+
 ## [4.0.0-alpha.0](https://github.com/Alwatr/nanotron/compare/v1.2.7...v4.0.0-alpha.0) (2024-09-10)
 
 ### ⚠ BREAKING CHANGES
