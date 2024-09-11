@@ -29,9 +29,21 @@ export class NanotronApiConnection {
 
   readonly replyHeaders: HttpResponseHeaders;
 
-  readonly errorHappened;
+  /**
+   * A flag to indicate if the running handlers queue has been terminated.
+   * This can occur due to an error being thrown or by explicitly calling the `replyError` method.
+   *
+   * When `terminatedHandlers` is set to `true`, it signifies that the execution of the current
+   * sequence of handlers (including pre, main, and post handlers) has been halted and no further
+   * handlers in the queue will be executed.
+   *
+   * Usage:
+   * - Check this flag to determine if the handlers queue has been interrupted.
+   * - Set this flag to `true` to manually stop the execution of subsequent handlers.
+   */
+  terminatedHandlers?: true;
 
-  protected readonly preHandlers_: RouteHandler[];
+  readonly preHandlers_: RouteHandler[];
 
   protected replySent_ = false;
   get replySent(): boolean {
@@ -64,8 +76,6 @@ export class NanotronApiConnection {
       'content-type': 'text/plain',
     };
 
-    this.errorHappened = false;
-
     this.preHandlers_ = [];
   }
 
@@ -84,38 +94,16 @@ export class NanotronApiConnection {
     }
   }
 
-  replyJsonError(errorResponse: ErrorResponse): void {
-    this.logger_.logMethodArgs?.('replyJsonError', {errorResponse});
+  replyErrorResponse(errorResponse: ErrorResponse): void {
+    this.logger_.logMethod?.('replyJsonError');
+    this.terminatedHandlers = true;
     this.replyJson(errorResponse);
-  }
-
-  replyJson(responseJson: Json): void {
-    this.logger_.logMethodArgs?.('replyJson', {responseJson});
-
-    let responseString: string;
-    try {
-      responseString = JSON.stringify(responseJson);
-    }
-    catch (error) {
-      this.logger_.error('replyJson', 'reply_json_stringify_failed', error, {
-        url: this.url.pathname,
-        method: this.method,
-      });
-      this.replyStatusCode = HttpStatusCodes.Error_Server_500_Internal_Server_Error;
-      responseString = JSON.stringify({
-        ok: false,
-        errorCode: 'reply_json_stringify_failed',
-        errorMessage: 'Failed to stringify response JSON.',
-      } as ErrorResponse);
-    }
-
-    this.replyHeaders['content-type'] = 'application/json';
-    this.reply(responseString);
   }
 
   replyError(error?: Error | string | Json | unknown): void {
     this.logger_.logMethodArgs?.('replyError', {error});
 
+    this.terminatedHandlers = true;
     let statusCode = this.replyStatusCode;
 
     if (statusCode < HttpStatusCodes.Error_Client_400_Bad_Request) {
@@ -151,6 +139,30 @@ export class NanotronApiConnection {
         errorMessage: HttpStatusMessages[statusCode]
       } as ErrorResponse);
     }
+  }
+
+  replyJson(responseJson: Json): void {
+    this.logger_.logMethodArgs?.('replyJson', {responseJson});
+
+    let responseString: string;
+    try {
+      responseString = JSON.stringify(responseJson);
+    }
+    catch (error) {
+      this.logger_.error('replyJson', 'reply_json_stringify_failed', error, {
+        url: this.url.pathname,
+        method: this.method,
+      });
+      this.replyStatusCode = HttpStatusCodes.Error_Server_500_Internal_Server_Error;
+      responseString = JSON.stringify({
+        ok: false,
+        errorCode: 'reply_json_stringify_failed',
+        errorMessage: 'Failed to stringify response JSON.',
+      } as ErrorResponse);
+    }
+
+    this.replyHeaders['content-type'] = 'application/json';
+    this.reply(responseString);
   }
 
   reply(context: string | Buffer): void {
