@@ -9,17 +9,17 @@ const apiServer = new NanotronApiServer({
 apiServer.defineRoute({
   method: 'GET',
   url: '/',
-  handler (connection) {
-    connection.replyHeaders['content-type'] = 'text/html';
-    connection.reply('<h1>Alwatr Nanotron Api Server</h1>');
+  handler (clientRequest, serverResponse) {
+    serverResponse.headers['content-type'] = 'text/html';
+    serverResponse.reply('<h1>Alwatr Nanotron Api Server</h1>');
   }
 });
 
 apiServer.defineRoute({
   method: 'GET',
   url: '/hello',
-  handler (connection) {
-    connection.replyJson({
+  handler (clientRequest, serverResponse) {
+    serverResponse.replyJson({
       ok: true,
       message: 'Hello :)',
     });
