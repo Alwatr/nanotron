@@ -1,28 +1,17 @@
 import {createLogger} from '@alwatr/logger';
 
-import type {HttpMethod, RouteHandler} from './type.js';
-import type {IncomingMessage} from 'node:http';
+import {NanotronServerResponse} from './api-server-response.js';
 
-/**
- * Configuration options for the Nanotron Api Client Request.
- */
-export interface NanotronClientRequestConfig {
-  /**
-   * A prefix to be added to the beginning of the `url` of all defined routes.
-   *
-   * @default '/api/'
-   */
-  prefix: `/${string}/` | '/';
-}
+import type {DefineRouteOption, NativeClientRequest, NativeServerResponse} from './type.js';
+import type {NanotronUrl} from './url.js';
+import type {Dictionary} from '@alwatr/type-helper';
 
 export class NanotronClientRequest {
-  protected static versionPattern_ = new RegExp('^/v[0-9]+/');
+  readonly url: NanotronUrl;
 
-  readonly url;
+  readonly serverResponse: NanotronServerResponse;
 
-  readonly method;
-
-  readonly raw_;
+  readonly routeOption: DefineRouteOption | null;
 
   /**
    * A flag to indicate if the running handlers queue has been terminated.
@@ -38,33 +27,28 @@ export class NanotronClientRequest {
    */
   terminatedHandlers?: true;
 
-  readonly preHandlers_: RouteHandler[] = [];
+  readonly sharedMeta: Dictionary = {};
+
+  readonly raw_: NativeClientRequest;
 
   protected readonly logger_;
 
-  protected readonly config_;
-
   constructor(
-    clientRequest: IncomingMessage,
-    config: NanotronClientRequestConfig,
+    url: NanotronUrl,
+    nativeClientRequest: NativeClientRequest,
+    nativeServerResponse: NativeServerResponse,
+    routeOption: DefineRouteOption | null,
   ) {
-    // Store the raw request object and configuration.
-    this.config_ = config;
-    this.raw_ = clientRequest;
-
-    // Parse request method.
-    this.method = (this.raw_.method ?? 'GET').toUpperCase() as HttpMethod;
-
-    // Parse request URL.
-    let url = this.raw_.url ?? '';
-    if (this.config_.prefix !== '/' && url.indexOf(this.config_.prefix) === 0) {
-      url = url.slice(this.config_.prefix.length - 1);
-    }
-    url = url.replace(NanotronClientRequest.versionPattern_, '/');
-    this.url = new URL(url, 'http://hostname/');
+    // Store public properties.
+    this.raw_ = nativeClientRequest;
+    this.url = url;
+    this.routeOption = routeOption;
 
     // Create logger.
     this.logger_ = createLogger('nt-client-request'); // TODO: add client ip
-    this.logger_.logMethodArgs?.('new', {method: this.method, url: this.url.pathname});
+    this.logger_.logMethodArgs?.('new', url.debugId);
+
+    // Create server response.
+    this.serverResponse = new NanotronServerResponse(this, nativeServerResponse);
   }
 }
