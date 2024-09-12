@@ -12,9 +12,66 @@ declare module 'http' {
 export type MatchType = 'exact' | 'startsWith';
 
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS' | 'HEAD' | 'CONNECT' | 'TRACE';
+
+export type ErrorResponse = {
+  ok: false;
+  errorCode: Lowercase<string>;
+  errorMessage: string;
+  meta?: Json;
+};
+
+export type RouteHandler = (
+  clientRequest: NanotronClientRequest,
+  serverResponse: NanotronServerResponse,
+  sharedMeta: Dictionary,
+) => MaybePromise<void>;
+
 export type NativeClientRequest = IncomingMessage;
 export type NativeServerResponse = ServerResponse;
 
+/**
+ * Configuration options for defining a route.
+ */
+export interface DefineRouteOption {
+  /**
+   * The HTTP method for this route.
+   */
+  method: HttpMethod;
+
+  /**
+   * The URL path for this route.
+   */
+  url: string;
+
+  /**
+   * Specifies how the `url` should be matched against incoming requests.
+   *
+   * @default 'exact'
+   */
+  matchType?: MatchType;
+
+  /**
+   * The functions call before the main handler.
+   */
+  preHandlers?: RouteHandler[];
+
+  /**
+   * The function to handle requests to this route.
+   */
+  handler: RouteHandler;
+
+  /**
+   * The functions call after the main handler.
+   */
+  postHandlers?: RouteHandler[];
+
+  /**
+   * The maximum size of the request body in bytes.
+   *
+   * @default `1_048_576` (1MiB) or the value set in the server configuration.
+   */
+  bodyLimit?: number;
+}
 
 /**
  * Represents the collection of HTTP response headers.
@@ -174,16 +231,3 @@ export interface HttpResponseHeaders {
   // Additional headers can be added here as needed
   [headerName: Lowercase<string>]: string | string[] | number | undefined;
 }
-
-export type ErrorResponse = {
-  ok: false;
-  errorCode: Lowercase<string>;
-  errorMessage: string;
-  meta?: Json;
-}
-
-export type RouteHandler = (
-  clientRequest: NanotronClientRequest,
-  serverResponse: NanotronServerResponse,
-  sharedMeta: Dictionary,
-) => MaybePromise<void>;
