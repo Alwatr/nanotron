@@ -24,12 +24,12 @@ export interface HttpResponseHeaders {
   /**
    * Specifies the time in seconds the object has been in a proxy cache.
    */
-  'age'?: string;
+  age?: string;
 
   /**
    * Lists the set of HTTP methods supported by the resource identified by the Request-URI.
    */
-  'allow'?: string;
+  allow?: string;
 
   /**
    * Specifies caching directives for both requests and responses.
@@ -39,7 +39,7 @@ export interface HttpResponseHeaders {
   /**
    * Controls whether the network connection stays open after the current transaction.
    */
-  'connection'?: string;
+  connection?: string;
 
   /**
    * Suggests a filename for the downloaded resource or how the content should be displayed.
@@ -79,17 +79,17 @@ export interface HttpResponseHeaders {
   /**
    * Indicates the date and time at which the message was originated.
    */
-  'date'?: string;
+  date?: string;
 
   /**
    * Provides the current value of the entity tag for the requested variant.
    */
-  'etag'?: string;
+  etag?: string;
 
   /**
    * Gives the date/time after which the response is considered stale.
    */
-  'expires'?: string;
+  expires?: string;
 
   /**
    * Indicates the date and time at which the origin server believes the variant was last modified.
@@ -99,17 +99,17 @@ export interface HttpResponseHeaders {
   /**
    * Provides a list of URIs associated with the resource.
    */
-  'link'?: string;
+  link?: string;
 
   /**
    * Used in redirection, or when a new resource has been created.
    */
-  'location'?: string;
+  location?: string;
 
   /**
    * Used for backward compatibility with HTTP/1.0 caches.
    */
-  'pragma'?: string;
+  pragma?: string;
 
   /**
    * Requests authentication information from the client for a proxy server.
@@ -124,7 +124,7 @@ export interface HttpResponseHeaders {
   /**
    * Contains information about the software used by the origin server to handle the request.
    */
-  'server'?: string;
+  server?: string;
 
   /**
    * Used to send cookies from the server to the user agent.
@@ -139,7 +139,7 @@ export interface HttpResponseHeaders {
   /**
    * Allows the sender to include additional fields at the end of chunked messages.
    */
-  'trailer'?: string;
+  trailer?: string;
 
   /**
    * Specifies the form of encoding used to safely transfer the entity to the user.
@@ -150,17 +150,17 @@ export interface HttpResponseHeaders {
    * Determines how to match future request headers to decide whether a cached response
    * can be used rather than requesting a fresh one from the origin server.
    */
-  'vary'?: string;
+  vary?: string;
 
   /**
    * Lists all intermediate proxies the message has traversed
    */
-  'via'?: string;
+  via?: string;
 
   /**
    * Contains additional information about the status or transformation of a message that might not be reflected in the status code.
    */
-  'warning'?: string;
+  warning?: string;
 
   /**
    * Indicates the authentication scheme that should be used to access the requested entity.
