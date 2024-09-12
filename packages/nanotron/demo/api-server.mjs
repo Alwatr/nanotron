@@ -25,3 +25,14 @@ apiServer.defineRoute({
     });
   }
 });
+
+apiServer.defineRoute({
+  method: 'GET',
+  url: '/hello',
+  handler (connection) {
+    connection.serverResponse.replyJson({
+      ok: true,
+      message: 'Hello :)',
+    });
+  }
+});
