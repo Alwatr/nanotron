@@ -3,9 +3,8 @@ import {createLogger} from '@alwatr/logger';
 import {type HttpStatusCode, HttpStatusCodes, HttpStatusMessages} from './const.js';
 
 import type {NanotronClientRequest} from './api-client-request.js';
-import type {HttpResponseHeaders, ErrorResponse} from './type.js';
+import type {HttpResponseHeaders, ErrorResponse, NativeServerResponse} from './type.js';
 import type {Json} from '@alwatr/type-helper';
-import type {ServerResponse} from 'node:http';
 
 /**
  * Configuration options for the Nanotron Api Server Response.
@@ -15,30 +14,27 @@ export interface NanotronServerResponseConfig {
 }
 
 export class NanotronServerResponse {
-  readonly raw_;
+  readonly clientRequest: NanotronClientRequest;
+
+  readonly raw_: NativeServerResponse;
 
   readonly headers: HttpResponseHeaders;
 
   protected readonly logger_;
-
-  protected readonly config_;
 
   protected hasBeenSent_ = false;
   get hasBeenSent(): boolean {
     return this.hasBeenSent_;
   }
 
-  constructor(
-    serverResponse: ServerResponse,
-    config: NanotronServerResponseConfig,
-  ) {
-    // Store the raw request object and configuration.
-    this.config_ = config;
-    this.raw_ = serverResponse;
+  constructor(nanotronClientRequest: NanotronClientRequest, nativeServerResponse: NativeServerResponse) {
+    // Store public properties.
+    this.clientRequest = nanotronClientRequest;
+    this.raw_ = nativeServerResponse;
 
     // Create logger.
     this.logger_ = createLogger('nt-server-response'); // TODO: add client ip
-    this.logger_.logMethod?.('new');
+    this.logger_.logMethodArgs?.('new', this.clientRequest.url.debugId);
 
     // Set default reply headers.
     this.headers = {
@@ -64,14 +60,14 @@ export class NanotronServerResponse {
 
   replyErrorResponse(errorResponse: ErrorResponse): void {
     this.logger_.logMethod?.('replyErrorResponse');
-    this.config_.clientRequest.terminatedHandlers = true;
+    this.clientRequest.terminatedHandlers = true;
     this.replyJson(errorResponse);
   }
 
   replyError(error?: Error | string | Json | unknown): void {
     this.logger_.logMethodArgs?.('replyError', {error});
 
-    this.config_.clientRequest.terminatedHandlers = true;
+    this.clientRequest.terminatedHandlers = true;
     let statusCode = this.statusCode;
 
     if (statusCode < HttpStatusCodes.Error_Client_400_Bad_Request) {
@@ -81,13 +77,10 @@ export class NanotronServerResponse {
     if (error instanceof Error) {
       this.replyJson({
         ok: false,
-        errorCode: error.name === 'Error'
-          ? ('error_' + statusCode) as Lowercase<string>
-          : (error.name + '').toLowerCase(),
+        errorCode: error.name === 'Error' ? (('error_' + statusCode) as Lowercase<string>) : (error.name + '').toLowerCase(),
         errorMessage: error.message,
       });
     }
-
     else if (typeof error === 'string') {
       this.replyJson({
         ok: false,
@@ -95,16 +88,14 @@ export class NanotronServerResponse {
         errorMessage: error,
       });
     }
-
     else if (typeof error === 'object' && error !== null) {
       this.replyJson(error as Json);
     }
-
     else {
       this.replyJson({
         ok: false,
         errorCode: ('error_' + statusCode) as Lowercase<string>,
-        errorMessage: HttpStatusMessages[statusCode]
+        errorMessage: HttpStatusMessages[statusCode],
       } as ErrorResponse);
     }
   }
@@ -117,10 +108,7 @@ export class NanotronServerResponse {
       responseString = JSON.stringify(responseJson);
     }
     catch (error) {
-      this.logger_.error('replyJson', 'reply_json_stringify_failed', error, {
-        url: this.config_.clientRequest.url.pathname,
-        method: this.config_.clientRequest.method,
-      });
+      this.logger_.error('replyJson', 'reply_json_stringify_failed', error, this.clientRequest.url.debugId);
       this.statusCode = HttpStatusCodes.Error_Server_500_Internal_Server_Error;
       responseString = JSON.stringify({
         ok: false,
@@ -134,10 +122,7 @@ export class NanotronServerResponse {
   }
 
   reply(context: string | Buffer): void {
-    this.logger_.logMethodArgs?.('reply', {
-      url: this.config_.clientRequest.url.pathname,
-      method: this.config_.clientRequest.method,
-    });
+    this.logger_.logMethodArgs?.('reply', this.clientRequest.url.debugId);
 
     if (this.raw_.writableFinished && this.hasBeenSent_ === false) {
       // The response has already been sent by direct access to the server api.
@@ -147,8 +132,7 @@ export class NanotronServerResponse {
 
     if (this.hasBeenSent_) {
       this.logger_.accident('reply', 'reply_already_sent', {
-        url: this.config_.clientRequest.url.pathname,
-        method: this.config_.clientRequest.method,
+        url: this.clientRequest.url.debugId,
         replySent: this.hasBeenSent_,
         writableFinished: this.raw_.writableFinished,
       });
@@ -166,13 +150,9 @@ export class NanotronServerResponse {
 
       this.applyHeaders_();
       this.raw_.end(context, 'binary');
-
     }
     catch (error) {
-      this.logger_.error('reply', 'server_response_error', error, {
-        url: this.config_.clientRequest.url.pathname,
-        method: this.config_.clientRequest.method,
-      });
+      this.logger_.error('reply', 'server_response_error', error, this.clientRequest.url.debugId);
       this.hasBeenSent_ = false;
     }
   }
