@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0-alpha.2](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.1...v4.0.0-alpha.2) (2024-09-12)
+
+### Features
+
+* **api-server:** Add NanotronUrl class for handling client request URLs ([3e41fd6](https://github.com/Alwatr/nanotron/commit/3e41fd650869e7bfdb875dccbc221cb3dd083832)) by @AliMD
+
+### Code Refactoring
+
+* **api-server:** types ([46d7487](https://github.com/Alwatr/nanotron/commit/46d74871631d47e7bc4c4b188367f4543915031f)) by @AliMD
+* **api-server:** Update HttpResponseHeaders interface properties ([3e44a43](https://github.com/Alwatr/nanotron/commit/3e44a433f287c8d4c6fb18ac13cfa58805bb709b)) by @AliMD
+* **api-server:** Update main.ts exports with NanotronClientRequest, NanotronServerResponse, and NanotronUrl types ([c94c954](https://github.com/Alwatr/nanotron/commit/c94c9546927c13b3b72d24522bd1fc46ce4f6163)) by @AliMD
+* **api-server:** Update NanotronClientRequest class ([468d3d9](https://github.com/Alwatr/nanotron/commit/468d3d910342a6963c07de18e9cccc933934a111)) by @AliMD
+* **api-server:** Update NanotronClientRequest class and NanotronServerResponse class ([7b587e0](https://github.com/Alwatr/nanotron/commit/7b587e06dbcf493424dd0bd70de402f14e2e519a)) by @AliMD
+* **api-server:** Update NanotronServerResponse class ([0f47dd7](https://github.com/Alwatr/nanotron/commit/0f47dd7221a67f5a21269f76c60df125ac6e9c93)) by @AliMD
+* **api-server:** Update type.ts with NativeClientRequest and NativeServerResponse types ([e6b62e5](https://github.com/Alwatr/nanotron/commit/e6b62e50b8873fe77eb4bab084581b0c6c0d3c86)) by @AliMD
+
 ## [4.0.0-alpha.1](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.0...v4.0.0-alpha.1) (2024-09-11)
 
 ### ⚠ BREAKING CHANGES

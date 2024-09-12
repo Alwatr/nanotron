@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0-alpha.2](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.1...v4.0.0-alpha.2) (2024-09-12)
+
+### Code Refactoring
+
+* **api-server:** Add new route for /hello endpoint ([d2dad04](https://github.com/Alwatr/nanotron/commit/d2dad04bd6e288b99e145a8af1bbadba8d6f7cbe)) by @AliMD
+
+### Miscellaneous Chores
+
+* update demo ([218d375](https://github.com/Alwatr/nanotron/commit/218d3751266eff7367e9056f1763958a1100cdef)) by @
+
 ## [4.0.0-alpha.1](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.0...v4.0.0-alpha.1) (2024-09-11)
 
 ### Features
