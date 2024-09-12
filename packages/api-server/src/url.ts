@@ -1,7 +1,6 @@
 import {URL} from 'node:url';
 
-import type {HttpMethod} from './type.js';
-import type {IncomingMessage} from 'node:http';
+import type {HttpMethod, NativeClientRequest} from './type.js';
 
 export class NanotronUrl extends URL {
   protected static versionPattern_ = new RegExp('^/v[0-9]+/');
@@ -9,7 +8,7 @@ export class NanotronUrl extends URL {
   readonly method: HttpMethod;
   readonly debugId: string;
 
-  constructor(clientRequest: IncomingMessage, prefix: `/${string}/` | '/') {
+  constructor(clientRequest: NativeClientRequest, prefix: `/${string}/` | '/') {
     let url = clientRequest.url ?? '';
     if (prefix !== '/' && url.indexOf(prefix) === 0) {
       url = url.slice(prefix.length - 1); // include `/`
