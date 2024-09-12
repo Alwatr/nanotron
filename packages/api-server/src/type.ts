@@ -1,6 +1,7 @@
-import type { NanotronClientRequest } from './api-client-request.js';
-import type { NanotronServerResponse } from './api-server-response.js';
-import type { Dictionary, Json, MaybePromise } from '@alwatr/type-helper';
+import type {NanotronClientRequest} from './api-client-request.js';
+import type {NanotronServerResponse} from './api-server-response.js';
+import type {Dictionary, Json, MaybePromise} from '@alwatr/type-helper';
+import type {IncomingMessage, ServerResponse} from 'node:http';
 
 declare module 'http' {
   interface IncomingHttpHeaders {
@@ -11,6 +12,9 @@ declare module 'http' {
 export type MatchType = 'exact' | 'startsWith';
 
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS' | 'HEAD' | 'CONNECT' | 'TRACE';
+export type NativeClientRequest = IncomingMessage;
+export type NativeServerResponse = ServerResponse;
+
 
 /**
  * Represents the collection of HTTP response headers.
