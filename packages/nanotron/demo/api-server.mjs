@@ -28,7 +28,7 @@ apiServer.defineRoute({
 
 apiServer.defineRoute({
   method: 'GET',
-  url: '/hello',
+  url: '/hello2',
   handler (connection) {
     connection.serverResponse.replyJson({
       ok: true,
