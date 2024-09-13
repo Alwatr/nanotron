@@ -233,7 +233,7 @@ export interface HttpResponseHeaders {
 }
 
 /**
- * Represents the collection of all HTTP Request headers (lower case header key).
+ * Represents the collection of all HTTP Request headers.
  */
 export interface HttpRequestHeaders {
   /**
