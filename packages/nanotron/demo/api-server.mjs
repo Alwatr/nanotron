@@ -36,3 +36,15 @@ apiServer.defineRoute({
     });
   }
 });
+
+apiServer.defineRoute({
+  method: 'POST',
+  url: '/echo-body',
+  async handler (connection) {
+    const body = await connection.getBodyRaw();
+    connection.serverResponse.replyJson({
+      ok: true,
+      data: body.toString(),
+    });
+  }
+});
