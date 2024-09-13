@@ -61,7 +61,23 @@ export class NanotronServerResponse {
   replyErrorResponse(errorResponse: ErrorResponse): void {
     this.logger_.logMethod?.('replyErrorResponse');
     this.clientRequest.terminatedHandlers = true;
-    this.replyJson(errorResponse);
+    this.headers['content-type'] = 'application/json';
+    let meta = '';
+    if (errorResponse.meta !== undefined) {
+      const metaType = typeof errorResponse.meta;
+      if (
+        metaType === 'string' ||
+        metaType === 'number' ||
+        metaType === 'boolean' ||
+        errorResponse.meta === null) {
+        meta = `,"meta":"${errorResponse.meta}"`;
+      }
+      else if (metaType === 'object') {
+        meta = `,"meta":${JSON.stringify(errorResponse.meta)}`;
+      }
+    }
+    const responseString = `{"ok":false,"errorCode":"${errorResponse.errorCode}","errorMessage":"${errorResponse.errorMessage}"${meta}}`;
+    this.reply(responseString);
   }
 
   replyError(error?: Error | string | Json | unknown): void {
@@ -75,14 +91,14 @@ export class NanotronServerResponse {
     }
 
     if (error instanceof Error) {
-      this.replyJson({
+      this.replyErrorResponse({
         ok: false,
-        errorCode: error.name === 'Error' ? (('error_' + statusCode) as Lowercase<string>) : (error.name + '').toLowerCase(),
+        errorCode: (error.name === 'Error' ? 'error_' + statusCode : (error.name + '').toLowerCase()) as Lowercase<string>,
         errorMessage: error.message,
       });
     }
     else if (typeof error === 'string') {
-      this.replyJson({
+      this.replyErrorResponse({
         ok: false,
         errorCode: ('error_' + statusCode) as Lowercase<string>,
         errorMessage: error,
@@ -92,11 +108,11 @@ export class NanotronServerResponse {
       this.replyJson(error as Json);
     }
     else {
-      this.replyJson({
+      this.replyErrorResponse({
         ok: false,
         errorCode: ('error_' + statusCode) as Lowercase<string>,
         errorMessage: HttpStatusMessages[statusCode],
-      } as ErrorResponse);
+      });
     }
   }
 
@@ -110,11 +126,12 @@ export class NanotronServerResponse {
     catch (error) {
       this.logger_.error('replyJson', 'reply_json_stringify_failed', error, this.clientRequest.url.debugId);
       this.statusCode = HttpStatusCodes.Error_Server_500_Internal_Server_Error;
-      responseString = JSON.stringify({
+      this.replyErrorResponse({
         ok: false,
         errorCode: 'reply_json_stringify_failed',
         errorMessage: 'Failed to stringify response JSON.',
-      } as ErrorResponse);
+      });
+      return;
     }
 
     this.headers['content-type'] = 'application/json';
