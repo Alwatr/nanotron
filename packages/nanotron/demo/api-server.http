@@ -10,5 +10,8 @@ GET http://localhost/api/v1/
 ### Hello
 GET http://localhost/api/v1/hello
 
+### Hello2
+GET http://localhost/api/v1/hello2
+
 ### error 404
 GET http://localhost/api/v1/bla-bla
