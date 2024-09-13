@@ -3,7 +3,7 @@ import {createServer} from 'node:http';
 import {createLogger} from '@alwatr/logger';
 
 import {NanotronClientRequest} from './api-client-request.js';
-import {HttpStatusCodes} from './const.js';
+import {HttpStatusCodes, HttpStatusMessages} from './const.js';
 import {NanotronUrl} from './url.js';
 
 import type {DefineRouteOption, MatchType, NativeClientRequest, NativeServerResponse} from './type.js';
@@ -176,14 +176,14 @@ export class NanotronApiServer {
   }
 
   protected setRouteOption_(option: Required<DefineRouteOption>): void {
-    this.logger_.logMethodArgs?.('setRouteOption_', {...option, handler: 'function'});
+    this.logger_.logMethodArgs?.('setRouteOption_', option);
 
     const routeHandlerList = this.routeHandlerList__[option.matchType];
 
     routeHandlerList[option.method] ??= {};
 
     if (Object.hasOwn(routeHandlerList[option.method], option.url)) {
-      this.logger_.error('defineRoute', 'route_already_exists', {...option, handler: 'function'});
+      this.logger_.error('defineRoute', 'route_already_exists', option);
       throw new Error('route_already_exists');
     }
 
@@ -198,16 +198,16 @@ export class NanotronApiServer {
       bodyLimit: this.config_.bodyLimit,
       ...option,
     };
-    this.logger_.logMethodArgs?.('defineRoute', {...option_, handler: 'function'});
+    this.logger_.logMethodArgs?.('defineRoute', option_);
     this.setRouteOption_(option_);
   }
 
-  protected handleServerError_(err: NodeJS.ErrnoException): void {
-    if (err.code === 'EADDRINUSE') {
-      this.logger_.error('handleServerError_', 'address_in_use', err);
+  protected handleServerError_(error: NodeJS.ErrnoException): void {
+    if (error.code === 'EADDRINUSE') {
+      this.logger_.error('handleServerError_', 'address_in_use', error);
     }
     else {
-      this.logger_.error('handleServerError_', 'http_server_error', err.message || 'HTTP server catch an error', err);
+      this.logger_.error('handleServerError_', 'http_server_error', error);
     }
   }
 
@@ -216,7 +216,19 @@ export class NanotronApiServer {
       errCode: err.code,
       errMessage: err.message,
     });
-    socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+
+    const errorCode = err.code?.toLowerCase() ?? `error_${HttpStatusCodes.Error_Client_400_Bad_Request}`;
+    const errorMessage = err.message ?? HttpStatusMessages[HttpStatusCodes.Error_Client_400_Bad_Request];
+    const errorResponse = `{"ok":false,"errorCode":"${errorCode}","errorMessage":"${errorMessage}"}`;
+
+    const responseHeaders = [
+      `HTTP/1.1 ${HttpStatusCodes.Error_Client_400_Bad_Request} ${HttpStatusMessages[HttpStatusCodes.Error_Client_400_Bad_Request]}`,
+      'content-type: application/json',
+      `content-length: ${Buffer.byteLength(errorResponse)}`,
+      '\r\n',
+    ].join('\r\n');
+
+    socket.end(responseHeaders + errorResponse);
   }
 
   protected async handleClientRequest_(
@@ -227,11 +239,6 @@ export class NanotronApiServer {
 
     if (nativeClientRequest.url === undefined) {
       this.logger_.accident('handleClientRequest_', 'http_server_url_undefined');
-      return;
-    }
-
-    if (nativeClientRequest.method === undefined) {
-      this.logger_.accident('handleClientRequest_', 'http_server_method_undefined');
       return;
     }
 
