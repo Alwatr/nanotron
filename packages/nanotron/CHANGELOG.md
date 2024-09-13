@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0-alpha.3](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.2...v4.0.0-alpha.3) (2024-09-13)
+
+### Features
+
+* **api-server:** add new endpoint for hello2 in API demo ([818c710](https://github.com/Alwatr/nanotron/commit/818c710425c1fc7f93150bac309a207fc2405619)) by @AliMD
+* **demo:** add POST /echo-body endpoint to echo request body ([f13b916](https://github.com/Alwatr/nanotron/commit/f13b91607abf33e5e8978fbd4ad26bc7ada355d3)) by @AliMD
+
 ## [4.0.0-alpha.2](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.1...v4.0.0-alpha.2) (2024-09-12)
 
 ### Code Refactoring

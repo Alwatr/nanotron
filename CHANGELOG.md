@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0-alpha.3](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.2...v4.0.0-alpha.3) (2024-09-13)
+
+### Features
+
+* **api-server:** add getBodyRaw method to NanotronClientRequest for handling request body ([828416b](https://github.com/Alwatr/nanotron/commit/828416bda33e76dfece5815a754fcd211490380d)) by @AliMD
+* **api-server:** add headers getter to NanotronClientRequest ([6426345](https://github.com/Alwatr/nanotron/commit/6426345ad057591517ee9c5d705dd10c23e218ea)) by @AliMD
+* **api-server:** add HttpRequestHeaders ([c7e8d94](https://github.com/Alwatr/nanotron/commit/c7e8d9485f4d9be9482a9684321ec6dd1113903b)) by @AliMD
+* **api-server:** add new endpoint for hello2 in API demo ([818c710](https://github.com/Alwatr/nanotron/commit/818c710425c1fc7f93150bac309a207fc2405619)) by @AliMD
+* **api-server:** enhance error response handling in NanotronServerResponse ([0a0f89b](https://github.com/Alwatr/nanotron/commit/0a0f89bff0603fce9068ce69c82f5f105548290e)) by @AliMD
+* **api-server:** improve error handling and logging in NanotronApiServer ([65d82b6](https://github.com/Alwatr/nanotron/commit/65d82b6cea680d2c810a48caedb337cac9ae597e)) by @AliMD
+* **demo:** add POST /echo-body endpoint to echo request body ([f13b916](https://github.com/Alwatr/nanotron/commit/f13b91607abf33e5e8978fbd4ad26bc7ada355d3)) by @AliMD
+
+### Code Refactoring
+
+* **api-server:** Update NanotronUrl class to include NativeClientRequest type ([906256f](https://github.com/Alwatr/nanotron/commit/906256f3628c2e8901017e39ab3a06a3a53927b3)) by @AliMD
+* **api-server:** update routeOption type to Required<DefineRouteOption> ([e4eb63e](https://github.com/Alwatr/nanotron/commit/e4eb63e8647a474e9f10a0bbd4f034851460a8b2)) by @AliMD
+
+### Dependencies update
+
+* update ([0461fb5](https://github.com/Alwatr/nanotron/commit/0461fb58e837488defb868cea4df83ba23a4db34)) by @
+
 ## [4.0.0-alpha.2](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.1...v4.0.0-alpha.2) (2024-09-12)
 
 ### Features
