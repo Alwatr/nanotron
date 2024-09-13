@@ -33,6 +33,10 @@ export class NanotronClientRequest {
 
   protected readonly logger_;
 
+  get headers(): HttpRequestHeaders {
+    return this.raw_.headers;
+  }
+
   constructor(
     url: NanotronUrl,
     nativeClientRequest: NativeClientRequest,
