@@ -1,8 +1,9 @@
 import {createLogger} from '@alwatr/logger';
 
 import {NanotronServerResponse} from './api-server-response.js';
+import {HttpStatusCodes} from './const.js';
 
-import type {DefineRouteOption, NativeClientRequest, NativeServerResponse} from './type.js';
+import type {DefineRouteOption, HttpRequestHeaders, NativeClientRequest, NativeServerResponse} from './type.js';
 import type {NanotronUrl} from './url.js';
 import type {Dictionary} from '@alwatr/type-helper';
 
@@ -11,7 +12,7 @@ export class NanotronClientRequest {
 
   readonly serverResponse: NanotronServerResponse;
 
-  readonly routeOption: DefineRouteOption | null;
+  readonly routeOption: Required<DefineRouteOption> | null;
 
   /**
    * A flag to indicate if the running handlers queue has been terminated.
@@ -41,7 +42,7 @@ export class NanotronClientRequest {
     url: NanotronUrl,
     nativeClientRequest: NativeClientRequest,
     nativeServerResponse: NativeServerResponse,
-    routeOption: DefineRouteOption | null,
+    routeOption: Required<DefineRouteOption> | null,
   ) {
     // Store public properties.
     this.raw_ = nativeClientRequest;
