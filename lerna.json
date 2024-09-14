@@ -79,9 +79,6 @@
         ]
       },
       "changelogIncludeCommitsClientLogin": " by @%l",
-      "ignoreChanges": [
-        "*.md"
-      ],
       "skipBumpOnlyReleases": true,
       "message": "release:",
       "private": false,
