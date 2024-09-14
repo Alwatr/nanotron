@@ -34,6 +34,8 @@ export class NanotronClientRequest {
 
   protected readonly logger_;
 
+  readonly remoteAddress: string | null;
+
   get headers(): HttpRequestHeaders {
     return this.raw_.headers;
   }
@@ -48,6 +50,9 @@ export class NanotronClientRequest {
     this.raw_ = nativeClientRequest;
     this.url = url;
     this.routeOption = routeOption;
+
+    // Get and store remote address.
+    this.remoteAddress = this.getRemoteAddress__();
 
     // Create logger.
     this.logger_ = createLogger('nt-client-request'); // TODO: add client ip
@@ -129,15 +134,7 @@ export class NanotronClientRequest {
     });
   }
 
-  getRemoteAddress(): string {
-    // prettier-ignore
-    return (
-      this.raw_.headers['x-forwarded-for']
-        ?.split(',')
-        .pop()
-        ?.trim() ||
-      this.raw_.socket.remoteAddress ||
-      'unknown'
-    );
+  private getRemoteAddress__(): string | null {
+    return this.raw_.headers['x-forwarded-for']?.split(',').pop()?.trim() || this.raw_.socket.remoteAddress || null;
   }
 }
