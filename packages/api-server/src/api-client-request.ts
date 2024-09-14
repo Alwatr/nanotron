@@ -7,7 +7,7 @@ import type {DefineRouteOption, HttpRequestHeaders, NativeClientRequest, NativeS
 import type {NanotronUrl} from './url.js';
 import type {Dictionary} from '@alwatr/type-helper';
 
-export class NanotronClientRequest {
+export class NanotronClientRequest<TSharedMeta extends Dictionary = Dictionary> {
   readonly url: NanotronUrl;
 
   readonly serverResponse: NanotronServerResponse;
@@ -28,11 +28,13 @@ export class NanotronClientRequest {
    */
   terminatedHandlers?: true;
 
-  readonly sharedMeta: Dictionary = {};
+  readonly sharedMeta: TSharedMeta = {} as TSharedMeta;
 
   readonly raw_: NativeClientRequest;
 
   protected readonly logger_;
+
+  readonly remoteAddress: string | null;
 
   get headers(): HttpRequestHeaders {
     return this.raw_.headers;
@@ -49,8 +51,11 @@ export class NanotronClientRequest {
     this.url = url;
     this.routeOption = routeOption;
 
+    // Get and store remote address.
+    this.remoteAddress = this.getRemoteAddress__();
+
     // Create logger.
-    this.logger_ = createLogger('nt-client-request'); // TODO: add client ip
+    this.logger_ = createLogger(`nt-client-request[${this.remoteAddress}]`);
     this.logger_.logMethodArgs?.('new', url.debugId);
 
     // Create server response.
@@ -127,5 +132,9 @@ export class NanotronClientRequest {
       this.raw_.on('error', onEnd);
       this.raw_.resume();
     });
+  }
+
+  private getRemoteAddress__(): string | null {
+    return this.raw_.headers['x-forwarded-for']?.split(',').pop()?.trim() || this.raw_.socket.remoteAddress || null;
   }
 }

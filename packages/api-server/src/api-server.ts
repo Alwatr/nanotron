@@ -190,8 +190,8 @@ export class NanotronApiServer {
     routeHandlerList[option.method][option.url] = option;
   }
 
-  defineRoute(option: DefineRouteOption): void {
-    const option_: Required<DefineRouteOption> = {
+  defineRoute<TSharedMeta extends Dictionary = Dictionary>(option: DefineRouteOption<TSharedMeta>): void {
+    const option_: Required<DefineRouteOption<TSharedMeta>> = {
       matchType: 'exact',
       preHandlers: [],
       postHandlers: [],
@@ -199,7 +199,7 @@ export class NanotronApiServer {
       ...option,
     };
     this.logger_.logMethodArgs?.('defineRoute', option_);
-    this.setRouteOption_(option_);
+    this.setRouteOption_(option_ as Required<DefineRouteOption>);
   }
 
   protected handleServerError_(error: NodeJS.ErrnoException): void {
