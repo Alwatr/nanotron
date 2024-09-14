@@ -38,11 +38,22 @@ apiServer.defineRoute({
 });
 
 apiServer.defineRoute({
+  method: 'GET',
+  url: '/hello3',
+  handler () {
+    this.serverResponse.replyJson({
+      ok: true,
+      message: 'Hello :)',
+    });
+  }
+});
+
+apiServer.defineRoute({
   method: 'POST',
   url: '/echo-body',
-  async handler (connection) {
-    const body = await connection.getBodyRaw();
-    connection.serverResponse.replyJson({
+  async handler () {
+    const body = await this.getBodyRaw();
+    this.serverResponse.replyJson({
       ok: true,
       data: body.toString(),
     });

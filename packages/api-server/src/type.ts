@@ -21,6 +21,7 @@ export type ErrorResponse = {
 };
 
 export type RouteHandler<TSharedMeta extends Dictionary = Dictionary> = (
+  this: NanotronClientRequest<TSharedMeta>,
   clientRequest: NanotronClientRequest<TSharedMeta>,
   serverResponse: NanotronServerResponse,
   sharedMeta: TSharedMeta,

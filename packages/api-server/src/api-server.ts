@@ -260,14 +260,14 @@ export class NanotronApiServer {
     try {
       for (const handler of routeOption.preHandlers) {
         if (connection.terminatedHandlers === true) return;
-        await handler(connection, connection.serverResponse, connection.sharedMeta);
+        await handler.call(connection, connection, connection.serverResponse, connection.sharedMeta);
       }
 
-      await routeOption.handler(connection, connection.serverResponse, connection.sharedMeta);
+      await routeOption.handler.call(connection, connection, connection.serverResponse, connection.sharedMeta);
 
       for (const handler of routeOption.postHandlers) {
         if (connection.terminatedHandlers === true) return;
-        await handler(connection, connection.serverResponse, connection.sharedMeta);
+        await handler.call(connection, connection, connection.serverResponse, connection.sharedMeta);
       }
     }
     catch (error) {
