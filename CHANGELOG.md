@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/Alwatr/nanotron/compare/v4.0.1...v4.0.2) (2024-09-14)
+
+### Bug Fixes
+
+* definePackage ([a2edcc1](https://github.com/Alwatr/nanotron/commit/a2edcc1b3a4822371cefa4a28ff62a7c6754287e)) by @AliMD
+
 ## [4.0.1](https://github.com/Alwatr/nanotron/compare/v4.0.0...v4.0.1) (2024-09-14)
 
 ### Miscellaneous Chores

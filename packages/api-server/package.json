@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/nanotron-api-server",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Nanotron: Your Lightweight, High-Performance Micro/Nano Service Framework.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
