@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.0](https://github.com/Alwatr/nanotron/compare/v4.0.2...v4.1.0) (2024-09-14)
+
+### Features
+
+* route handlers to use 'call' method for binding 'this' ([69517c1](https://github.com/Alwatr/nanotron/commit/69517c16909f8a9a4720c4863501b01e6ab0834e)) by @
+
 ## [4.0.2](https://github.com/Alwatr/nanotron/compare/v4.0.1...v4.0.2) (2024-09-14)
 
 ### Bug Fixes
