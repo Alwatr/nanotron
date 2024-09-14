@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.3...v4.0.0) (2024-09-14)
+
+**Note:** Version bump only for package @alwatr/crypto
+
 ## [4.0.0-alpha.0](https://github.com/Alwatr/nanotron/compare/v1.2.7...v4.0.0-alpha.0) (2024-09-10)
 
 ### Bug Fixes

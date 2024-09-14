@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.3...v4.0.0) (2024-09-14)
+
+### Features
+
+* **api-server:** add a new method ([416faab](https://github.com/Alwatr/nanotron/commit/416faab300806be6701fe38fb9af8b315a57c068)) by @mohammadhonarvar
+* **api-server:** add queryParams property to NanotronClientRequest class ([8749b98](https://github.com/Alwatr/nanotron/commit/8749b9834cf0b597d2ccdd4f1f3353979962a709)) by @AliMD
+* **api-server:** add remote ip address to loggers ([313602a](https://github.com/Alwatr/nanotron/commit/313602a80b908a7152f72974dae8f837b0a5408c)) by @AliMD
+
+### Code Refactoring
+
+* **api-server:** refactor NanotronClientRequest class ([17953ad](https://github.com/Alwatr/nanotron/commit/17953ad182f6cd17906788599cb4371ee3d3c343)) by @AliMD
+* **api-server:** update NanotronClientRequest class to accept a generic shared meta type ([373f4bc](https://github.com/Alwatr/nanotron/commit/373f4bcc2929820762cb63f19c6fe4167a6d717f)) by @AliMD
+
 ## [4.0.0-alpha.3](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.2...v4.0.0-alpha.3) (2024-09-13)
 
 ### Features
