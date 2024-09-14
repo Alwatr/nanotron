@@ -7,7 +7,7 @@ import type {DefineRouteOption, HttpRequestHeaders, NativeClientRequest, NativeS
 import type {NanotronUrl} from './url.js';
 import type {Dictionary} from '@alwatr/type-helper';
 
-export class NanotronClientRequest {
+export class NanotronClientRequest<TSharedMeta extends Dictionary = Dictionary> {
   readonly url: NanotronUrl;
 
   readonly serverResponse: NanotronServerResponse;
@@ -28,7 +28,7 @@ export class NanotronClientRequest {
    */
   terminatedHandlers?: true;
 
-  readonly sharedMeta: Dictionary = {};
+  readonly sharedMeta: TSharedMeta = {} as TSharedMeta;
 
   readonly raw_: NativeClientRequest;
 

@@ -20,10 +20,10 @@ export type ErrorResponse = {
   meta?: Json;
 };
 
-export type RouteHandler = (
-  clientRequest: NanotronClientRequest,
+export type RouteHandler<TSharedMeta extends Dictionary = Dictionary> = (
+  clientRequest: NanotronClientRequest<TSharedMeta>,
   serverResponse: NanotronServerResponse,
-  sharedMeta: Dictionary,
+  sharedMeta: TSharedMeta,
 ) => MaybePromise<void>;
 
 export type NativeClientRequest = IncomingMessage;
@@ -32,7 +32,7 @@ export type NativeServerResponse = ServerResponse;
 /**
  * Configuration options for defining a route.
  */
-export interface DefineRouteOption {
+export interface DefineRouteOption<TSharedMeta extends Dictionary = Dictionary> {
   /**
    * The HTTP method for this route.
    */
@@ -53,17 +53,17 @@ export interface DefineRouteOption {
   /**
    * The functions call before the main handler.
    */
-  preHandlers?: RouteHandler[];
+  preHandlers?: RouteHandler<TSharedMeta>[];
 
   /**
    * The function to handle requests to this route.
    */
-  handler: RouteHandler;
+  handler: RouteHandler<TSharedMeta>;
 
   /**
    * The functions call after the main handler.
    */
-  postHandlers?: RouteHandler[];
+  postHandlers?: RouteHandler<TSharedMeta>[];
 
   /**
    * The maximum size of the request body in bytes.
