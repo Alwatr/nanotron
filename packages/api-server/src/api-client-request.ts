@@ -40,6 +40,17 @@ export class NanotronClientRequest<TSharedMeta extends Dictionary = Dictionary> 
     return this.raw_.headers;
   }
 
+  private queryParams__?: Dictionary<string>;
+  get queryParams(): Dictionary<string> {
+    if (this.queryParams__ === undefined) {
+      this.queryParams__ = {};
+      for (const [key, value] of this.url.searchParams.entries()) {
+        this.queryParams__[key] = value;
+      }
+    }
+    return this.queryParams__;
+  }
+
   constructor(
     url: NanotronUrl,
     nativeClientRequest: NativeClientRequest,
