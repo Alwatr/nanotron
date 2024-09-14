@@ -128,4 +128,16 @@ export class NanotronClientRequest {
       this.raw_.resume();
     });
   }
+
+  getRemoteAddress(): string {
+    // prettier-ignore
+    return (
+      this.raw_.headers['x-forwarded-for']
+        ?.split(',')
+        .pop()
+        ?.trim() ||
+      this.raw_.socket.remoteAddress ||
+      'unknown'
+    );
+  }
 }
