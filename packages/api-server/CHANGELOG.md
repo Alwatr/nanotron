@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/Alwatr/nanotron/compare/v4.0.0...v4.0.1) (2024-09-14)
+
+### Miscellaneous Chores
+
+* **readme:** remove old docs ([4c4cc79](https://github.com/Alwatr/nanotron/commit/4c4cc79e0f0db9090bd767970f832d104256f3ef)) by @
+
 ## [4.0.0](https://github.com/Alwatr/nanotron/compare/v4.0.0-alpha.3...v4.0.0) (2024-09-14)
 
 ### Features
