@@ -66,7 +66,7 @@ export class NanotronClientRequest<TSharedMeta extends Dictionary = Dictionary> 
     this.remoteAddress = this.getRemoteAddress__();
 
     // Create logger.
-    this.logger_ = createLogger(`nt-client-request[${this.remoteAddress}]`);
+    this.logger_ = createLogger(`nt-client-request(${this.remoteAddress})`);
     this.logger_.logMethodArgs?.('new', url.debugId);
 
     // Create server response.

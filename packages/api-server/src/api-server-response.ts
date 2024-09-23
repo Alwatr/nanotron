@@ -33,7 +33,7 @@ export class NanotronServerResponse {
     this.raw_ = nativeServerResponse;
 
     // Create logger.
-    this.logger_ = createLogger(`nt-server-response[${this.clientRequest.remoteAddress}]`);
+    this.logger_ = createLogger(`nt-server-response(${this.clientRequest.remoteAddress})`);
     this.logger_.logMethodArgs?.('new', this.clientRequest.url.debugId);
 
     // Set default reply headers.
