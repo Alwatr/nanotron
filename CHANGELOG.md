@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.0](https://github.com/Alwatr/nanotron/compare/v4.1.0...v4.2.0) (2024-09-23)
+
+### Features
+
+* Add @alwatr/crypto dependency to nanotron package.json and tsconfig.json ([94cdf28](https://github.com/Alwatr/nanotron/commit/94cdf28bbfcd6b77ebd60ceb93916414e9e11621)) by @AliMD
+
+### Bug Fixes
+
+* export crypto from nanotron ([21f00d2](https://github.com/Alwatr/nanotron/commit/21f00d2d59fb7ac9fd4e7a8e4da3413f320a024d)) by @njfamirm
+
+### Code Refactoring
+
+* logger creation in NanotronClientRequest and NanotronServerResponse ([65accd3](https://github.com/Alwatr/nanotron/commit/65accd3f4a3c5f68e7c25da40b47b5d5d28070f7)) by @AliMD
+
+### Dependencies update
+
+* bump github/codeql-action in the github-actions group ([b974a05](https://github.com/Alwatr/nanotron/commit/b974a056529975d6881ac01e008f1595941da53c)) by @dependabot[bot]
+* bump the alwatr-dependencies group with 6 updates ([1c8a8ec](https://github.com/Alwatr/nanotron/commit/1c8a8ec468aa31c79de45f0e897cc45578242981)) by @dependabot[bot]
+* bump the development-dependencies group with 2 updates ([e3bc7f7](https://github.com/Alwatr/nanotron/commit/e3bc7f7dcbf1779a3fdf8fbe18c4f8b4095cc222)) by @dependabot[bot]
+* update ([d9f8d57](https://github.com/Alwatr/nanotron/commit/d9f8d577b058b4e945db7dfc1c5c68da78c4112f)) by @AliMD
+
 ## [4.1.0](https://github.com/Alwatr/nanotron/compare/v4.0.2...v4.1.0) (2024-09-14)
 
 ### Features
