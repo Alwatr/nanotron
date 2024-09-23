@@ -57,6 +57,7 @@
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
   "dependencies": {
+    "@alwatr/crypto": "workspace:^",
     "@alwatr/logger": "^3.2.13",
     "@alwatr/nanotron-api-server": "workspace:^"
   },
