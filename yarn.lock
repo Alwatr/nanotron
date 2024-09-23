@@ -5,7 +5,7 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@alwatr/crypto@workspace:packages/crypto":
+"@alwatr/crypto@workspace:^, @alwatr/crypto@workspace:packages/crypto":
   version: 0.0.0-use.local
   resolution: "@alwatr/crypto@workspace:packages/crypto"
   dependencies:
@@ -92,6 +92,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/nanotron@workspace:packages/nanotron"
   dependencies:
+    "@alwatr/crypto": "workspace:^"
     "@alwatr/logger": "npm:^3.2.13"
     "@alwatr/nano-build": "npm:^1.3.9"
     "@alwatr/nanotron-api-server": "workspace:^"
