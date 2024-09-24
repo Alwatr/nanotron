@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.1](https://github.com/Alwatr/nanotron/compare/v4.2.0...v4.2.1) (2024-09-24)
+
+### Dependencies update
+
+* update ([e698199](https://github.com/Alwatr/nanotron/commit/e698199e4a41532de8e9c799db96b9bde2a647f6)) by @AliMD
+
 ## [4.2.0](https://github.com/Alwatr/nanotron/compare/v4.1.0...v4.2.0) (2024-09-23)
 
 ### Features
