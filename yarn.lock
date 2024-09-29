@@ -210,7 +210,6 @@ __metadata:
     "@alwatr/platform-info": "npm:^1.2.0"
     "@alwatr/polyfill-has-own": "npm:^1.1.0"
     "@alwatr/prettier-config": "npm:^1.0.5"
-    "@alwatr/render-state": "npm:1.0.0"
     "@alwatr/tsconfig-base": "npm:^1.3.0"
     "@alwatr/type-helper": "npm:^2.0.0"
     "@types/node": "npm:^22.7.4"
@@ -270,16 +269,6 @@ __metadata:
   version: 1.0.5
   resolution: "@alwatr/prettier-config@npm:1.0.5"
   checksum: 10c0/577b5aa9cfb23137e870eaea7aec6b1409dedac5bbba37f771bfedecbb0dae497f83e59bd0b6146db9868b38f8d54643aeee3917fd6dd9ce83a64aa9b2155ff3
-  languageName: node
-  linkType: hard
-
-"@alwatr/render-state@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@alwatr/render-state@npm:1.0.0"
-  dependencies:
-    "@alwatr/logger": "npm:^4.0.0"
-    "@alwatr/package-tracer": "npm:^1.0.0"
-  checksum: 10c0/593ad952c7570ddee15e7dab6ed2fcae8f1bb799811fbdeeaf577af88e13d288f6df444f1119296daa72d8c6acf37d97ec0c9ae660305c657eabe0b9ddd172ea
   languageName: node
   linkType: hard
 
