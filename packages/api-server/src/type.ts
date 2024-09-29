@@ -1,6 +1,5 @@
 import type {NanotronClientRequest} from './api-client-request.js';
 import type {NanotronServerResponse} from './api-server-response.js';
-import type {Dictionary, Json, MaybePromise} from '@alwatr/type-helper';
 import type {IncomingMessage, ServerResponse} from 'node:http';
 
 declare module 'http' {
@@ -20,7 +19,7 @@ export type ErrorResponse = {
   meta?: Json;
 };
 
-export type RouteHandler<TSharedMeta extends Dictionary = Dictionary> = (
+export type RouteHandler<TSharedMeta extends DictionaryOpt = DictionaryOpt> = (
   this: NanotronClientRequest<TSharedMeta>,
   clientRequest: NanotronClientRequest<TSharedMeta>,
   serverResponse: NanotronServerResponse,
@@ -33,7 +32,7 @@ export type NativeServerResponse = ServerResponse;
 /**
  * Configuration options for defining a route.
  */
-export interface DefineRouteOption<TSharedMeta extends Dictionary = Dictionary> {
+export interface DefineRouteOption<TSharedMeta extends DictionaryOpt = DictionaryOpt> {
   /**
    * The HTTP method for this route.
    */

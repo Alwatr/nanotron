@@ -1,3 +1,5 @@
+import {packageTracer} from '@alwatr/package-tracer';
+
 import {AlwatrHashGenerator} from './hash.js';
 import {
   deviceIdGeneratorRecommendedConfig,
@@ -7,7 +9,9 @@ import {
 } from './pre-config.js';
 import {AlwatrTokenGenerator, type TokenValidity} from './token.js';
 
-import type {DurationString} from '@alwatr/parse-duration';
+import type {Duration} from '@alwatr/parse-duration';
+
+packageTracer.add(__package_name__, __package_version__);
 
 /**
  * Configuration options for the CryptoFactory.
@@ -21,7 +25,7 @@ export interface CryptoFactoryConfig {
   /**
    * The duration for which the token is valid.
    */
-  duration: DurationString | 'infinite';
+  duration: Duration | 'infinite';
 }
 
 /**

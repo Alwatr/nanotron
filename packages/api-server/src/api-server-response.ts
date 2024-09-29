@@ -4,7 +4,6 @@ import {type HttpStatusCode, HttpStatusCodes, HttpStatusMessages} from './const.
 
 import type {NanotronClientRequest} from './api-client-request.js';
 import type {HttpResponseHeaders, ErrorResponse, NativeServerResponse} from './type.js';
-import type {Json} from '@alwatr/type-helper';
 
 /**
  * Configuration options for the Nanotron Api Server Response.

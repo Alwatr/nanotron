@@ -1,6 +1,6 @@
 import {createHmac} from 'node:crypto';
 
-import {parseDuration, type DurationString} from '@alwatr/parse-duration';
+import {parseDuration, type Duration} from '@alwatr/parse-duration';
 
 import type {CryptoAlgorithm, CryptoEncoding} from './type.js';
 
@@ -33,7 +33,7 @@ export interface TokenGeneratorConfig {
   /**
    * The duration for which the token is valid.
    */
-  duration: DurationString | 'infinite';
+  duration: Duration | 'infinite';
 }
 
 /**
