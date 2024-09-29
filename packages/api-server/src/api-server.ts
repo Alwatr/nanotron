@@ -1,17 +1,16 @@
 import {createServer} from 'node:http';
 
-import {createLogger, definePackage} from '@alwatr/logger';
+import {createLogger} from '@alwatr/logger';
+import {packageTracer} from '@alwatr/package-tracer'
 
 import {NanotronClientRequest} from './api-client-request.js';
 import {HttpStatusCodes, HttpStatusMessages} from './const.js';
 import {NanotronUrl} from './url.js';
 
 import type {DefineRouteOption, MatchType, NativeClientRequest, NativeServerResponse} from './type.js';
-import type {} from '@alwatr/nano-build';
-import type {Dictionary} from '@alwatr/type-helper';
 import type {Duplex} from 'node:stream';
 
-definePackage('@alwatr/nanotron-api-server', __package_version__);
+packageTracer.add(__package_name__, __package_version__);
 
 /**
  * Configuration options for the NanotronApiServer.
@@ -101,7 +100,7 @@ export class NanotronApiServer {
 
   readonly httpServer;
 
-  protected readonly routeHandlerList__: Record<MatchType, Dictionary<Dictionary<Required<DefineRouteOption>>>>;
+  protected readonly routeHandlerList__: Record<MatchType, DictionaryOpt<DictionaryOpt<Required<DefineRouteOption>>>>;
 
   constructor(config?: Partial<NanotronApiServerConfig>) {
     // Merge the config with the default config.
@@ -160,16 +159,16 @@ export class NanotronApiServer {
 
     if (
       Object.hasOwn(this.routeHandlerList__.exact, url.method) &&
-      Object.hasOwn(this.routeHandlerList__.exact[url.method], url.pathname)
+      Object.hasOwn(this.routeHandlerList__.exact[url.method]!, url.pathname)
     ) {
-      return this.routeHandlerList__.exact[url.method][url.pathname];
+      return this.routeHandlerList__.exact[url.method]![url.pathname]!;
     }
 
     if (Object.hasOwn(this.routeHandlerList__.startsWith, url.method)) {
       const routeList = this.routeHandlerList__.startsWith[url.method];
       for (const pathname in routeList) {
         if (pathname.indexOf(url.pathname) === 0) {
-          return routeList[pathname];
+          return routeList[pathname]!;
         }
       }
     }
@@ -185,15 +184,15 @@ export class NanotronApiServer {
 
     routeHandlerList[option.method] ??= {};
 
-    if (Object.hasOwn(routeHandlerList[option.method], option.url)) {
+    if (Object.hasOwn(routeHandlerList[option.method]!, option.url)) {
       this.logger_.error('defineRoute', 'route_already_exists', option);
       throw new Error('route_already_exists');
     }
 
-    routeHandlerList[option.method][option.url] = option;
+    routeHandlerList[option.method]![option.url] = option;
   }
 
-  defineRoute<TSharedMeta extends Dictionary = Dictionary>(option: DefineRouteOption<TSharedMeta>): void {
+  defineRoute<TSharedMeta extends DictionaryOpt = DictionaryOpt>(option: DefineRouteOption<TSharedMeta>): void {
     const option_: Required<DefineRouteOption<TSharedMeta>> = {
       matchType: 'exact',
       preHandlers: [],

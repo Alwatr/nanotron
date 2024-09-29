@@ -5,9 +5,8 @@ import {HttpStatusCodes} from './const.js';
 
 import type {DefineRouteOption, HttpRequestHeaders, NativeClientRequest, NativeServerResponse} from './type.js';
 import type {NanotronUrl} from './url.js';
-import type {Dictionary} from '@alwatr/type-helper';
 
-export class NanotronClientRequest<TSharedMeta extends Dictionary = Dictionary> {
+export class NanotronClientRequest<TSharedMeta extends DictionaryOpt = DictionaryOpt> {
   readonly url: NanotronUrl;
 
   readonly serverResponse: NanotronServerResponse;
@@ -40,8 +39,8 @@ export class NanotronClientRequest<TSharedMeta extends Dictionary = Dictionary> 
     return this.raw_.headers;
   }
 
-  private queryParams__?: Dictionary<string>;
-  get queryParams(): Dictionary<string> {
+  private queryParams__?: DictionaryOpt<string>;
+  get queryParams(): DictionaryOpt<string> {
     if (this.queryParams__ === undefined) {
       this.queryParams__ = {};
       for (const [key, value] of this.url.searchParams.entries()) {
