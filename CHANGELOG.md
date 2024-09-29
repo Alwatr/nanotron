@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.2](https://github.com/Alwatr/nanotron/compare/v4.2.1...v4.2.2) (2024-09-29)
+
+### Miscellaneous Chores
+
+* **api-server:** change the license to AGPL-3.0 ([fa3347e](https://github.com/Alwatr/nanotron/commit/fa3347e005f926b4f17ccba0bbec19da3b5198ec)) by @ArmanAsadian
+* change the license to AGPL-3.0 ([5b73936](https://github.com/Alwatr/nanotron/commit/5b73936a38d88b1ff29ff4a939af56c52443739b)) by @ArmanAsadian
+* **crypto:** change the license to AGPL-3.0 ([a37fb50](https://github.com/Alwatr/nanotron/commit/a37fb50898bb0bc909746f44bc34d14bcf255a61)) by @ArmanAsadian
+* **nanotron:** change the license to AGPL-3.0 ([a1699ee](https://github.com/Alwatr/nanotron/commit/a1699ee5154577dcb85476bc14c4d9472c50143f)) by @ArmanAsadian
+
+### Dependencies update
+
+* bump @types/node in the development-dependencies group ([9c8d7d5](https://github.com/Alwatr/nanotron/commit/9c8d7d518d9a5da2ea57ac2b210a8697267e6d3d)) by @dependabot[bot]
+* bump the github-actions group with 3 updates ([06aa063](https://github.com/Alwatr/nanotron/commit/06aa06375e17b92ca2d1e2d09f5a23b70a792d8e)) by @dependabot[bot]
+* update ([1c4ef63](https://github.com/Alwatr/nanotron/commit/1c4ef635fc969d4abd416aea2b954de674748da8)) by @AliMD
+
 ## [4.2.1](https://github.com/Alwatr/nanotron/compare/v4.2.0...v4.2.1) (2024-09-24)
 
 ### Miscellaneous Chores
