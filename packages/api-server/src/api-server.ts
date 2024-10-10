@@ -1,7 +1,6 @@
 import {createServer} from 'node:http';
 
-import {createLogger} from '@alwatr/logger';
-import {packageTracer} from '@alwatr/package-tracer'
+import {createLogger, packageTracer} from '@alwatr/nanolib';
 
 import {NanotronClientRequest} from './api-client-request.js';
 import {HttpStatusCodes, HttpStatusMessages} from './const.js';

@@ -1,4 +1,4 @@
-import {packageTracer} from '@alwatr/package-tracer';
+import {packageTracer, type Duration} from '@alwatr/nanolib';
 
 import {AlwatrHashGenerator} from './hash.js';
 import {
@@ -8,8 +8,6 @@ import {
   userTokenGeneratorRecommendedConfig,
 } from './pre-config.js';
 import {AlwatrTokenGenerator, type TokenValidity} from './token.js';
-
-import type {Duration} from '@alwatr/parse-duration';
 
 packageTracer.add(__package_name__, __package_version__);
 
