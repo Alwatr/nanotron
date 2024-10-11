@@ -1,4 +1,4 @@
-import {createLogger} from '@alwatr/logger';
+import {createLogger} from '@alwatr/nanolib';
 
 import {type HttpStatusCode, HttpStatusCodes, HttpStatusMessages} from './const.js';
 

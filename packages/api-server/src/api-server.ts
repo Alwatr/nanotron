@@ -1,7 +1,6 @@
 import {createServer} from 'node:http';
 
-import {createLogger} from '@alwatr/logger';
-import {packageTracer} from '@alwatr/package-tracer'
+import {createLogger, packageTracer} from '@alwatr/nanolib';
 
 import {NanotronClientRequest} from './api-client-request.js';
 import {HttpStatusCodes, HttpStatusMessages} from './const.js';
@@ -10,7 +9,7 @@ import {NanotronUrl} from './url.js';
 import type {DefineRouteOption, MatchType, NativeClientRequest, NativeServerResponse} from './type.js';
 import type {Duplex} from 'node:stream';
 
-packageTracer.add(__package_name__, __package_version__);
+__dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
 /**
  * Configuration options for the NanotronApiServer.

@@ -1,4 +1,4 @@
-import {createLogger} from '@alwatr/logger';
+import {createLogger} from '@alwatr/nanolib';
 
 import {NanotronServerResponse} from './api-server-response.js';
 import {HttpStatusCodes} from './const.js';
