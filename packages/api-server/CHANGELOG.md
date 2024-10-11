@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.0](https://github.com/Alwatr/nanotron/compare/v4.2.2...v4.3.0) (2024-10-11)
+
+### Features
+
+* update `import`s & packages based on the latest changes of `nanolib` & prevent `sideeffects` from `build` result ([1d234b8](https://github.com/Alwatr/nanotron/commit/1d234b83152fb246b793476898e9cf026aa52874)) by @mohammadhonarvar
+
+### Bug Fixes
+
+* **api-server:** update types & `logger` & use `packageTracer` based on last changes of `nanolib` ([7ae4b52](https://github.com/Alwatr/nanotron/commit/7ae4b52e6fc26df56a14ab680ba34f819f88901a)) by @mohammadhonarvar
+
+### Code Refactoring
+
+* update `import`s & packages based on the latest changes of `nanolib` ([7652b5d](https://github.com/Alwatr/nanotron/commit/7652b5d9cc69218f2ff28bda3d0d8f52f147c6f6)) by @mohammadhonarvar
+
+### Miscellaneous Chores
+
+* edited README ([d707d38](https://github.com/Alwatr/nanotron/commit/d707d389e085dd320402521cb23af5805013d777)) by @ArmanAsadian
+
+### Dependencies update
+
+* update ([834ffcc](https://github.com/Alwatr/nanotron/commit/834ffcc8f6de96cc11a1a6fa933f948b7813cde6)) by @mohammadhonarvar
+
 ## [4.2.2](https://github.com/Alwatr/nanotron/compare/v4.2.1...v4.2.2) (2024-09-29)
 
 ### Miscellaneous Chores

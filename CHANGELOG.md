@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.0](https://github.com/Alwatr/nanotron/compare/v4.2.2...v4.3.0) (2024-10-11)
+
+### Features
+
+* **nanotron:** install `nanolib` packages & export them here ([169f360](https://github.com/Alwatr/nanotron/commit/169f36053c9ff94192e7126695859ff5e4e275b9)) by @mohammadhonarvar
+* update `import`s & packages based on the latest changes of `nanolib` & prevent `sideeffects` from `build` result ([1d234b8](https://github.com/Alwatr/nanotron/commit/1d234b83152fb246b793476898e9cf026aa52874)) by @mohammadhonarvar
+
+### Bug Fixes
+
+* **api-server:** update types & `logger` & use `packageTracer` based on last changes of `nanolib` ([7ae4b52](https://github.com/Alwatr/nanotron/commit/7ae4b52e6fc26df56a14ab680ba34f819f88901a)) by @mohammadhonarvar
+* **crypto:** update types & `logger` & use `packageTracer` based on last changes of `nanolib` ([cf1a480](https://github.com/Alwatr/nanotron/commit/cf1a48071fe745226f6aed2afdf11038da5065e2)) by @mohammadhonarvar
+* **nanotro:** update `import`s & remove extra `export`s ([2bc4d2e](https://github.com/Alwatr/nanotron/commit/2bc4d2e160e39e7633bcdb15bd2fac13ed310629)) by @mohammadhonarvar
+
+### Code Refactoring
+
+* update `import`s & packages based on the latest changes of `nanolib` ([7652b5d](https://github.com/Alwatr/nanotron/commit/7652b5d9cc69218f2ff28bda3d0d8f52f147c6f6)) by @mohammadhonarvar
+
+### Miscellaneous Chores
+
+* edited README ([d707d38](https://github.com/Alwatr/nanotron/commit/d707d389e085dd320402521cb23af5805013d777)) by @ArmanAsadian
+
+### Dependencies update
+
+* bump github/codeql-action in the github-actions group ([deb0189](https://github.com/Alwatr/nanotron/commit/deb018907b12154980dddb5e1f8e2bcbdad523d6)) by @dependabot[bot]
+* bump the github-actions group with 3 updates ([7ef6ee3](https://github.com/Alwatr/nanotron/commit/7ef6ee367cea28f99061a4196c609fc8ee363690)) by @dependabot[bot]
+* update ([2aaf7c4](https://github.com/Alwatr/nanotron/commit/2aaf7c48365a76d948f23ffde6125c3fbc562124)) by @mohammadhonarvar
+* update ([e2e3c2b](https://github.com/Alwatr/nanotron/commit/e2e3c2bcc0a36d33d8bf881b7cb5d879d2fc140a)) by @mohammadhonarvar
+* update ([834ffcc](https://github.com/Alwatr/nanotron/commit/834ffcc8f6de96cc11a1a6fa933f948b7813cde6)) by @mohammadhonarvar
+* update ([fab97ef](https://github.com/Alwatr/nanotron/commit/fab97ef111f2a173dccd673e84041b4a0fc6e900)) by @mohammadhonarvar
+* update ([566ab6f](https://github.com/Alwatr/nanotron/commit/566ab6fec2be8ac212beadbf2ca42e7e43d66a16)) by @mohammadhonarvar
+
 ## [4.2.2](https://github.com/Alwatr/nanotron/compare/v4.2.1...v4.2.2) (2024-09-29)
 
 ### Miscellaneous Chores
