@@ -9,7 +9,7 @@ import {NanotronUrl} from './url.js';
 import type {DefineRouteOption, MatchType, NativeClientRequest, NativeServerResponse} from './type.js';
 import type {Duplex} from 'node:stream';
 
-packageTracer.add(__package_name__, __package_version__);
+__dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
 /**
  * Configuration options for the NanotronApiServer.

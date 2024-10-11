@@ -9,7 +9,7 @@ import {
 } from './pre-config.js';
 import {AlwatrTokenGenerator, type TokenValidity} from './token.js';
 
-packageTracer.add(__package_name__, __package_version__);
+__dev_mode__:  packageTracer.add(__package_name__, __package_version__);
 
 /**
  * Configuration options for the CryptoFactory.
