@@ -146,6 +146,10 @@ export class NanotronApiServer {
     // Handle server errors.
     this.httpServer.on('error', this.handleServerError_);
     this.httpServer.on('clientError', this.handleClientError_);
+
+    if (this.config_.healthRoute) {
+      this._defineHealthRoute();
+    }
   }
 
   close(): void {
@@ -278,5 +282,19 @@ export class NanotronApiServer {
     }
 
     // TODO: handled open remained connections.
+  }
+
+  protected _defineHealthRoute(): void {
+    this.defineRoute({
+      method: 'GET',
+      url: '/health',
+      handler: function () {
+        const res = this.serverResponse.raw_;
+        res.statusCode = HttpStatusCodes.Success_200_OK;
+        res.setHeader('server', 'Alwatr Nanotron');
+        res.setHeader('content-type', 'application/json');
+        res.end('{"ok":true}');
+      },
+    });
   }
 }
