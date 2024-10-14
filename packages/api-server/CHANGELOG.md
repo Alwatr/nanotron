@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.0](https://github.com/Alwatr/nanotron/compare/v4.3.0...v4.4.0) (2024-10-14)
+
+### Features
+
+* **api-server:** add health route to NanotronApiServer ([4f8ede5](https://github.com/Alwatr/nanotron/commit/4f8ede5085cd2fcbd0cd621a09346d4816219e08)) by @
+
 ## [4.3.0](https://github.com/Alwatr/nanotron/compare/v4.2.2...v4.3.0) (2024-10-11)
 
 ### Features
