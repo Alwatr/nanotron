@@ -20,6 +20,16 @@
       "types": "./dist/main.d.ts",
       "import": "./dist/main.mjs",
       "require": "./dist/main.cjs"
+    },
+    "./crypto": {
+      "types": "./dist/crypto.d.ts",
+      "import": "./dist/crypto.mjs",
+      "require": "./dist/crypto.cjs"
+    },
+    "./api-server": {
+      "types": "./dist/api-server.d.ts",
+      "import": "./dist/api-server.mjs",
+      "require": "./dist/api-server.cjs"
     }
   },
   "license": "AGPL-3.0-only",
