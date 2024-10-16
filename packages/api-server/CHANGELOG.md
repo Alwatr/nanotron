@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.1](https://github.com/Alwatr/nanotron/compare/v4.4.0...v4.4.1) (2024-10-16)
+
+### Bug Fixes
+
+* pre- and post-handler execution in NanotronApiServer ([ec3b4b9](https://github.com/Alwatr/nanotron/commit/ec3b4b965e996f8320b605f8034ded7cb3781660)) by @
+
+### Dependencies update
+
+* update ([8917c2e](https://github.com/Alwatr/nanotron/commit/8917c2e637781fe219c5031f414de3dea82cf371)) by @
+
 ## [4.4.0](https://github.com/Alwatr/nanotron/compare/v4.3.0...v4.4.0) (2024-10-14)
 
 ### Features
