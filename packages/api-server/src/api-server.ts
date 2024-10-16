@@ -261,14 +261,14 @@ export class NanotronApiServer {
 
     try {
       for (const handler of routeOption.preHandlers) {
-        if (connection.terminatedHandlers === true) return;
         await handler.call(connection, connection, connection.serverResponse, connection.sharedMeta);
+        if (connection.terminatedHandlers === true) return; // must check after each pre-handler.
       }
 
       await routeOption.handler.call(connection, connection, connection.serverResponse, connection.sharedMeta);
 
       for (const handler of routeOption.postHandlers) {
-        if (connection.terminatedHandlers === true) return;
+        if (connection.terminatedHandlers === true) return; // must check before each post-handler.
         await handler.call(connection, connection, connection.serverResponse, connection.sharedMeta);
       }
     }
