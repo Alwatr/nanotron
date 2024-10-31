@@ -58,7 +58,7 @@
   },
   "dependencies": {
     "@alwatr/crypto": "workspace:^",
-    "@alwatr/nanolib": "^1.4.0",
+    "@alwatr/nanolib": "^1.5.0",
     "@alwatr/nanotron-api-server": "workspace:^",
     "@alwatr/pre-handlers": "workspace:^"
   },
