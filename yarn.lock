@@ -20,7 +20,7 @@ __metadata:
   resolution: "@alwatr/crypto@workspace:packages/crypto"
   dependencies:
     "@alwatr/nano-build": "npm:^5.5.0"
-    "@alwatr/nanolib": "npm:^5.5.0"
+    "@alwatr/nanolib": "npm:^5.5.1"
     "@alwatr/prettier-config": "npm:^5.0.0"
     "@alwatr/tsconfig-base": "npm:^5.0.0"
     "@alwatr/type-helper": "npm:^5.4.0"
@@ -185,9 +185,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alwatr/nanolib@npm:^5.5.0":
-  version: 5.5.0
-  resolution: "@alwatr/nanolib@npm:5.5.0"
+"@alwatr/nanolib@npm:^5.5.1":
+  version: 5.5.1
+  resolution: "@alwatr/nanolib@npm:5.5.1"
   dependencies:
     "@alwatr/async-queue": "npm:^5.5.0"
     "@alwatr/dedupe": "npm:^5.5.0"
@@ -208,9 +208,9 @@ __metadata:
     "@alwatr/parse-duration": "npm:^5.5.0"
     "@alwatr/platform-info": "npm:^5.5.0"
     "@alwatr/render-state": "npm:^5.5.0"
-    "@alwatr/resolve-url": "npm:^5.5.0"
+    "@alwatr/resolve-url": "npm:^5.5.1"
     "@alwatr/unicode-digits": "npm:^5.5.0"
-  checksum: 10c0/c6a45750db9e1334b36a506a3ed073a0a8333fadff5ea5acc24376100338bba9b22a03cac54b5fcf6eea09406cd989ff54ae1d8562b6c2f8c0b244d06ae2f522
+  checksum: 10c0/b697b148ea90d8fcac68dfc703621d83dc127606809c3b957f4ca9e6604bc0b56ef55a278dc225403361a4202d7e70f687381ada85be1cf4a4204d31e68d6873
   languageName: node
   linkType: hard
 
@@ -219,7 +219,7 @@ __metadata:
   resolution: "@alwatr/nanotron-api-server@workspace:packages/api-server"
   dependencies:
     "@alwatr/nano-build": "npm:^5.5.0"
-    "@alwatr/nanolib": "npm:^5.5.0"
+    "@alwatr/nanolib": "npm:^5.5.1"
     "@alwatr/prettier-config": "npm:^5.0.0"
     "@alwatr/tsconfig-base": "npm:^5.0.0"
     "@alwatr/type-helper": "npm:^5.4.0"
@@ -235,7 +235,7 @@ __metadata:
   dependencies:
     "@alwatr/crypto": "workspace:^"
     "@alwatr/nano-build": "npm:^5.5.0"
-    "@alwatr/nanolib": "npm:^5.5.0"
+    "@alwatr/nanolib": "npm:^5.5.1"
     "@alwatr/nanotron-api-server": "workspace:^"
     "@alwatr/pre-handlers": "workspace:^"
     "@alwatr/prettier-config": "npm:^5.0.0"
@@ -299,7 +299,7 @@ __metadata:
   resolution: "@alwatr/pre-handlers@workspace:packages/pre-handlers"
   dependencies:
     "@alwatr/nano-build": "npm:^5.5.0"
-    "@alwatr/nanolib": "npm:^5.5.0"
+    "@alwatr/nanolib": "npm:^5.5.1"
     "@alwatr/nanotron-api-server": "workspace:^"
     "@alwatr/prettier-config": "npm:^5.0.0"
     "@alwatr/tsconfig-base": "npm:^5.0.0"
@@ -327,12 +327,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alwatr/resolve-url@npm:^5.5.0":
-  version: 5.5.0
-  resolution: "@alwatr/resolve-url@npm:5.5.0"
+"@alwatr/resolve-url@npm:^5.5.1":
+  version: 5.5.1
+  resolution: "@alwatr/resolve-url@npm:5.5.1"
   dependencies:
     "@alwatr/package-tracer": "npm:^5.5.0"
-  checksum: 10c0/5d2d53f189d10ab564831908bb6f21df78cbdae44afdb311b151c3647a7fdbab68c7d0ea0552d028f32f3eceffb409fa454ee826f455b4efeaf9597d22faa03e
+  checksum: 10c0/f848d5bad2621ac896f3e78ba43464b5ef8071fa72507f290e86ac3f611da30f59e71a82609321265faf923da7cb2f937f2e6a4b5617e14af673a51fd7aa7222
   languageName: node
   linkType: hard
 
