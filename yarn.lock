@@ -24,7 +24,7 @@ __metadata:
     "@alwatr/prettier-config": "npm:^5.0.0"
     "@alwatr/tsconfig-base": "npm:^5.0.0"
     "@alwatr/type-helper": "npm:^5.4.2"
-    "@types/node": "npm:^22.17.2"
+    "@types/node": "npm:^24.3.0"
     jest: "npm:^30.0.5"
     typescript: "npm:^5.9.2"
   languageName: unknown
@@ -232,7 +232,7 @@ __metadata:
     "@alwatr/prettier-config": "npm:^5.0.0"
     "@alwatr/tsconfig-base": "npm:^5.0.0"
     "@alwatr/type-helper": "npm:^5.4.2"
-    "@types/node": "npm:^22.17.2"
+    "@types/node": "npm:^24.3.0"
     jest: "npm:^30.0.5"
     typescript: "npm:^5.9.2"
   languageName: unknown
@@ -250,7 +250,7 @@ __metadata:
     "@alwatr/prettier-config": "npm:^5.0.0"
     "@alwatr/tsconfig-base": "npm:^5.0.0"
     "@alwatr/type-helper": "npm:^5.4.2"
-    "@types/node": "npm:^22.17.2"
+    "@types/node": "npm:^24.3.0"
     jest: "npm:^30.0.5"
     typescript: "npm:^5.9.2"
   languageName: unknown
@@ -313,7 +313,7 @@ __metadata:
     "@alwatr/prettier-config": "npm:^5.0.0"
     "@alwatr/tsconfig-base": "npm:^5.0.0"
     "@alwatr/type-helper": "npm:^5.4.2"
-    "@types/node": "npm:^22.17.2"
+    "@types/node": "npm:^24.3.0"
     jest: "npm:^30.0.5"
     typescript: "npm:^5.9.2"
   languageName: unknown
@@ -2368,7 +2368,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:^24.3.0":
   version: 24.3.0
   resolution: "@types/node@npm:24.3.0"
   dependencies:
@@ -2377,7 +2377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.0.0, @types/node@npm:^22.17.2":
+"@types/node@npm:^22.0.0":
   version: 22.17.2
   resolution: "@types/node@npm:22.17.2"
   dependencies:
