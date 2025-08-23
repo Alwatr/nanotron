@@ -4,7 +4,7 @@
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com> (https://ali.mihandoost.com)",
   "devDependencies": {
     "@alwatr/eslint-config": "^5.5.5",
-    "@alwatr/prettier-config": "^5.0.0",
+    "@alwatr/prettier-config": "^5.0.1",
     "@lerna-lite/changed": "^4.7.2",
     "@lerna-lite/cli": "^4.7.2",
     "@lerna-lite/diff": "^4.7.2",
